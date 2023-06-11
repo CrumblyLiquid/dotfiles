@@ -13,7 +13,7 @@
     // Modules
     "modules-left": ["wlr/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["tray", "battery", "backlight", "hyprland/language", "clock"],
+    "modules-right": ["tray", "pulseaudio", "pulseaudio#microphone", "battery", "backlight", "hyprland/language", "clock"],
     "hyprland/window": {
         "format": "{}",
 	"separate-outputs": true,
