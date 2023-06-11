@@ -1,0 +1,11 @@
+Host github.com
+    HostName ssh.github.com
+    Port 443
+    IdentityFile ~/.ssh/id_ed25519
+    IdentitiesOnly yes
+
+# Another user on github
+# Host gitother
+#     HostName github.com
+#     IdentityFile ~/.ssh/other.key
+#     IdentitiesOnly yes

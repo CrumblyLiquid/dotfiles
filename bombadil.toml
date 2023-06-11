@@ -10,6 +10,7 @@ zsh = { source = "zshrc", target = ".zshrc" }
 starship = { source = "starship.toml", target = ".config/starship/starship.toml" }
 nvim = { source = "nvim", target = ".config/nvim" }
 git = { source = "gitconfig", target = ".gitconfig" }
+ssh = { source = "ssh", target = ".ssh/config" }
 
 # I'm unsure if linking from home is a good idea
 [profiles.sddm.dots]
