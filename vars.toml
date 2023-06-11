@@ -1,0 +1,11 @@
+# Programs
+terminal = "kitty"
+file_manager = "dolphin"
+browser = "firefox"
+
+# Theming
+theme = "Breeze Dark"
+icon_theme = "Papirus"
+cursor = "Vimix-white-cursors"
+cursor_size = "32"
+wallpaper = "~/Pictures/dolphin.jpg"

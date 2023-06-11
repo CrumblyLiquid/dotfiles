@@ -1,0 +1,14 @@
+ignore-empty-password
+font=monospace
+image=%wallpaper
+
+clock
+datestr=%d.%m.%Y
+
+grace=2
+fade-in=0.2
+
+indicator
+indicator-radius=110
+indicator-thickness=10
+indicator-caps-lock
