@@ -25,12 +25,9 @@ rofi = { source = "rofi.rasi", target = ".config/rofi/config.rasi" }
 config = { source = "waybar", target = ".config/waybar/config" }
 style = { source = "waybar.css", target = ".config/waybar/style.css" }
 
-[profiles.hypr]
-extra_profiles = [ "dunst", "rofi", "waybar" ]
-
 [profiles.hypr.dots]
 hyprland = { source = "hyprland.conf", target = ".config/hypr/hyprland.conf" }
 hyprpaper = { source = "hyprpaper.conf", target = ".config/hypr/hyprpaper.conf" }
 
 [profiles.laptop]
-extra_profiles = ["hypr"]
+extra_profiles = ["dunst", "rofi", "waybar", "hypr"]
