@@ -65,9 +65,12 @@ tooltip {
     border: 1px solid #181825;
 }
 
-#tray {
-    border-radius: 10px;
-    margin-right: 10px;
+/* Set margin between groups */
+#clock,
+#language,
+#battery,
+#pulseaudio {
+    margin-left: 5px;
 }
 
 #workspaces {
@@ -78,28 +81,14 @@ tooltip {
     padding-left: 5px;
 }
 
-#language {
-    color: #f5c2e7;
-    border-radius: 10px;
-}
-
 #window {
     border-radius: 10px;
-    margin-left: 60px;
-    margin-right: 60px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
-#clock {
-    color: #fab387;
-    border-radius: 10px 0px 0px 10px;
-    margin-left: 5px;
-    border-right: 0px;
-}
-
-#network {
-    color: #f9e2af;
-    border-left: 0px;
-    border-right: 0px;
+#tray {
+    border-radius: 10px;
 }
 
 #pulseaudio {
@@ -112,22 +101,36 @@ tooltip {
 #pulseaudio.microphone {
     color: #cba6f7;
     border-radius: 0px 10px 10px 0px;
+    margin-left: 0px;
     border-left: 0px;
     border-right: 0px;
-    margin-right: 5px;
 }
 
 #battery {
     color: #a6e3a1;
     border-radius: 10px 0 0 10px;
     margin-left: 10px;
-    border-right: 0px;
 }
 
 #backlight {
     color: white;
     border-radius: 0 10px 10px 0;
-    margin-right: 10px;
-    margin-left: 0;
     border-left: 0px;
+}
+
+#language {
+    color: #f5c2e7;
+    border-radius: 10px;
+}
+
+#clock {
+    color: #fab387;
+    border-radius: 10px 0px 0px 10px;
+    border-right: 0px;
+}
+
+#network {
+    color: #f9e2af;
+    border-left: 0px;
+    border-right: 0px;
 }
