@@ -11,6 +11,7 @@ starship = { source = "starship.toml", target = ".config/starship/starship.toml"
 nvim = { source = "nvim", target = ".config/nvim" }
 git = { source = "gitconfig", target = ".gitconfig" }
 ssh = { source = "ssh", target = ".ssh/config" }
+wallpaper = { source = "wallpaper.jpg", target = "Pictures/wallpaper.jpg" }
 
 # I'm unsure if linking from home is a good idea
 [profiles.sddm.dots]
@@ -30,5 +31,5 @@ style = { source = "waybar.css", target = ".config/waybar/style.css" }
 hyprland = { source = "hyprland.conf", target = ".config/hypr/hyprland.conf" }
 hyprpaper = { source = "hyprpaper.conf", target = ".config/hypr/hyprpaper.conf" }
 
-[profiles.laptop]
+[profiles.hyprland]
 extra_profiles = ["dunst", "rofi", "waybar", "hypr"]
