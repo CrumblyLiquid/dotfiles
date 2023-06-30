@@ -1,6 +1,6 @@
 ignore-empty-password
 font=monospace
-image=%wallpaper
+image={{wallpaper}}
 
 clock
 datestr=%d.%m.%Y
