@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
-
 # Enable Starship prompt
 eval "$(starship init zsh)"
 
@@ -29,11 +22,29 @@ plugins=(git ripgrep rust python)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# Theming
-# ZSH_THEME="powerlevel10k/powerlevel10k"
-
 # Run oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# neovim-symlinks AUR package can be used insted
+# alias vim="nvim"
+
+# Go up certain amount of directories
+up () {
+  if [ -z $1 ]; then
+    cd ..
+  elif [ $1 -gt 0 ]; then
+    let count=1
+    cdstr=".."
+    while [ $count -lt $1 ]; do
+      cdstr="$cdstr/.."
+      let count=count+1
+    done
+    cd $cdstr
+  else
+    echo "Argument must be a positive integer."
+  fi
+}
+
+# Go to .dotfiles directory
+alias dotfiles="cd ~/.dotfiles"
+alias dots=dotfiles
