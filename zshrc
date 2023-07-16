@@ -54,3 +54,9 @@ alias dots=dotfiles
 
 # List files
 alias ll="ls -alh"
+
+# Git
+# Not needed for now because of oh-my-zsh
+#for al in `git --list-cmds=alias`; do
+#    alias g$al="git $al"
+#done
