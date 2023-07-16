@@ -45,6 +45,12 @@ up () {
   fi
 }
 
+# Open file with the default program
+alias open="xdg-open"
+
+# List files
+alias ll="ls -alh"
+
 # Go to .dotfiles directory
 alias dotfiles="cd ~/.dotfiles"
 alias dots=dotfiles
