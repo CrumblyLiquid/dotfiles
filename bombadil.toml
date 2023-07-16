@@ -11,6 +11,8 @@ starship = { source = "starship.toml", target = ".config/starship/starship.toml"
 nvim = { source = "nvim", target = ".config/nvim" }
 git = { source = "gitconfig", target = ".gitconfig" }
 ssh = { source = "ssh", target = ".ssh/config" }
+dolphin = { source = "dolphinui.rc", target = ".local/share/kxmlgui5/dolphin/dolphinui.rc" }
+konsole = { source = "konsoleui.rc", target = ".local/share/kxmlgui5/konsole/konsoleui.rc" }
 
 [profiles.wallpaper.dots]
 wallpaper = { source = "wallpaper.jpg", target = "Pictures/wallpaper.jpg" }
