@@ -37,3 +37,7 @@ hyprpaper = { source = "tiling/hyprland/hyprpaper.conf", target = ".config/hypr/
 
 [profiles.hyprland]
 extra_profiles = ["dunst", "rofi", "waybar", "hypr", "wallpaper"]
+posthooks = ["hyprctl reload"]
+
+[profiles.laptop]
+vars = ["laptop-vars.toml"]

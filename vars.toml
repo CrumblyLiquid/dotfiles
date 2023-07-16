@@ -4,8 +4,8 @@ file_manager = "dolphin"
 browser = "firefox"
 
 # Theming
-theme = "Breeze Dark"
+theme = "Breeze"
 icon_theme = "Papirus"
 cursor = "Vimix-white-cursors"
-cursor_size = "32"
+cursor_size = "24"
 wallpaper = "~/Pictures/wallpaper.jpg"
