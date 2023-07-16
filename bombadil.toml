@@ -6,7 +6,8 @@ vars = [ "vars.toml" ]
 
 [settings.dots]
 kitty = { source = "kitty.conf", target = ".config/kitty/kitty.conf" }
-zsh = { source = "zshrc", target = ".zshrc" }
+zshrc = { source = "zshrc", target = ".zshrc" }
+zshenv = { source = "zshenv", target = ".zshenv" }
 starship = { source = "starship.toml", target = ".config/starship/starship.toml" }
 nvim = { source = "nvim", target = ".config/nvim" }
 git = { source = "gitconfig", target = ".gitconfig" }
