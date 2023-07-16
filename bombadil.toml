@@ -22,18 +22,18 @@ wallpaper = { source = "wallpaper.jpg", target = "Pictures/wallpaper.jpg" }
 sddm = { source = "sddm.conf", target = "/etc/sddm.conf.d/configuration.conf" }
 
 [profiles.dunst.dots]
-dunst = { source = "dunstrc", target = ".config/dunst/dunstrc" }
+dunst = { source = "tiling/dunstrc", target = ".config/dunst/dunstrc" }
 
 [profiles.rofi.dots]
-rofi = { source = "rofi.rasi", target = ".config/rofi/config.rasi" }
+rofi = { source = "tiling/rofi.rasi", target = ".config/rofi/config.rasi" }
 
 [profiles.waybar.dots]
-config = { source = "waybar", target = ".config/waybar/config" }
-style = { source = "waybar.css", target = ".config/waybar/style.css" }
+config = { source = "tiling/waybar/waybar", target = ".config/waybar/config" }
+style = { source = "tiling/waybar/waybar.css", target = ".config/waybar/style.css" }
 
 [profiles.hypr.dots]
-hyprland = { source = "hyprland.conf", target = ".config/hypr/hyprland.conf" }
-hyprpaper = { source = "hyprpaper.conf", target = ".config/hypr/hyprpaper.conf" }
+hyprland = { source = "tiling/hyprland/hyprland.conf", target = ".config/hypr/hyprland.conf" }
+hyprpaper = { source = "tiling/hyprland/hyprpaper.conf", target = ".config/hypr/hyprpaper.conf" }
 
 [profiles.hyprland]
 extra_profiles = ["dunst", "rofi", "waybar", "hypr", "wallpaper"]
