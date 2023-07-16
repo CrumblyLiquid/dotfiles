@@ -17,9 +17,13 @@
     d = diff
     ds = diff --stat
     dc = diff --cached
+    dwd = diff --word-diff
 
     s = status -s
     sa = status
+    st = stash
+    stl = stash list
+    stp = stash pop
     co = checkout
     cob = checkout -b
     # list branches sorted by last modified
