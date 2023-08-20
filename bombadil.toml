@@ -5,7 +5,8 @@ dotfiles_dir = ".dotfiles"
 vars = [ "vars.toml" ]
 
 [settings.dots]
-kitty = { source = "kitty.conf", target = ".config/kitty/kitty.conf" }
+kitty = { source = "kitty/kitty.conf", target = ".config/kitty/kitty.conf" }
+kitty-theme = { source = "kitty/catppuccin-mocha.conf", target = ".config/kitty/catppuccin-mocha.conf" }
 zshrc = { source = "zshrc", target = ".zshrc" }
 zshenv = { source = "zshenv", target = ".zshenv" }
 starship = { source = "starship.toml", target = ".config/starship/starship.toml" }
