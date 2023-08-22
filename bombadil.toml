@@ -33,6 +33,9 @@ rofi = { source = "tiling/rofi.rasi", target = ".config/rofi/config.rasi" }
 config = { source = "tiling/waybar/waybar", target = ".config/waybar/config" }
 style = { source = "tiling/waybar/waybar.css", target = ".config/waybar/style.css" }
 
+[profiles.eww.dots]
+config = { source = "tiling/eww", target = ".config/eww" }
+
 [profiles.hypr.dots]
 hyprland = { source = "tiling/hyprland/hyprland.conf", target = ".config/hypr/hyprland.conf" }
 hyprpaper = { source = "tiling/hyprland/hyprpaper.conf", target = ".config/hypr/hyprpaper.conf" }

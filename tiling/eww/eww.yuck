@@ -1,0 +1,55 @@
+;; Fade in/out the OSD
+(defvar caps_osd_open false)
+;; Time of the last Caps Lock keypress
+(defvar caps_time 0)
+;; I couldn't find a way to monitor /sys filesystem so I just poll it regularly
+(defpoll caps_on
+    :initial false
+    :run-while caps_osd_open
+    :interval "100ms"
+    `scripts/key-status capslock`
+)
+
+(defwidget caps_osd []
+    ;; Revealer is used to nicely fade the OSD in and out
+    (revealer
+        :transition "crossfade"
+        :reveal caps_osd_open
+        :duration "1000ms"
+        (box
+            :class "caps_osd"
+            :orientation "h"
+            :space-evenly false
+            :spacing 20
+            :halign "center"
+            (label
+                ;; This is supposed to be nf-md-keyboard (f030c)
+                ;; that is part of the Nerd Fonts pathes
+                :text "󰌌"
+                :class "caps_icon"
+                :limit-width 2
+                :show-truncated false
+                :wrap false
+            )
+            (label
+                :text {caps_on == "1" ? "caps lock on" : "caps lock off"}
+            )
+        )
+    )
+)
+
+;; This window definition is specific to Wayland (Hyprland)
+;; and may need adjusting to X11
+(defwindow caps
+    :monitor 0
+    :geometry (geometry
+        :x "50%"
+        :y "50%"
+        :width "10%"
+        :height "4%"
+        :anchor "center"
+    )
+    :stacking "fg"
+    :focusable false
+    (caps_osd)
+)
