@@ -41,7 +41,7 @@ hyprland = { source = "tiling/hyprland/hyprland.conf", target = ".config/hypr/hy
 hyprpaper = { source = "tiling/hyprland/hyprpaper.conf", target = ".config/hypr/hyprpaper.conf" }
 
 [profiles.hyprland]
-extra_profiles = ["dunst", "rofi", "waybar", "hypr", "wallpaper"]
+extra_profiles = ["dunst", "rofi", "waybar", "eww", "hypr", "wallpaper"]
 posthooks = ["hyprctl reload"]
 
 [profiles.laptop]
