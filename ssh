@@ -9,3 +9,6 @@ Host github.com
 #     HostName github.com
 #     IdentityFile ~/.ssh/other.key
 #     IdentitiesOnly yes
+
+Host pi
+    HostName 192.168.1.100
