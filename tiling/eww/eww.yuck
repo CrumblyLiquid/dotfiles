@@ -186,6 +186,44 @@
     )
 )
 
+(defpoll kbd_layout :interval "1s" "scripts/keyboard get")
+(defvar kbd_status_reveal false)
+
+(defwidget kbd_status []
+    (eventbox
+        :onhover "${EWW_CMD} update kbd_status_reveal=true"
+        :onhoverlost "${EWW_CMD} update kbd_status_reveal=false"
+        :onclick "scripts/keyboard switch"
+        (box
+            ;; You must specify :space-evenly false in order
+            ;; for the revealer to work correctly when in the "slide..." mode
+            :space-evenly false
+            (label
+                ;; TODO: Create popups
+                ;; :onclick "${popup}"
+                :class "icon kbd_status_icon"
+                :text "󰌌"
+            )
+            (revealer
+                :transition "slideright"
+                :reveal "${!kbd_status_reveal}"
+                :duration "350ms"
+                (label
+                    :text "${substring(kbd_layout, 0, 2)}"
+                )
+            )
+            (revealer
+                :transition "slideleft"
+                :reveal kbd_status_reveal
+                :duration "350ms"
+                (label
+                    :text "${kbd_layout}"
+                )
+            )
+        )
+    )
+)
+
 (defvar volume_reveal false)
 (defpoll volume_out :interval "1s" "scripts/audio get")
 
@@ -268,6 +306,7 @@
             :reveal brightness_reveal
             :change "scripts/brightness set {}"
         )
+        (kbd_status)
         (separator)
         (circular_info
             :name "battery"

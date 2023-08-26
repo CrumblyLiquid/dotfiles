@@ -1,0 +1,26 @@
+#!/bin/bash
+
+get_layout () {
+    echo $(hyprctl devices -j | jq ".keyboards[] | select(.name==\"$1\") | .active_keymap" | sed -n 's/"\(.*\)"/\1/p')
+}
+
+switch_layout () {
+    hyprctl switchxkblayout $1 next
+}
+
+KEYBOARDS=('keychron-keychron-k8-pro-keyboard' 'at-translated-set-2-keyboard')
+
+# Detect which keyboard is connected
+KBD=''
+for KEYBOARD in ${KEYBOARDS[@]}; do
+    if [ "$(hyprctl devices | grep -Eq $KEYBOARD && echo 1 || echo 0)" = "1" ]; then
+        KBD=$KEYBOARD
+        break
+    fi
+done
+
+if [ "$1" = "get" ]; then
+    get_layout $KBD
+elif [ "$1" = "switch" ]; then
+    switch_layout $KBD
+fi
