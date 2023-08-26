@@ -75,6 +75,7 @@
 ;; and slightly modified
 (deflisten workspaces :initial "[]" "scripts/get-workspaces")
 (deflisten current_workspace :initial "1" "scripts/get-active-workspace")
+(deflisten urgent_window_workspace :initial "" "scripts/get-urgent-window-workspace")
 
 (defwidget workspaces []
     (eventbox
@@ -93,7 +94,7 @@
                     (eventbox
                         :onclick "hyprctl dispatch workspace ${workspace.id}"
                         (box
-                            :class "workspace ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
+                            :class "workspace ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"} ${workspace.id == urgent_window_workspace ? "urgent" : ""}"
                             (label :text "${workspace.id}")
                             ;; (label :text "")
                         )

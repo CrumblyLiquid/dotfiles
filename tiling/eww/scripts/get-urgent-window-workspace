@@ -1,0 +1,20 @@
+#!/bin/bash
+
+socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | while read -r line; do
+    WINDOW_ADDRESS=$(echo "$line" | awk -F '>>|,' '/^urgent>>/{print $2}')
+    if [ "$WINDOW_ADDRESS" != "" ]; then
+        # Outputing text for some reason doesn't work so I have to update
+        # the variables like this
+        # echo $(hyprctl clients -j | jq ".[] | select(.address==\"0x$WINDOW_ADDRESS\") | .workspace.id")
+        eww update urgent_window_workspace=$(hyprctl clients -j | jq ".[] | select(.address==\"0x$WINDOW_ADDRESS\") | .workspace.id")
+    fi
+
+    WORKSPACE_ID=$(echo "$line" | awk -F '>>|,' '/^workspace>>/{print $2}')
+    if [ "$WORKSPACE_ID" != "" ]; then
+        LAST_WID=$(eww get urgent_window_workspace)
+        if [ "$LAST_WID" = "$WORKSPACE_ID" ]; then
+            eww update urgent_window_workspace=""
+            # echo ""
+        fi
+    fi
+done

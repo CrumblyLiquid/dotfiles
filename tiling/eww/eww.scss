@@ -41,6 +41,10 @@ tooltip label {
     color: #CDD6F4;
 }
 
+.workspace.urgent {
+    color: red;
+}
+
 scale trough {
   all: unset;
   background-color: #22242b;
