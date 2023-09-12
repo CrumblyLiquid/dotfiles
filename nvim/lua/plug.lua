@@ -39,7 +39,7 @@ require("lazy").setup({
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        config = function () 
+        config = function ()
             local configs = require("nvim-treesitter.configs")
 
             configs.setup({
@@ -53,7 +53,7 @@ require("lazy").setup({
 		-- Install parsers synchronously (only applies to `ensuer_installed`)
                 sync_install = false,
                 highlight = { enable = true },
-                indent = { enable = true },  
+                indent = { enable = true },
             })
         end
     },
@@ -76,6 +76,10 @@ require("lazy").setup({
             {"L3MON4D3/LuaSnip"},
         }
     },
+    -- Neodev - setup for Neovim configuration
+    -- {
+    --     "folke/neodev.nvim",
+    -- },
     -- Indent lines
     {
         "lukas-reineke/indent-blankline.nvim"
@@ -84,10 +88,42 @@ require("lazy").setup({
     {
         "mbbill/undotree"
     },
+    -- Autopair brackets, etc.
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        opts = {},
+    },
+    -- Status line
+    {
+        "nvim-lualine/lualine.nvim",
+        dependencies = {
+            {"nvim-tree/nvim-web-devicons"},
+        }
+    },
+    -- Git signs
+    {
+        "lewis6991/gitsigns.nvim"
+    },
+    -- Diagnostics
+    {
+       "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {}
+    },
+    {
+        'numToStr/Comment.nvim',
+        opts = {},
+        lazy = false,
+    },
 })
 
 -- Set colorscheme
 vim.cmd.colorscheme("catppuccin")
+
+-- Setup neodev (neovim plugin developement)
+-- Needs to be before lspconfig
+-- require("neodev").setup()
 
 -- Setup LSP Zero
 local lsp_zero = require("lsp-zero")
@@ -115,10 +151,53 @@ require('mason-lspconfig').setup({
     },
 })
 
+-- New line indicator
 vim.opt.list = true
 vim.opt.listchars:append "eol:↴"
 
+-- Indent lines config
 require("indent_blankline").setup {
     show_current_context = true,
     show_end_of_line = true,
 }
+
+-- nvim-autopairs support for completion
+local cmp = require("cmp")
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+local ts_utils = require("nvim-treesitter.ts_utils")
+
+local ts_node_func_parens_disabled = {
+    -- ecma
+    named_imports = true,
+    -- rust
+    use_declaration = true,
+}
+
+local default_handler = cmp_autopairs.filetypes["*"]["("].handler
+cmp_autopairs.filetypes["*"]["("].handler = function(char, item, bufnr, rules, commit_character)
+    local node_type = ts_utils.get_node_at_cursor():type()
+    if ts_node_func_parens_disabled[node_type] then
+        if item.data then
+            item.data.funcParensDisabled = true
+        else
+            char = ""
+        end
+    end
+    default_handler(char, item, bufnr, rules, commit_character)
+end
+
+cmp.event:on(
+    "confirm_done",
+    cmp_autopairs.on_confirm_done({
+        sh = false,
+    })
+)
+
+-- Lualine setup
+require("lualine").setup()
+
+-- Gitsigns setup
+require("gitsigns").setup()
+
+-- Comment.nvim
+require("Comment").setup()

@@ -43,6 +43,9 @@ vim.keymap.set("n", "<leader>b", telescope.buffers, { desc = "Buffers" })
 -- Undotree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Undotree" })
 
+-- Trouble
+vim.keymap.set("n", "<leader>d", vim.cmd.TroubleToggle, { desc = "Diagnostics" })
+
 -- Search terms stay in the middle of screen
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
