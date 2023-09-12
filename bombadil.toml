@@ -29,6 +29,12 @@ dunst = { source = "tiling/dunstrc", target = ".config/dunst/dunstrc" }
 [profiles.rofi.dots]
 rofi = { source = "tiling/rofi.rasi", target = ".config/rofi/config.rasi" }
 
+[profiles.swaylock.dots]
+swaylock = { source = "tiling/swaylock", target = ".config/sway-lock/config" }
+
+[profiles.swayidle.dots]
+swayidle = { source = "tiling/swayidle", target = ".config/swayidle/config" }
+
 [profiles.waybar.dots]
 config = { source = "tiling/waybar/waybar", target = ".config/waybar/config" }
 style = { source = "tiling/waybar/waybar.css", target = ".config/waybar/style.css" }
@@ -41,7 +47,7 @@ hyprland = { source = "tiling/hyprland/hyprland.conf", target = ".config/hypr/hy
 hyprpaper = { source = "tiling/hyprland/hyprpaper.conf", target = ".config/hypr/hyprpaper.conf" }
 
 [profiles.hyprland]
-extra_profiles = ["dunst", "rofi", "waybar", "eww", "hypr", "wallpaper"]
+extra_profiles = ["dunst", "rofi", "waybar", "eww", "swaylock", "swayidle", "hypr", "wallpaper"]
 posthooks = ["hyprctl reload"]
 
 [profiles.laptop]
