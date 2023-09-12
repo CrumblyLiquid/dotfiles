@@ -269,6 +269,8 @@
                 :class "clock"
                 (label
                     :text "${formattime(EWW_TIME, '%k:%M:%S', 'Europe/Prague')}"
+                    ;; formattime doesn't support localized timestamps for now
+                    ;; :text "${formattime(EWW_TIME, '%X', 'Europe/Prague')}"
                 )
             )
             (revealer
@@ -280,6 +282,8 @@
                     :class "date"
                     (label
                         :text "${formattime(EWW_TIME, '%-d.%-m.%Y', 'Europe/Prague')}"
+                        ;; formattime doesn't support localized timestamps for now
+                        ;; :text "${formattime(EWW_TIME, '%x', 'Europe/Prague')}"
                     )
                 )
             )
@@ -350,7 +354,7 @@
     :geometry (geometry
         :x "0%"
         :y "9px"
-        :width "99%"
+        :width "99.5%"
         :height "3.5%"
         :anchor "top center"
     )
