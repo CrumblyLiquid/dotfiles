@@ -59,8 +59,8 @@ alias dotfiles="cd ~/.dotfiles"
 alias dots=dotfiles
 
 # List files
+alias ls="eza --icons"
 alias ll="ls -alh"
 
 alias gpp="g++"
 alias nv="nvim"
-alias ls="eza --icons"
