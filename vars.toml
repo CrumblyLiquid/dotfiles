@@ -9,3 +9,5 @@ icon_theme = "Papirus"
 cursor = "Vimix-white-cursors"
 cursor_size = "24"
 wallpaper = "~/Pictures/wallpaper.jpg"
+
+laptop_mode = "false"
