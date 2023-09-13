@@ -71,6 +71,8 @@
     )
 )
 
+(defvar laptop_mode false)
+
 ;; Taken from https://wiki.hyprland.org/Useful-Utilities/Status-Bars/#configuration
 ;; and slightly modified
 (deflisten workspaces :initial "[]" "scripts/get-workspaces")
@@ -303,20 +305,28 @@
             :reveal volume_reveal
             :change "scripts/audio set {}"
         )
-        (scale_info
-            :name "brightness"
-            :icon "󰃠"
-            :value brightness
-            :reveal brightness_reveal
-            :change "scripts/brightness set {}"
+        (revealer
+            :reveal laptop_mode
+            :transition "none"
+            (scale_info
+                :name "brightness"
+                :icon "󰃠"
+                :value brightness
+                :reveal brightness_reveal
+                :change "scripts/brightness set {}"
+            )
         )
         (kbd_status)
         (separator)
-        (circular_info
-            :name "battery"
-            :icon "󱊣"
-            :value {EWW_BATTERY.total_avg}
-            :tooltip "battery on {}%"
+        (revealer
+            :reveal laptop_mode
+            :transition "none"
+            (circular_info
+                :name "battery"
+                :icon "󱊣"
+                :value {EWW_BATTERY.total_avg}
+                :tooltip "battery on {}%"
+            )
         )
         (circular_info
             :name "cpu"
