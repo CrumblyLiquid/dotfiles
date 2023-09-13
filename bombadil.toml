@@ -17,7 +17,7 @@ dolphin = { source = "dolphinui.rc", target = ".local/share/kxmlgui5/dolphin/dol
 konsole = { source = "konsoleui.rc", target = ".local/share/kxmlgui5/konsole/konsoleui.rc" }
 
 [profiles.wallpaper.dots]
-wallpaper = { source = "wallpapers/mountain.jpg", target = "Pictures/wallpaper.jpg" }
+wallpaper = { source = "wallpapers/dolphin.jpg", target = "Pictures/wallpaper.jpg" }
 
 # I'm unsure if linking from home is a good idea
 [profiles.sddm.dots]
