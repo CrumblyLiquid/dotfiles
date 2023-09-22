@@ -12,3 +12,9 @@ Host github.com
 
 Host pi
     HostName 192.168.1.100
+
+Host laptop
+    HostName 192.168.1.101
+
+Host pc
+    HostName 192.168.1.110
