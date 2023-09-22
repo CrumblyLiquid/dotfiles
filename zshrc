@@ -63,4 +63,5 @@ alias ls="eza --icons"
 alias ll="ls -alh"
 
 alias gpp="g++"
+alias vim="nvim"
 alias nv="nvim"
