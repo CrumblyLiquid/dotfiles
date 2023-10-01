@@ -52,3 +52,6 @@ posthooks = ["hyprctl reload"]
 
 [profiles.laptop]
 vars = ["laptop-vars.toml"]
+
+[profiles.cs.dots]
+cs = { source = "autoexec.cfg", target = ".local/share/Steam/steamapps/common/Counter-Strike Global Offensive/game/csgo/cfg/autoexec.cfg" }
