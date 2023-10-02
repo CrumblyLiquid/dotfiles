@@ -82,7 +82,9 @@ require("lazy").setup({
     -- },
     -- Indent lines
     {
-        "lukas-reineke/indent-blankline.nvim"
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {}
     },
     -- Undo tree
     {
@@ -156,9 +158,11 @@ vim.opt.list = true
 vim.opt.listchars:append "eol:↴"
 
 -- Indent lines config
-require("indent_blankline").setup {
-    show_current_context = true,
-    show_end_of_line = true,
+require("ibl").setup {
+    scope = {
+        enabled = true,
+        show_end = true,
+    },
 }
 
 -- nvim-autopairs support for completion
