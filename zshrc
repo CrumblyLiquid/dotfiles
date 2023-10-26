@@ -67,3 +67,9 @@ alias gppwp="g++ -Wall -pedantic"
 
 alias vim="nvim"
 alias nv="nvim"
+
+run () {
+    g++ -std=c++17 -Wall -pedantic -Wno-long-long -O2 -Werror -o "$1.bin" "$1.c";
+    chmod +x "./$1.bin";
+    ./"$1.bin";
+}
