@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+
+dunst_tag="volume_script"
+
+get_volume () {
+    echo $(wpctl get-volume $1 | awk '{printf "%.1f\n",$2*100.0}')
+}
+
+get_muted () {
+    MUTED=$(wpctl get-volume $1 | awk '{ print $3 }')
+    if [ "$MUTED" = "[MUTED]" ]; then
+        echo "1";
+    else
+        echo "0";
+    fi
+}
+
+set_volume () {
+    wpctl set-volume $1 $2'%'
+}
+
+increase_volume () {
+    wpctl set-volume -l 1.5 $1 5%+
+}
+
+decrease_volume () {
+    wpctl set-volume -l 1.5 $1 5%-
+}
+
+toggle_mute () {
+    wpctl set-mute $1 toggle
+}
+
+get_device () {
+    echo $(wpctl inspect $1 | sed -n -e 's/^.*node\.description = "\(.*\)"/\1/p')
+}
+
+audio () {
+    # headphones by default
+    ID="@DEFAULT_AUDIO_SINK@";
+    NAME="Audio"
+    if [ "$2" = "microphone" ]; then
+        ID="@DEFAULT_AUDIO_SOURCE@"
+        NAME="Microphone"
+    fi
+
+    if [ "$1" = "get" ]; then
+        get_volume $ID
+    elif [ "$1" = "set" ]; then
+        set_volume $ID $3
+    elif [ "$1" = "device" ]; then
+        get_device $ID
+    elif [ "$1" = "up" ]; then
+        increase_volume $ID
+        VOLUME="$(get_volume $ID)"
+        dunstify -a "changeVolume" -u low -i audio-volume-high -h string:x-dunst-stack-tag:$dunst_tag -h int:value:"$VOLUME" "Volume: ${VOLUME}%"
+    elif [ "$1" = "down" ]; then
+        decrease_volume $ID
+        VOLUME="$(get_volume $ID)"
+        dunstify -a "changeVolume" -u low -i audio-volume-high -h string:x-dunst-stack-tag:$dunst_tag -h int:value:"$VOLUME" "Volume: ${VOLUME}%"
+    elif [ "$1" = "mute" ]; then
+        toggle_mute $ID
+
+        MUTED="$(get_muted $ID)"
+        MUTE_STR="muted"
+        if [ "$MUTED" = "0" ]; then
+            MUTE_STR="unmuted"
+        fi
+
+        dunstify -a "changeVolume" -u low -i "$NAME-volume-muted" -h string:x-dunst-stack-tag:${dunst_tag} "$NAME $MUTE_STR."
+    fi
+}
+
+headphones () {
+    audio "$1" "headphones" "$2";
+}
+
+mic () {
+    audio "$1" "microphone" "$2"
+}
+
+if [ "$1" = "out" ]; then
+    headphones $2 $3
+elif [ "$1" = "in" ]; then
+    mic $2 $3
+fi

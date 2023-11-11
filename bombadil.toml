@@ -15,6 +15,7 @@ git = { source = "gitconfig", target = ".gitconfig" }
 ssh = { source = "ssh", target = ".ssh/config" }
 dolphin = { source = "dolphinui.rc", target = ".local/share/kxmlgui5/dolphin/dolphinui.rc" }
 konsole = { source = "konsoleui.rc", target = ".local/share/kxmlgui5/konsole/konsoleui.rc" }
+scripts = { source = "scripts", target = ".config/scripts" }
 
 [profiles.wallpaper.dots]
 wallpaper = { source = "wallpapers/polar_bear.png", target = "Pictures/wallpaper.jpg" }
