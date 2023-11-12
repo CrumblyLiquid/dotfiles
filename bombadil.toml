@@ -17,6 +17,12 @@ dolphin = { source = "dolphinui.rc", target = ".local/share/kxmlgui5/dolphin/dol
 konsole = { source = "konsoleui.rc", target = ".local/share/kxmlgui5/konsole/konsoleui.rc" }
 scripts = { source = "scripts", target = ".config/scripts" }
 
+[profiles.gsr.dots]
+env = { source = "gpu-screen-recorder/gpu-screen-recorder.env", target = ".config/gpu-screen-recorder.env" }
+service = { source = "gpu-screen-recorder/gsr-replay.service", target = ".config/systemd/user/gsr-replay.service" }
+# Moved to scripts folder
+# script = { source = "gpu-screen-recorder/save_replay", target = ".config/scripts/save_replay" }
+
 [profiles.wallpaper.dots]
 wallpaper = { source = "wallpapers/ocean.jpg", target = "Pictures/wallpaper.jpg" }
 
@@ -48,7 +54,7 @@ hyprland = { source = "tiling/hyprland/hyprland.conf", target = ".config/hypr/hy
 hyprpaper = { source = "tiling/hyprland/hyprpaper.conf", target = ".config/hypr/hyprpaper.conf" }
 
 [profiles.hyprland]
-extra_profiles = ["dunst", "rofi", "waybar", "eww", "swaylock", "swayidle", "hypr", "wallpaper"]
+extra_profiles = ["dunst", "rofi", "waybar", "eww", "swaylock", "swayidle", "hypr", "wallpaper", "gsr"]
 posthooks = ["hyprctl reload"]
 
 [profiles.laptop]

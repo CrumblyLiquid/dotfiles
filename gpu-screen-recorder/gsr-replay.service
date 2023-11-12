@@ -1,0 +1,22 @@
+[Unit]
+Description=GPU Screen Recorder Replay Service
+
+[Service]
+EnvironmentFile=-%h/.config/gpu-screen-recorder.env
+Environment=WINDOW=screen
+Environment=CONTAINER=mp4
+Environment=QUALITY=very_high
+Environment=CODEC=auto
+Environment=AUDIO_CODEC=opus
+Environment=AUDIO_DEVICE=
+Environment=FRAMERATE=60
+Environment=REPLAYDURATION=60
+Environment=OUTPUTDIR=%h/Videos
+Environment=MAKEFOLDERS=yes
+ExecStart=/bin/sh -c 'SINK="$(pactl get-default-sink).monitor"; SOURCE="$(pactl get-default-source)"; gpu-screen-recorder -v no -w "$WINDOW" -c $CONTAINER -q $QUALITY -k $CODEC -ac $AUDIO_CODEC -a "$SINK" -a "$SOURCE" -f $FRAMERATE -r $REPLAYDURATION -o "$OUTPUTDIR" -mf $MAKEFOLDERS $ADDITIONAL_ARGS'
+KillSignal=SIGINT
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=default.target
