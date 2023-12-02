@@ -50,8 +50,24 @@ vim.keymap.set("n", "<leader>d", vim.cmd.TroubleToggle, { desc = "Diagnostics" }
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- Half page jumping but keep the cursor in the middle of the screen
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- Move selection
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Paste without loosing the content of the buffer
+vim.keymap.set("x", "<leader>p", "\"_dP")
+
+-- Yank to system clipboard
+vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>Y", "\"+Y")
+
 -- Source the current buffer
-vim.keymap.set("n", "<leader><leader>", "<cmd>so<cr>", { desc = "Source current buffer", })
+-- vim.keymap.set("n", "<leader><leader>", "<cmd>so<cr>", { desc = "Source current buffer", })
 
 -- Format the whole file
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
