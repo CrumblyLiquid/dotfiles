@@ -1,3 +1,8 @@
+-- TODO: Explore these
+-- https://learnvimscriptthehardway.stevelosh.com/chapters/42.html
+-- https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
+-- https://github.com/tpope/vim-sleuth
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -73,18 +78,28 @@ require("lazy").setup({
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
+            -- Snippet Engine & its associated nvim-cmp source
             {"L3MON4D3/LuaSnip"},
+            {"saadparwaiz1/cmp_luasnip"},
+            -- Adds LSP completion capabilities
+            {"hrsh7th/cmp-nvim-lsp"},
+            -- Adds a number of user-friendly snippets
+            {"rafamadriz/friendly-snippets"},
         }
     },
     -- Neodev - setup for Neovim configuration
-    -- {
-    --     "folke/neodev.nvim",
-    -- },
+    {
+        "folke/neodev.nvim",
+    },
     -- Indent lines
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
         opts = {}
+    },
+    {
+        "kevinhwang91/nvim-ufo",
+        dependencies = { "kevinhwang91/promise-async" }
     },
     -- Undo tree
     {
@@ -125,7 +140,7 @@ vim.cmd.colorscheme("catppuccin")
 
 -- Setup neodev (neovim plugin developement)
 -- Needs to be before lspconfig
--- require("neodev").setup()
+require("neodev").setup()
 
 -- Setup LSP Zero
 local lsp_zero = require("lsp-zero")
@@ -136,6 +151,9 @@ lsp_zero.on_attach(function(client, bufnr)
     lsp_zero.default_keymaps({buffer = bufnr})
 end)
 
+-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
@@ -165,8 +183,60 @@ require("ibl").setup {
     },
 }
 
--- nvim-autopairs support for completion
+-- https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
+-- [[ Configure nvim-cmp ]]
+-- See `:help cmp`
 local cmp = require("cmp")
+local luasnip = require("luasnip")
+require("luasnip.loaders.from_vscode").lazy_load()
+luasnip.config.setup {}
+
+cmp.setup {
+    snippet = {
+        expand = function(args)
+            luasnip.lsp_expand(args.body)
+        end,
+    },
+    completion = {
+        completeopt = "menu,menuone,noinsert"
+    },
+    -- TODO: Move mappings to key.lua
+    mapping = cmp.mapping.preset.insert {
+        ["<C-n>"] = cmp.mapping.select_next_item(),
+        ["<C-p>"] = cmp.mapping.select_prev_item(),
+        ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete {},
+        ["<CR>"] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+        },
+        ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif luasnip.expand_or_locally_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.locally_jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
+    },
+    sources = {
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+    },
+}
+
+-- nvim-autopairs support for completion
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local ts_utils = require("nvim-treesitter.ts_utils")
 
