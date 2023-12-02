@@ -23,3 +23,10 @@ o.shiftwidth = tabsize
 -- remove higlights with :nohlsearch
 o.hlsearch = false
 o.incsearch = true
+
+-- Case-insensitive searching UNLESS \C or capital in search
+o.ignorecase = true
+o.smartcase = true
+
+-- Save undo history
+o.undofile = true
