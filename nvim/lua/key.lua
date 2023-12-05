@@ -47,15 +47,19 @@ vim.keymap.set("n", "<leader>b", telescope.buffers, { desc = "Buffers" })
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Undotree" })
 
 -- Debugging
-vim.keymap.set("n", "<leader>do", require("dapui").toggle())
-vim.keymap.set("n", "<F5>", require("dap").continue())
-vim.keymap.set("n", "<F2>", require("dap").step_over())
-vim.keymap.set("n", "<F1>", require("dap").step_into())
-vim.keymap.set("n", "<F3>", require("dap").step_out())
-vim.keymap.set("n", "<leader>db", require("dap").toggle_breakpoint())
-vim.keymap.set("n", "<leader>dB", require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')))
-vim.keymap.set("n", "<leader>dp", require("dap").set_breakpoint(nil, nil, vim.fn.input('Log point message: ')))
-vim.keymap.set("n", "<leader>dr", require("dap").repl.open())
+vim.keymap.set("n", "<leader>do", require("dapui").toggle, { desc = "Toggle debug UI" })
+vim.keymap.set("n", "<F5>", require("dap").continue, { desc = "Start debugging" })
+vim.keymap.set("n", "<F2>", require("dap").step_over, { desc = "Step over" })
+vim.keymap.set("n", "<F1>", require("dap").step_into, { desc = "Step into" })
+vim.keymap.set("n", "<F3>", require("dap").step_out, { desc = "Step out" })
+
+vim.keymap.set("n", "<leader>dr", require("dap").repl.toggle, { desc = "Toggle repl" })
+vim.keymap.set("n", "<leader>db", require("dap").toggle_breakpoint, { desc = "Toggle breakpoint" })
+vim.keymap.set("n", "<leader>dB", (function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end),
+    { desc = "Set breakpoint condition" })
+vim.keymap.set("n", "<leader>dl",
+    (function() require("dap").set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end),
+    { desc = "Set log point" })
 
 -- Trouble
 vim.keymap.set("n", "<leader>dd", vim.cmd.TroubleToggle, { desc = "Toggle diagnostics" })
