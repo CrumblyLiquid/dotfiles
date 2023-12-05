@@ -44,7 +44,7 @@ require("lazy").setup({
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        config = function ()
+        config = function()
             local configs = require("nvim-treesitter.configs")
 
             configs.setup({
@@ -55,7 +55,7 @@ require("lazy").setup({
                     "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore",
                     "latex", "markdown_inline", "vim", "vimdoc", "query"
                 },
-		-- Install parsers synchronously (only applies to `ensuer_installed`)
+                -- Install parsers synchronously (only applies to `ensuer_installed`)
                 sync_install = false,
                 highlight = { enable = true },
                 indent = { enable = true },
@@ -63,22 +63,26 @@ require("lazy").setup({
         end
     },
     -- LSP Zero - LSP configuration
-    {"VonHeikemen/lsp-zero.nvim", branch = "v3.x"},
+    { "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
     -- UI for managing LSPs, DAPS, linters and formatters
-    {"williamboman/mason.nvim"},
-    {"williamboman/mason-lspconfig.nvim"},
+    { "williamboman/mason.nvim" },
+    { "williamboman/mason-lspconfig.nvim" },
     -- Easy LSP configuration
     {
         "neovim/nvim-lspconfig",
         dependencies = {
-            {"hrsh7th/cmp-nvim-lsp"},
+            { "hrsh7th/cmp-nvim-lsp" },
         },
     },
+    -- Linting
+    { "mfussenegger/nvim-lint" },
+    -- Formatting
+    { "mhartington/formatter.nvim" },
     -- Degugging
-    {"mfussenegger/nvim-dap"},
+    { "mfussenegger/nvim-dap" },
     {
         "rcarriga/nvim-dap-ui",
-        dependencies = {"mfussenegger/nvim-dap"}
+        dependencies = { "mfussenegger/nvim-dap" }
     },
     {
         "theHamsta/nvim-dap-virtual-text",
@@ -94,6 +98,13 @@ require("lazy").setup({
             "nvim-telescope/telescope.nvim",
         }
     },
+    {
+        "jay-babu/mason-nvim-dap.nvim",
+        dependencies = {
+            "williamboman/mason.nvim",
+            "mfussenegger/nvim-dap",
+        }
+    },
     -- Diagnostics
     {
         "folke/trouble.nvim",
@@ -105,14 +116,14 @@ require("lazy").setup({
         "hrsh7th/nvim-cmp",
         dependencies = {
             -- Adds LSP completion capabilities
-            {"hrsh7th/cmp-nvim-lsp"},
-            {"hrsh7th/cmp-buffer"},
-            {"hrsh7th/cmp-path"},
+            { "hrsh7th/cmp-nvim-lsp" },
+            { "hrsh7th/cmp-buffer" },
+            { "hrsh7th/cmp-path" },
             -- Snippet Engine & its associated nvim-cmp source
-            {"L3MON4D3/LuaSnip"},
-            {"saadparwaiz1/cmp_luasnip"},
+            { "L3MON4D3/LuaSnip" },
+            { "saadparwaiz1/cmp_luasnip" },
             -- Adds a number of user-friendly snippets
-            {"rafamadriz/friendly-snippets"},
+            { "rafamadriz/friendly-snippets" },
         }
     },
     -- Neodev - setup for Neovim configuration
@@ -143,7 +154,7 @@ require("lazy").setup({
     {
         "nvim-lualine/lualine.nvim",
         dependencies = {
-            {"nvim-tree/nvim-web-devicons"},
+            { "nvim-tree/nvim-web-devicons" },
         }
     },
     -- Git signs
@@ -170,7 +181,7 @@ local lsp_zero = require("lsp-zero")
 lsp_zero.on_attach(function(client, bufnr)
     -- see :help lsp-zero-keybindings
     -- to learn the available actions
-    lsp_zero.default_keymaps({buffer = bufnr})
+    lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
@@ -192,6 +203,7 @@ require('mason-lspconfig').setup({
         lsp_zero.default_setup,
     },
 })
+require("mason-nvim-dap").setup()
 
 -- New line indicator
 vim.opt.list = true
@@ -289,6 +301,17 @@ cmp.event:on(
     })
 )
 
+-- Linting
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  callback = function()
+    require("lint").try_lint()
+  end,
+})
+
+-- Formatting
+require("formatter").setup()
+
+-- Debugging
 local dap = require("dap")
 local dapui = require("dapui").setup()
 require("nvim-dap-virtual-text").setup()
