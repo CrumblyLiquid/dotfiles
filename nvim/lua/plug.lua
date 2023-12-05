@@ -74,6 +74,32 @@ require("lazy").setup({
             {"hrsh7th/cmp-nvim-lsp"},
         },
     },
+    -- Degugging
+    {"mfussenegger/nvim-dap"},
+    {
+        "rcarriga/nvim-dap-ui",
+        dependencies = {"mfussenegger/nvim-dap"}
+    },
+    {
+        "theHamsta/nvim-dap-virtual-text",
+        dependencies = {
+            "mfussenegger/nvim-dap",
+            "nvim-treesitter/nvim-treesitter"
+        }
+    },
+    {
+        "nvim-telescope/telescope-dap.nvim",
+        dependencies = {
+            "mfussenegger/nvim-dap",
+            "nvim-telescope/telescope.nvim",
+        }
+    },
+    -- Diagnostics
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {}
+    },
     -- Autocompletion
     {
         "hrsh7th/nvim-cmp",
@@ -123,12 +149,6 @@ require("lazy").setup({
     -- Git signs
     {
         "lewis6991/gitsigns.nvim"
-    },
-    -- Diagnostics
-    {
-       "folke/trouble.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = {}
     },
     {
         'numToStr/Comment.nvim',
@@ -268,6 +288,20 @@ cmp.event:on(
         sh = false,
     })
 )
+
+local dap = require("dap")
+local dapui = require("dapui").setup()
+require("nvim-dap-virtual-text").setup()
+
+dap.listeners.after.event_initialized["dapui_config"] = function()
+    dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+    dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+    dapui.close()
+end
 
 -- Lualine setup
 require("lualine").setup()
