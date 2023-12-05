@@ -13,6 +13,9 @@ wk.register(
         l = {
             name = "LSP",
         },
+        d = {
+            name = "Debug",
+        },
         ["<leader>"] = "which_key_ignore",
     },
     {
@@ -55,7 +58,7 @@ vim.keymap.set("n", "<leader>dp", require("dap").set_breakpoint(nil, nil, vim.fn
 vim.keymap.set("n", "<leader>dr", require("dap").repl.open())
 
 -- Trouble
-vim.keymap.set("n", "<leader>dd", vim.cmd.TroubleToggle, { desc = "Diagnostics" })
+vim.keymap.set("n", "<leader>dd", vim.cmd.TroubleToggle, { desc = "Toggle diagnostics" })
 
 -- Search terms stay in the middle of screen
 vim.keymap.set("n", "n", "nzzzv")
@@ -73,9 +76,9 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
 -- Yank to system clipboard
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set("n", "<leader>y", "\"+y", { desc = "Copy to clipboard" })
+vim.keymap.set("v", "<leader>y", "\"+y", { desc = "Copy to clipboard" })
+vim.keymap.set("n", "<leader>Y", "\"+Y", { desc = "Copy to clipboard" })
 
 -- Source the current buffer
 -- vim.keymap.set("n", "<leader><leader>", "<cmd>so<cr>", { desc = "Source current buffer", })
