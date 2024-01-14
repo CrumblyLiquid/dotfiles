@@ -61,6 +61,7 @@ alias dots=dotfiles
 # List files
 alias ls="eza --icons"
 alias ll="ls -alh"
+alias sl="sl -e"
 
 alias gpp="g++"
 alias gppwp="g++ -Wall -pedantic"

@@ -4,6 +4,7 @@ alias nv="nvim"
 alias vim="nvim"
 
 alias ll="ls -alh"
+alias sl="sl -e"
 
 # Programming
 alias gpp="g++"
