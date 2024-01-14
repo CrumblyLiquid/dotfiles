@@ -9,7 +9,7 @@ kitty = { source = "kitty/kitty.conf", target = ".config/kitty/kitty.conf" }
 kitty-theme = { source = "kitty/catppuccin-mocha.conf", target = ".config/kitty/catppuccin-mocha.conf" }
 zshrc = { source = "zshrc", target = ".zshrc" }
 zshenv = { source = "zshenv", target = ".zshenv" }
-fish = { source = "fish", target = ".config/fish/config.fish" }
+fish = { source = "fish", target = ".config/fish" }
 starship = { source = "starship.toml", target = ".config/starship.toml" }
 nvim = { source = "nvim", target = ".config/nvim" }
 git = { source = "gitconfig", target = ".gitconfig" }
