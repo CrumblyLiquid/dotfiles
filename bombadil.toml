@@ -51,8 +51,7 @@ style = { source = "tiling/waybar/waybar.css", target = ".config/waybar/style.cs
 config = { source = "tiling/eww", target = ".config/eww" }
 
 [profiles.hypr.dots]
-hyprland = { source = "tiling/hyprland/hyprland.conf", target = ".config/hypr/hyprland.conf" }
-hyprpaper = { source = "tiling/hyprland/hyprpaper.conf", target = ".config/hypr/hyprpaper.conf" }
+hyprland = { source = "tiling/hyprland", target = ".config/hypr" }
 
 [profiles.hyprland]
 extra_profiles = ["dunst", "rofi", "waybar", "eww", "swaylock", "swayidle", "hypr", "wallpaper", "gsr"]
