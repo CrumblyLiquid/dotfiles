@@ -1,5 +1,5 @@
 function up
-    if ! test "$argv[1]" -ge 1 2> /dev/null
+    if test -n "$argv[1]" && ! test "$argv[1]" -ge 1 2> /dev/null
         echo "Argument is not a positive number!"
         return
     end
