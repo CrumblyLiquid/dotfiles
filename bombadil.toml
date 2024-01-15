@@ -11,6 +11,7 @@ zshrc = { source = "zshrc", target = ".zshrc" }
 zshenv = { source = "zshenv", target = ".zshenv" }
 fish = { source = "fish", target = ".config/fish" }
 starship = { source = "starship.toml", target = ".config/starship.toml" }
+tmux = { source = "tmux.conf", target = ".config/tmux/tmux.conf" }
 nvim = { source = "nvim", target = ".config/nvim" }
 git = { source = "gitconfig", target = ".gitconfig" }
 ssh = { source = "ssh", target = ".ssh/config" }
