@@ -3,6 +3,7 @@ dotfiles_dir = ".dotfiles"
 
 [settings]
 vars = [ "vars.toml" ]
+posthooks = [ "tmux source-file ~/.config/tmux/tmux.conf" ]
 
 [settings.dots]
 kitty = { source = "kitty/kitty.conf", target = ".config/kitty/kitty.conf" }
