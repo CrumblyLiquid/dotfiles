@@ -1,5 +1,7 @@
 # Enable Starship prompt
 eval "$(starship init zsh)"
+# Initialize zoxide
+eval "$(zoxide init zsh)"
 
 # Enable 256-color mode
 export TERM="xterm-256color"
