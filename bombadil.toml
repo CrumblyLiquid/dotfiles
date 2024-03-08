@@ -12,10 +12,10 @@ zshrc = { source = "zshrc", target = ".zshrc" }
 zshenv = { source = "zshenv", target = ".zshenv" }
 fish = { source = "fish", target = ".config/fish" }
 starship = { source = "starship.toml", target = ".config/starship.toml" }
-tmux = { source = "tmux.conf", target = ".config/tmux/tmux.conf" }
+tmux = { source = "tmux", target = ".config/tmux" }
 nvim = { source = "nvim", target = ".config/nvim" }
 git = { source = "gitconfig", target = ".gitconfig" }
-ssh = { source = "ssh", target = ".ssh/config" }
+ssh = { source = "ssh", target = ".ssh" }
 dolphin = { source = "dolphinui.rc", target = ".local/share/kxmlgui5/dolphin/dolphinui.rc" }
 konsole = { source = "konsoleui.rc", target = ".local/share/kxmlgui5/konsole/konsoleui.rc" }
 scripts = { source = "scripts", target = ".config/scripts" }

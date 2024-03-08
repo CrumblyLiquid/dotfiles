@@ -1,0 +1,125 @@
+* {
+    all: unset;
+    font-family: MesloLGS NF;
+}
+
+tooltip.background {
+    background-color: #1E1E2E;
+    border-radius: 10px;
+}
+
+tooltip label {
+    margin: 6px;
+}
+
+.caps_osd {
+    border-radius: 20px;
+    background-color: #CDD6F4;
+    color: #1E1E2E;
+    font-size: 24px;
+    padding: 0px 15px 0px 15px;
+}
+
+.caps_icon {
+    font-size: 40px;
+}
+
+.bar_inner {
+    background-color: #1E1E2E;
+    padding: 0px 10px 0px 10px;
+    border-radius: 16px;
+}
+
+.workspaces {
+    color: #CDD6F4;
+}
+
+.workspace.current, .workspace.occupied {
+    margin-left: 5px;
+}
+
+.workspace.current {
+    color: #FFFFFF;
+}
+
+.workspace.urgent {
+    color: red;
+}
+
+scale trough {
+  all: unset;
+  background-color: #22242b;
+  box-shadow: 0 2px 3px 2px #06060b;
+  border-radius: 16px;
+  min-height: 10px;
+  min-width: 70px;
+  margin: 0px 10px 0px 0px;
+}
+
+.circular_info {
+    border-radius: 10px;
+    background-color: #38384d;
+    margin: 4px;
+}
+
+.circular_icon {
+    font-size: 10px;
+    margin: 10px;
+}
+
+.battery, .battery_icon {
+    color: #afbea2;
+}
+
+.cpu, .cpu_icon {
+    color: #a1bdce;
+}
+
+.ram, .ram_icon {
+    color: #e0b089;
+}
+
+
+.disk, .disk_icon {
+    color: #afbea2;
+}
+
+.separator {
+    color: #3e424f;
+    font-weight: bold;
+    margin: 0px 8px 0px 8px;
+}
+
+// TODO: Rename .icon and other + provide general classes
+.icon {
+    margin: 0px 8px 0px 8px;
+}
+
+.volume_icon {
+    color: #CDD6F4;
+}
+
+.volume_scale trough highlight {
+  background-image: linear-gradient(to right, #afcee0 30%, #a1bdce 50%, #77a5bf 100% *50);
+  border-radius: 10px;
+}
+
+.volume_scale trough {
+    background-color: #afcee0;
+    border-radius: 10px;
+}
+
+.brightness_scale trough highlight {
+  background-image: linear-gradient(to right, #e4c9af 30%, #f2cdcd 50%, #e0b089 100% *50);
+  border-radius: 10px;
+}
+
+.brightness_scale trough {
+    background-color: #e4c9af;
+    border-radius: 10px;
+}
+
+.date {
+    margin-left: 10px;
+}
+

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+get_device () {
+    echo $(wpctl inspect @DEFAULT_AUDIO_SINK@ | sed -n -e 's/^.*node\.description = "\(.*\)"/\1/p')
+}
+
+get_volume () {
+    echo $(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{printf "%.1f\n",$2*100.0}')
+}
+
+set_volume () {
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ $1'%'
+}
+
+if [ "$1" = "get" ]; then
+    get_volume
+elif [ "$1" = "set" ]; then
+    set_volume $2
+elif [ "$1" = "device" ]; then
+    get_device
+fi

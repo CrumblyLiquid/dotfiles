@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# SwayOSD type of thing for Caps Lock
+
+# We update internal eww variable each time Caps Lock is pressed
+# Then we close the window when Caps Lock hasn't been pressed for some time
+NOW=$(date +%s)
+eww update caps_time=$NOW
+# Make OSD fade in when Caps Lock is pressed
+eww update caps_osd_open=true
+
+# Open window if it isn't open yet
+if ! [[ $(eww windows | grep '^\*caps$') ]]; then
+    eww open caps
+
+    # Wait until enough time has passed from last Caps Lock press
+    # and then fade out and close the window
+    while [ 1 ]
+    do
+        sleep 1
+        TIME=$(eww get caps_time)
+        NOW=$(date +%s)
+        # Then close the window
+        if [[ $NOW > $(($TIME + 2)) ]]; then
+            eww close caps
+            break
+        fi
+        # First fade out (happens first because $TIME + only 1 second -> 
+        # fade out after one second since last keypress)
+        if [[ $NOW > $(($TIME + 1)) ]]; then
+            eww update caps_osd_open=false
+        fi
+    done
+fi

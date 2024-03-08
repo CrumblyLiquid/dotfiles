@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+get_brightness () {
+    BRIGHTNESS=$(brightnessctl -m -d intel_backlight 2> /dev/null)
+    if [ "$?" = '0' ]; then
+        echo $(echo "$BRIGHTNESS" | awk -F, '{print substr($4, 0, length($4)-1)}' | tr -d '%')
+    else
+        echo '0'
+    fi
+}
+
+set_brightness () {
+    brightnessctl set $1'%'
+}
+
+if [ "$1" = "get" ]; then
+    get_brightness
+elif [ "$1" = "set" ]; then
+    set_brightness $2
+fi
+
