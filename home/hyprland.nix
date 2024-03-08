@@ -31,7 +31,7 @@
         text = ''
           preload = ${globals.wallpaper}
           wallpaper = ,${globals.wallpaper}
-          spalsh = false
+          splash = false
         '';
       };
       ".config/scripts" = {
