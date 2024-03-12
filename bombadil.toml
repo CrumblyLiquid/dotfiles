@@ -15,7 +15,7 @@ starship = { source = "starship.toml", target = ".config/starship.toml" }
 tmux = { source = "tmux", target = ".config/tmux" }
 nvim = { source = "nvim", target = ".config/nvim" }
 git = { source = "gitconfig", target = ".gitconfig" }
-ssh = { source = "ssh", target = ".ssh" }
+ssh = { source = "ssh/config", target = ".ssh/config" }
 dolphin = { source = "dolphinui.rc", target = ".local/share/kxmlgui5/dolphin/dolphinui.rc" }
 konsole = { source = "konsoleui.rc", target = ".local/share/kxmlgui5/konsole/konsoleui.rc" }
 scripts = { source = "scripts", target = ".config/scripts" }
