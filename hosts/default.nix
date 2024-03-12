@@ -50,7 +50,17 @@
     git
     wget
     curl
+
+    zip
+    unzip
+
     fzf
+
+    clang-tools
+    nil
+    lua-language-server
+    nixpkgs-fmt
+    rnix-lsp
 
     htop
     btop
@@ -88,11 +98,12 @@
     enableSSHSupport = true;
   };
 
+  users.groups.wireshark = {
+    members = [ "root" ];
+  };
   users.users.crumbly = {
     isNormalUser = true;
-    extraGroups =
-      let nm = if config.networking.networkmanager.enable then [ "networkmanager" ] else [ ];
-      in [ "wheel" ] ++ nm;
+    extraGroups = [ "wheel" "networkmanager" "wireshark" ];
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
