@@ -13,12 +13,14 @@
     ./hyprland.nix
     ./tofi.nix
     ./eww.nix
+    ./firefox.nix
     ./spotify.nix
     ./steam.nix
     ./opentabletdriver.nix
     ./xournalpp.nix
     ./gns3.nix
     ./wireshark.nix
+    ./virtmanager.nix
   ];
 
   home-manager = {
@@ -31,19 +33,6 @@
     home.sessionVariables = {
       # Fix Electron apps on Nixos Wayland
       NIXOS_OZONE_WL = "1";
-
-      DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox";
-    };
-
-    xdg.mimeApps = {
-      enable = true;
-      defaultApplications = {
-        "text/html" = "firefox.desktop";
-        "x-scheme-handler/http" = "firefox.desktop";
-        "x-scheme-handler/https" = "firefox.desktop";
-        "x-scheme-handler/about" = "firefox.desktop";
-        "x-scheme-handler/unknown" = "firefox.desktop";
-      };
     };
 
     home.packages = with pkgs; [ ];

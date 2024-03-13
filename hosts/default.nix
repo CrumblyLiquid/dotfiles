@@ -98,12 +98,9 @@
     enableSSHSupport = true;
   };
 
-  users.groups.wireshark = {
-    members = [ "root" ];
-  };
   users.users.crumbly = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "wireshark" ];
+    extraGroups = [ "wheel" "networkmanager" ];
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
