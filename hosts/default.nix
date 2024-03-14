@@ -71,9 +71,6 @@
     cargo
     python3
 
-    grimblast
-    dunst
-
     firefox
     thunderbird
     dolphin

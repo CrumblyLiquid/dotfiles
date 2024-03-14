@@ -3,6 +3,12 @@
   environment.systemPackages = with pkgs; [
     hyprland
     hyprpaper
+    xdg-utils
+    dbus
+    dunst
+    grimblast
+    wl-clipboard
+    wdisplays
     brightnessctl
     playerctl
   ];
