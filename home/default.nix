@@ -21,6 +21,7 @@
     ./gns3.nix
     ./wireshark.nix
     ./virtmanager.nix
+    ./syncthing.nix
   ];
 
   home-manager = {
