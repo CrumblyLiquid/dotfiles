@@ -22,6 +22,7 @@
     ./wireshark.nix
     ./virtmanager.nix
     ./syncthing.nix
+    ./dev.nix
   ];
 
   home-manager = {
