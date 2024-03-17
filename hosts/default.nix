@@ -56,7 +56,6 @@
 
     fzf
 
-    clang-tools
     nil
     lua-language-server
     nixpkgs-fmt
@@ -67,6 +66,8 @@
 
     gcc
     clang
+    clang-tools
+    gnumake
     rustup
     cargo
     python3

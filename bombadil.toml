@@ -8,16 +8,16 @@ posthooks = [ "tmux source-file ~/.config/tmux/tmux.conf" ]
 [settings.dots]
 kitty = { source = "kitty/kitty.conf", target = ".config/kitty/kitty.conf" }
 kitty-theme = { source = "kitty/catppuccin-mocha.conf", target = ".config/kitty/catppuccin-mocha.conf" }
-zshrc = { source = "zshrc", target = ".zshrc" }
-zshenv = { source = "zshenv", target = ".zshenv" }
+zshrc = { source = "zsh/zshrc", target = ".zshrc" }
+zshenv = { source = "zsh/zshenv", target = ".zshenv" }
 fish = { source = "fish", target = ".config/fish" }
-starship = { source = "starship.toml", target = ".config/starship.toml" }
+starship = { source = "starship/starship.toml", target = ".config/starship.toml" }
 tmux = { source = "tmux", target = ".config/tmux" }
 nvim = { source = "nvim", target = ".config/nvim" }
-git = { source = "gitconfig", target = ".gitconfig" }
+git = { source = "git/gitconfig", target = ".gitconfig" }
 ssh = { source = "ssh/config", target = ".ssh/config" }
-dolphin = { source = "dolphinui.rc", target = ".local/share/kxmlgui5/dolphin/dolphinui.rc" }
-konsole = { source = "konsoleui.rc", target = ".local/share/kxmlgui5/konsole/konsoleui.rc" }
+dolphin = { source = "kde/dolphinui.rc", target = ".local/share/kxmlgui5/dolphin/dolphinui.rc" }
+konsole = { source = "kde/konsoleui.rc", target = ".local/share/kxmlgui5/konsole/konsoleui.rc" }
 scripts = { source = "scripts", target = ".config/scripts" }
 
 [profiles.gsr.dots]
@@ -31,32 +31,31 @@ wallpaper = { source = "wallpapers/ocean.jpg", target = "Pictures/wallpaper.jpg"
 
 # I'm unsure if linking from home is a good idea
 [profiles.sddm.dots]
-sddm = { source = "sddm.conf", target = "/etc/sddm.conf.d/configuration.conf" }
+sddm = { source = "kde/sddm.conf", target = "/etc/sddm.conf.d/configuration.conf" }
 
 [profiles.dunst.dots]
-dunst = { source = "tiling/dunstrc", target = ".config/dunst/dunstrc" }
+dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
 
 [profiles.rofi.dots]
-rofi = { source = "tiling/rofi.rasi", target = ".config/rofi/config.rasi" }
+rofi = { source = "rofi/rofi.rasi", target = ".config/rofi/config.rasi" }
 
 [profiles.tofi.dots]
-tofi = { source = "tiling/tofi", target = ".config/tofi/config" }
+tofi = { source = "tofi/tofi", target = ".config/tofi/config" }
 
 [profiles.swaylock.dots]
-swaylock = { source = "tiling/swaylock", target = ".config/sway-lock/config" }
+swaylock = { source = "swaylock/swaylock", target = ".config/sway-lock/config" }
 
 [profiles.swayidle.dots]
-swayidle = { source = "tiling/swayidle", target = ".config/swayidle/config" }
+swayidle = { source = "swayidle/swayidle", target = ".config/swayidle/config" }
 
 [profiles.waybar.dots]
-config = { source = "tiling/waybar/waybar", target = ".config/waybar/config" }
-style = { source = "tiling/waybar/waybar.css", target = ".config/waybar/style.css" }
+waybar = { source = "waybar", target = ".config/waybar" }
 
 [profiles.eww.dots]
-config = { source = "tiling/eww", target = ".config/eww" }
+config = { source = "eww", target = ".config/eww" }
 
 [profiles.hypr.dots]
-hyprland = { source = "tiling/hyprland", target = ".config/hypr" }
+hyprland = { source = "hyprland", target = ".config/hypr" }
 
 [profiles.hyprland]
 extra_profiles = ["dunst", "tofi", "rofi", "waybar", "eww", "swaylock", "swayidle", "hypr", "wallpaper", "gsr"]

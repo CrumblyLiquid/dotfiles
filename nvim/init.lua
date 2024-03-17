@@ -556,11 +556,13 @@ require('lazy').setup {
       local servers = {
         clangd = {
           -- Default formatting
+          --[[
           cmd = {
             'clangd',
             '--offset-encoding=utf-8',
             '--fallback-style="{BasedOnStyle: LLVM, IndentWidth: 4}"'
           },
+          ]]
         },
 
         -- gopls = {},
