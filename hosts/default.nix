@@ -56,21 +56,8 @@
 
     fzf
 
-    nil
-    lua-language-server
-    nixpkgs-fmt
-    rnix-lsp
-
     htop
     btop
-
-    gcc
-    clang
-    clang-tools
-    gnumake
-    rustup
-    cargo
-    python3
 
     firefox
     thunderbird
