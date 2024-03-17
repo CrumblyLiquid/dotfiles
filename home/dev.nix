@@ -22,6 +22,6 @@
   ];
 
   # home-manager.users."${globals.user}" = {
-  };
+  # };
 }
 

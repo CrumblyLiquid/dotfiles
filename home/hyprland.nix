@@ -54,18 +54,6 @@
         source = ./../scripts;
         recursive = true;
       };
-      ".config/scripts" = {
-        source = ./../scripts;
-        recursive = true;
-      };
-      ".config/sway-lock/config" = {
-        source = ./../swaylock/config;
-        recursive = true;
-      };
-      ".config/sway-lock/config" = {
-        source = ./../swaylock/config;
-        recursive = true;
-      };
     };
 
     wayland.windowManager.hyprland.enable = true;
