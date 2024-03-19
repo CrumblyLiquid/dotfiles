@@ -65,6 +65,7 @@
     kate
     filelight
     vlc
+    gimp
     gwenview
     keepassxc
     audacity
