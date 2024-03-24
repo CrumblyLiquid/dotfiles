@@ -5,14 +5,16 @@
     dynamips
     ubridge
     qemu
+    libvirt
+    kvmtool
   ];
 
   users.groups.ubridge = {
     members = [ "${globals.user}" ];
   };
 
-  security.wrappers.ubridge = {
-    source = "${pkgs.ubridge}/bin/ubridge";
+  security.wrappers."ubridge" = {
+    source = "${pkgs.ubridge.out}/bin/ubridge";
     capabilities = "cap_net_admin,cap_net_raw=ep";
     owner = "root";
     group = "ubridge";

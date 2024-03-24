@@ -4,7 +4,6 @@
     package = pkgs.wireshark;
   };
 
-
   users.groups.wireshark = {
     members = [ "${globals.user}" ];
   };
