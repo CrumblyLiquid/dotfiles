@@ -10,6 +10,7 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+    hyprpaper.url = "github:hyprwm/hyprpaper";
     # plasma-manager.url = "github:pjones/plasma-manager";
   };
 

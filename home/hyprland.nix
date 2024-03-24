@@ -6,8 +6,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    hyprland
-    hyprpaper
     xdg-utils
     dbus
     qt6Packages.qt6ct
@@ -33,8 +31,8 @@
     enable = true;
     wlr.enable = true;
     /* extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-hyprland
       pkgs.kdePackages.xdg-desktop-portal-kde
     ]; */
   };
@@ -42,6 +40,7 @@
   home-manager.users."${globals.user}" = {
     imports = [
       inputs.hyprland.homeManagerModules.default
+      inputs.hyprpaper.homeManagerModules.default
     ];
 
     home.sessionVariables = {
