@@ -32,9 +32,9 @@
   };
 
   home-manager.users."${globals.user}" = {
+    xdg.configFile."wallpaper" = { source = globals.wallpaper; };
 
     home.packages = with pkgs; [ ];
-
     home.file = { };
 
     # Let Home Manager install and manage itself.

@@ -75,11 +75,7 @@
 
     home.file = {
       ".config/hypr/hyprpaper.conf" = {
-        text = ''
-          preload = ${globals.wallpaper}
-          wallpaper = ,${globals.wallpaper}
-          splash = false
-        '';
+        source = ./../hypr/hyprpaper.conf;
       };
       /* ".config/hypr/hyprland.conf" = {
         source = ./../hypr/hyprland.conf;
