@@ -50,6 +50,15 @@
       NIXOS_OZONE_WL = "1";
     };
 
+    qt = {
+      enable = true;
+      platformTheme = "qtct";
+      style = {
+        package = pkgs.kdePackages.breeze;
+        name = "breeze-dark";
+      };
+    };
+
     home.pointerCursor = {
       gtk.enable = true;
       x11.enable = true;
