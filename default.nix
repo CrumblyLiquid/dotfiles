@@ -80,6 +80,7 @@
     zip
     unzip
 
+    bat
     fzf
     procps
 
@@ -88,12 +89,19 @@
 
     firefox
     thunderbird
-    dolphin
-    kate
-    filelight
+    kdePackages.dolphin
+    kdePackages.dolphin-plugins
+    kdePackages.ark
+    kdePackages.karchive
+    kdePackages.kate
+    kdePackages.filelight
+    kdePackages.gwenview
+    kdePackages.bluez-qt
+    kdePackages.breeze
+    kdePackages.breeze-gtk
+    kdePackages.breeze-icons
     vlc
     gimp
-    gwenview
     keepassxc
     audacity
     obs-studio
