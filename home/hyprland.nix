@@ -6,6 +6,8 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    hyprland
+    hyprpaper
     xdg-utils
     dbus
     qt6Packages.qt6ct
