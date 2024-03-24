@@ -32,7 +32,7 @@
   };
 
   home-manager.users."${globals.user}" = {
-    xdg.configFile."wallpaper" = { source = globals.wallpaper; };
+    xdg.configFile."wallpaper.png" = { source = globals.wallpaper; };
 
     home.packages = with pkgs; [ ];
     home.file = { };

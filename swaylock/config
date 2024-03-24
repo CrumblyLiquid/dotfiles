@@ -1,7 +1,7 @@
 ignore-empty-password
 font=monospace
 
-image=~/.config/wallpaper
+image=~/.config/wallpaper.png
 
 clock
 datestr=%d.%m.%Y
