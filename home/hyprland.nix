@@ -133,16 +133,16 @@
         ];
 
         env = [
-          "XDG_CURRENT_DESKTOP = Hyprland"
-          "XDG_SESSION_DESKTOP = Hyprland"
-          "XDG_SESSION_TYPE = wayland"
-          "GDK_BACKEND = wayland"
-          "GTK_USE_PORTAL = 1"
-          "QT_QPA_PLATFORMTHEME = qt6ct"
-          "QT_QPA_PLATFORM = wayland"
-          "QT_WAYLAND_DISABLE_WINDOWDECORATION = 1"
-          "QT_AUTO_SCREEN_SCALE_FACTOR = 1"
-          "MOZ_ENABLE_WAYLAND = 1"
+          "XDG_CURRENT_DESKTOP,Hyprland"
+          "XDG_SESSION_DESKTOP,Hyprland"
+          "XDG_SESSION_TYPE,wayland"
+          "GDK_BACKEND,wayland"
+          "GTK_USE_PORTAL,1"
+          "QT_QPA_PLATFORMTHEME,qt6ct"
+          "QT_QPA_PLATFORM,wayland"
+          "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+          "QT_AUTO_SCREEN_SCALE_FACTOR,1"
+          "MOZ_ENABLE_WAYLAND,1"
           # https://wiki.hyprland.org/Configuring/Tearing/
           "WLR_DRM_NO_ATOMIC,1"
           # "WLR_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
