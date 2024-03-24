@@ -81,6 +81,7 @@
     unzip
 
     fzf
+    procps
 
     htop
     btop
@@ -95,6 +96,7 @@
     gwenview
     keepassxc
     audacity
+    obs-studio
 
     logisim-evolution
     # mathematica
@@ -103,6 +105,9 @@
   fonts.packages = with pkgs; [
     nerdfonts
     meslo-lgs-nf
+    noto-fonts
+    noto-fonts-emoji
+    font-awesome
   ];
 
   programs.gnupg.agent = {
