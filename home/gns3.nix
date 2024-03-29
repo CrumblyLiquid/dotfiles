@@ -7,6 +7,7 @@
     qemu
     libvirt
     kvmtool
+    inetutils
   ];
 
   users.groups.ubridge = {
