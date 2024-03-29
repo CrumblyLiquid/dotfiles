@@ -23,6 +23,7 @@
     ./virtmanager.nix
     ./syncthing.nix
     ./dev.nix
+    ./sound.nix
   ];
 
   home-manager = {
