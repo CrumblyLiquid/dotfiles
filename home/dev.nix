@@ -10,6 +10,19 @@
     gnumake
     gdb
 
+    avrdude
+    avrdudess
+    avra
+    avro-c
+    avr-sim
+    avro-cpp
+    avro-tools
+    # gavrasm
+    # simavr
+    openjdk8
+    openjdk17
+    openjdk19
+
     rustup
     cargo
 
