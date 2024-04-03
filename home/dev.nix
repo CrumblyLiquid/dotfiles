@@ -33,6 +33,8 @@
     nixpkgs-fmt
     rnix-lsp
 
+    jetbrains.datagrip
+    jetbrains.clion
   ];
 
   # home-manager.users."${globals.user}" = {
