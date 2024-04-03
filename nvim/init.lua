@@ -886,6 +886,9 @@ require('lazy').setup {
 
       -- Add your own debuggers here
       'leoluz/nvim-dap-go',
+
+      -- Async library
+      'nvim-neotest/nvim-nio',
     },
     config = function()
       local dap = require 'dap'
@@ -904,7 +907,6 @@ require('lazy').setup {
         -- online, please don't ask me how to install them :)
         ensure_installed = {
           -- Update this to ensure that you have the debuggers for the langs you want
-          'delve',
         },
       }
 
