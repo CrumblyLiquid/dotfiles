@@ -24,6 +24,7 @@
     ./syncthing.nix
     ./dev.nix
     ./sound.nix
+    ./fun.nix
   ];
 
   home-manager = {
