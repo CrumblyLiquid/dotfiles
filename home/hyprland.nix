@@ -32,11 +32,12 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    /* extraPortals = [
+    extraPortals = [
       pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-hyprland
       pkgs.kdePackages.xdg-desktop-portal-kde
-    ]; */
+    ];
   };
 
   home-manager.users."${globals.user}" = {
