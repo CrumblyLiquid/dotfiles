@@ -10,6 +10,8 @@
     gnumake
     gdb
 
+    nmap
+
     avrdude
     avrdudess
     avra
@@ -22,6 +24,7 @@
     openjdk8
     openjdk17
     openjdk19
+    ghidra
 
     rustup
     cargo
