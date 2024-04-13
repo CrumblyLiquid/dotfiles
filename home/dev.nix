@@ -9,6 +9,9 @@
     clang-tools
     gnumake
     gdb
+    ripgrep
+    eza
+    bat
 
     nmap
 
