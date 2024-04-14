@@ -9,6 +9,7 @@
     clang-tools
     gnumake
     gdb
+    busybox
     ripgrep
     eza
     bat
