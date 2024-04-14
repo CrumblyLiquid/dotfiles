@@ -1,16 +1,4 @@
 --[[
-What is Kickstart?
-
-  Kickstart.nvim is *not* a distribution.
-
-  Kickstart.nvim is a starting point for your own configuration.
-    The goal is that you can read every line of code, top-to-bottom, understand
-    what your configuration is doing, and modify it to suit your needs.
-
-    Once you've done that, you can start exploring, configuring and tinkering to
-    make Neovim your own! That might mean leaving kickstart just the way it is for a while
-    or immediately breaking it into modular pieces. It's up to you!
-
     If you don't know anything about Lua, I recommend taking some time to read through
     a guide. One possible example which will only take 10-15 minutes:
       - https://learnxinyminutes.com/docs/lua/
@@ -24,36 +12,10 @@ Kickstart Guide:
 
   TODO: The very first thing you should do is to run the command `:Tutor` in Neovim.
 
-    If you don't know what this means, type the following:
-      - <escape key>
-      - :
-      - Tutor
-      - <enter key>
-
-    (If you already know how the Neovim basics, you can skip this step)
-
-  Once you've completed that, you can continue working through **AND READING** the rest
-  of the kickstart init.lua
-
   Next, run AND READ `:help`.
-    This will open up a help window with some basic information
-    about reading, navigating and searching the builtin help documentation.
 
-    This should be the first place you go to look when you're stuck or confused
-    with something. It's one of my favorite neovim features.
-
-    MOST IMPORTANTLY, we provide a keymap "<space>sh" to [s]earch the [h]elp documentation,
-    which is very useful when you're not sure exactly what you're looking for.
-
-  I have left several `:help X` comments throughout the init.lua
-    These are hints about where to find more information about the relevant settings,
-    plugins or neovim features used in kickstart.
-
-   NOTE: Look for lines like this
-
-    Throughout the file. These are for you, the reader, to help understand what is happening.
-    Feel free to delete them once you know what you're doing, but they should serve as a guide
-    for when you are first encountering a few different constructs in your nvim config.
+  MOST IMPORTANTLY, we provide a keymap "<space>sh" to [s]earch the [h]elp documentation,
+  which is very useful when you're not sure exactly what you're looking for.
 
 If you experience any errors while trying to install kickstart, run `:checkhealth` for more info
 
@@ -289,10 +251,80 @@ require("lazy").setup({
 				["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
 				-- ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
 				["<leader>f"] = { name = "[F]iles", _ = "which_key_ignore" },
+				["<leader>k"] = { name = "Harpoon", _ = "which_key_ignore" },
 			})
 		end,
 	},
+	{
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+		config = function()
+			local harpoon = require("harpoon")
+			harpoon:setup()
 
+			local conf = require("telescope.config").values
+			local function toggle_telescope(harpoon_files)
+				local file_paths = {}
+				for _, item in ipairs(harpoon_files.items) do
+					table.insert(file_paths, item.value)
+				end
+
+				require("telescope.pickers")
+					.new({}, {
+						prompt_title = "Harpoon",
+						finder = require("telescope.finders").new_table({
+							results = file_paths,
+						}),
+						previewer = conf.file_previewer({}),
+						sorter = conf.generic_sorter({}),
+					})
+					:find()
+			end
+
+			vim.keymap.set("n", "<leader>ka", function()
+				harpoon:list():add()
+				print("Added buffer to Harpoon list")
+			end, { desc = "Add buffer to Harpoon" })
+
+			vim.keymap.set("n", "<leader>kr", function()
+				harpoon:list():remove()
+				print("Removed buffer from Harpoon list")
+			end, { desc = "Remove buffer from Harpoon" })
+
+			vim.keymap.set("n", "<leader>j", function()
+				harpoon.ui:toggle_quick_menu(harpoon:list())
+			end, { desc = "Open Harpoon window" })
+
+			vim.keymap.set("n", "<leader>kj", function()
+				toggle_telescope(harpoon:list())
+			end, { desc = "Open Harpoon window" })
+
+			vim.keymap.set("n", "<C-j>", function()
+				harpoon:list():select(1)
+			end)
+			vim.keymap.set("n", "<C-k>", function()
+				harpoon:list():select(2)
+			end)
+			vim.keymap.set("n", "<C-l>", function()
+				harpoon:list():select(3)
+			end)
+			vim.keymap.set("n", "<C-;>", function()
+				harpoon:list():select(4)
+			end)
+
+			-- Toggle previous & next buffers stored within Harpoon list
+			vim.keymap.set("n", "<C-S-P>", function()
+				harpoon:list():prev()
+			end)
+			vim.keymap.set("n", "<C-S-N>", function()
+				harpoon:list():next()
+			end)
+		end,
+	},
 	-- Fuzzy Finder (files, lsp, etc)
 	{
 		"nvim-telescope/telescope.nvim",
