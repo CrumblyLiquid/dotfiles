@@ -107,8 +107,8 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Write" })
 vim.keymap.set("n", "<leader>q", "<cmd>confirm q<CR>", { desc = "Quit" })
 
-vim.keymap.set("i", "<leader>o", "<Esc>")
-vim.keymap.set("v", "<leader>o", "<Esc>")
+--[[ vim.keymap.set("i", "<leader>o", "<Esc>")
+vim.keymap.set("v", "<leader>o", "<Esc>") ]]
 
 -- Open and close the Netrw file explorer
 vim.keymap.set("n", "<leader>fe", vim.cmd.Explore, { desc = "Open explorer" })
