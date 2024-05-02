@@ -2,6 +2,9 @@
 {
   # environment.enableDebugInfo = true;
   environment.systemPackages = with pkgs; [
+    anki-bin
+    aseprite
+
     neovim
     git
     gcc
