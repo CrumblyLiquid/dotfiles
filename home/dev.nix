@@ -17,6 +17,9 @@
     eza
     bat
 
+    nodejs
+    libpng
+
     nmap
 
     avrdude
