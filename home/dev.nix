@@ -4,6 +4,8 @@
   environment.systemPackages = with pkgs; [
     anki-bin
     aseprite
+    libreoffice-qt
+    hunspell
 
     neovim
     git
@@ -19,6 +21,13 @@
 
     nodejs
     libpng
+    libxkbcommon
+    libGL
+    wayland
+    xorg.libX11
+    xorg.libXcursor
+    xorg.libXrandr
+    xorg.libXi
 
     nmap
 
