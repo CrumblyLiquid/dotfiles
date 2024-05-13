@@ -1,0 +1,90 @@
+@define-color secondary #181825;
+@define-color primary #1e1e2e;
+/* @define-color primary #292b2e;
+@define-color secondary #1a1a1a; */
+
+* {
+    font-size: 22px;
+    font-family: monospace;
+}
+
+window#waybar {
+    background: @primary;
+}
+
+#custom-right-arrow-dark,
+#custom-right-arrow-light,
+#custom-left-arrow-dark,
+#custom-left-arrow-light {
+    font-size: 42;
+}
+
+#custom-right-arrow-dark,
+#custom-right-arrow-light {
+    padding-right: 10px;
+}
+
+#custom-left-arrow-dark,
+#custom-left-arrow-light {
+    padding-left: 10px;
+}
+
+#custom-right-arrow-dark,
+#custom-left-arrow-dark {
+    color: @secondary;
+}
+#custom-right-arrow-light,
+#custom-left-arrow-light {
+    color: @primary;
+    background: @secondary;
+}
+
+#workspaces,
+#window,
+#clock,
+#pulseaudio,
+#backlight,
+#language,
+#network,
+#memory,
+#cpu,
+#keyboard-state,
+#temperature,
+#battery,
+#disk,
+#tray {
+    background: @secondary;
+}
+
+#workspaces {
+    padding-left: 10px;
+}
+
+#workspaces button {
+    padding: 0 2px;
+    margin: 6px 0px;
+    color: #fdf6e3;
+}
+
+#workspaces button.active {
+    color: #89b4fa;
+    background: @primary;
+}
+
+#workspaces button.urgent {
+    color: #ec3939;
+}
+
+#clock,
+#workspaces,
+#keyboard-state,
+#language,
+#pulseaudio,
+#memory,
+#cpu,
+#temperature,
+#network,
+#battery,
+#disk {
+    padding: 0 10px;
+}

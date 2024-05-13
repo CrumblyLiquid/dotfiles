@@ -14,6 +14,16 @@
 
   time.timeZone = "Europe/Prague";
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.supportedLocales = [
+    "C.UTF-8/UTF-8"
+    "en_US.UTF-8/UTF-8"
+    "cs_CZ.UTF-8/UTF-8"
+  ];
+  i18n.extraLocaleSettings = {
+    LC_TIME = "cs_CZ.UTF-8";
+    LC_MONETARY = "cs_CZ.UTF-8";
+  };
+
 
   services.xserver = {
     enable = true;
@@ -89,7 +99,7 @@
 
   users.users.crumbly = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "input" ];
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };

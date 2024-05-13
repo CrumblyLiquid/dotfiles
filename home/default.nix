@@ -13,6 +13,7 @@
     ./hyprland.nix
     ./tofi.nix
     ./eww.nix
+    ./waybar.nix
     ./firefox.nix
     ./spotify.nix
     ./steam.nix
