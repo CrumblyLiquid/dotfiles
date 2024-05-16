@@ -1,34 +1,72 @@
 # Enable Starship prompt
 eval "$(starship init zsh)"
 # Initialize zoxide
-eval "$(zoxide init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+# Fzf integration
+eval "$(fzf --zsh)"
+
+# Inspired by https://www.youtube.com/watch?v=ud7YxC33Z3w
+# Plugin manager
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit.zinit.git"
+
+if [ ! -d "$ZINIT_HOME" ]; then
+    mkdir -p "$(dirname $ZINIT_HOME)"
+    git clone https://github.com/zdharma-continuum/zinit "$ZINIT_HOME"
+fi
+
+# Load plugin manager
+source "${ZINIT_HOME}/zinit.zsh"
+
+# Plugins
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+# OMZ pluggins
+zinit snippet OMZP::git
+zinit snippet OMZP::command-not-found
+
+# Load completions
+autoload -U compinit && compinit
+# Replay cached completions
+zinit cdreplay -q
+
+# Keybindings
+# Set keybindings to Emacs mode
+bindkey -e
+
+# Forward and backward searching in history
+# with something typed in
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+
+# History
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=$HISTSIZE
+# No duplicates
+HISTDUP=erase
+# Don't overwrite history
+setopt appendhistory
+# Share history between terminal sessions
+setopt sharehistory
+# Commands that start with a space won't be saved to history
+setopt hist_ignore_space
+# Ignore duplicates in search and don't save them
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_find_no_dups
+
+# Completion styling
+# Match lower case characters to upper case characters
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Enable 256-color mode
 export TERM="xterm-256color"
-
-# Configure oh-my-zsh
-ZSH="/usr/share/oh-my-zsh/"
-zstyle ':omz:update' mode disabled
-
-# Cache
-ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
-if [[ ! -d $ZSH_CACHE_DIR ]]; then
-    mkdir $ZSH_CACHE_DIR
-fi
-
-# Plugins
-plugins=(git ripgrep rust python)
-
-# Plugins from Arch Linux repositories
-# TODO: Migrate oh-my-zsh plugins to some plugin manager
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Run oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-
-# neovim-symlinks AUR package can be used insted
-# alias vim="nvim"
 
 # Go up certain amount of directories
 up () {
@@ -48,7 +86,7 @@ up () {
 }
 
 # Git
-# Not needed for now because of oh-my-zsh
+# Not needed for now because of OMZ git plugin
 #for al in `git --list-cmds=alias`; do
 #    alias g$al="git $al"
 #done
@@ -61,18 +99,13 @@ alias dotfiles="cd ~/.dotfiles"
 alias dots=dotfiles
 
 # List files
-alias ls="eza --icons"
+alias ls="eza --icons=auto"
 alias ll="ls -alh"
 alias sl="sl -e"
 
 alias gpp="g++"
 alias gppwp="g++ -Wall -pedantic"
+alias gppwpa="g++ -Wall -pedantic -fsanitize=address"
 
 alias vim="nvim"
 alias nv="nvim"
-
-run () {
-    g++ -std=c++17 -Wall -pedantic -Wno-long-long -O2 -o "$1.bin" "$1.c";
-    chmod +x "./$1.bin";
-    ./"$1.bin";
-}
