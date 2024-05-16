@@ -3,7 +3,7 @@
     "layer": "top",
     "position": "top",
 
-    "height": 42, // Waybar height (to be removed for auto height)
+    "height": 45, // Waybar height (to be removed for auto height)
     // "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
@@ -32,8 +32,11 @@
         "custom/left-arrow-light",
         "custom/left-arrow-dark",
         "cpu",
+        "custom/separator",
         "memory",
+        "custom/separator",
         "temperature",
+        "battery#sep",
         "battery",
         "custom/left-arrow-light",
         "custom/left-arrow-dark",
@@ -51,7 +54,10 @@
             "clock#2"
         ]
     },
-
+    "custom/separator": {
+        "format": "|",
+        "tooltip": false
+    },
     "custom/left-arrow-dark": {
         "format": "",
         "tooltip": false
@@ -91,25 +97,22 @@
         // "icon-size": 21,
         "spacing": 10
     },
-    "clock": {
-        "interval": 1,
-        "timezone": "Europe/Prague",
-        "tooltip-format": "<big>{:%d.%m. %Y}</big>\n<tt><small>{calendar}</small></tt>",
-    },
     "clock#1": {
+        "interval": 1,
         "format": "{:%H:%M:%S}",
         "tooltip-format": "<big>{:%d.%m. %Y}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "clock#2": {
+        "interval": 60,
         "format": "{:%d.%m. %Y}",
         "tooltip-format": "<big>{:%d.%m. %Y}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "cpu": {
-        "format": "{usage}% |",
+        "format": "{usage}%",
         "tooltip": false
     },
     "memory": {
-        "format": "{used} GiB |"
+        "format": "{used} GiB"
     },
 
     "temperature": {
@@ -126,6 +129,10 @@
         // "device": "acpi_video1",
         "format": "{percent}% {icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery#sep": {
+        "format": "|",
+        "tooltip": false
     },
     "battery": {
         "states": {
@@ -193,6 +200,5 @@
         "format": "{}",
         "format-en": "en",
         "format-cs": "cs",
-        "keyboard-name": "keychron-keychron-k8-pro-keyboard"
     }
 }

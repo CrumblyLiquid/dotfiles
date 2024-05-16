@@ -1,11 +1,13 @@
 @define-color secondary #181825;
 @define-color primary #1e1e2e;
+@define-color text #fdf6e3;
 /* @define-color primary #292b2e;
 @define-color secondary #1a1a1a; */
 
 * {
     font-size: 22px;
     font-family: monospace;
+    color: @text;
 }
 
 window#waybar {
@@ -16,7 +18,7 @@ window#waybar {
 #custom-right-arrow-light,
 #custom-left-arrow-dark,
 #custom-left-arrow-light {
-    font-size: 42;
+    font-size: 45px;
 }
 
 #custom-right-arrow-dark,
@@ -41,7 +43,7 @@ window#waybar {
 
 #workspaces,
 #window,
-#clock,
+#time,
 #pulseaudio,
 #backlight,
 #language,
@@ -63,7 +65,7 @@ window#waybar {
 #workspaces button {
     padding: 0 2px;
     margin: 6px 0px;
-    color: #fdf6e3;
+/*     color: #fdf6e3; */
 }
 
 #workspaces button.active {
@@ -75,16 +77,23 @@ window#waybar {
     color: #ec3939;
 }
 
-#clock,
+
+#separator, #sep {
+    color: @primary;
+    background: @secondary;
+}
+
 #workspaces,
 #keyboard-state,
 #language,
 #pulseaudio,
-#memory,
-#cpu,
-#temperature,
+#backlight,
+#window,
 #network,
+#cpu,
+#memory,
+#temperature,
 #battery,
-#disk {
-    padding: 0 10px;
+#time {
+    padding: 0 12px;
 }
