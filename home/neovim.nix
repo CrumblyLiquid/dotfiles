@@ -9,14 +9,17 @@
       vimdiffAlias = true;
 
       defaultEditor = true;
-
-      extraLuaConfig = ''
-        ${builtins.readFile ./../nvim/init.lua}
-      '';
     };
 
     programs.zsh.shellAliases = {
       nv = "nvim";
+    };
+
+    home.file = {
+      ".config/nvim" = {
+        source = ./../nvim;
+        recursive = true;
+      };
     };
   };
 }

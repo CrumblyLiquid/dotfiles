@@ -11,10 +11,10 @@ return {
     },
     config = function()
       local dap = require("dap")
+
       local ui = require("dapui")
 
       require("dapui").setup()
-      require("dap-go").setup()
       require("nvim-dap-virtual-text").setup({})
 
       require("mason-nvim-dap").setup({
@@ -24,6 +24,18 @@ return {
           "cpptools",
         },
       })
+
+      dap.adapters.lldb = {
+        type = "executable",
+        command = "lldb",
+        name = "lldb"
+      }
+
+      dap.adapters.gdb = {
+        type = "executable",
+        command = "gdb",
+        name = "gdb"
+      }
 
       -- Basic debugging keymaps, feel free to change to your liking!
       vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debug: Start/Continue" })
@@ -36,7 +48,7 @@ return {
       vim.keymap.set("n", "<leader>B", function()
         dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
       end, { desc = "Debug: Set Breakpoint" })
-      vim.keymap.set("n", "<space>gb", dap.run_to_cursor, { des = "Run to cursor" })
+      vim.keymap.set("n", "<space>gb", dap.run_to_cursor, { desc = "Run to cursor" })
 
       -- Eval var under cursor
       vim.keymap.set("n", "<space>?", function()

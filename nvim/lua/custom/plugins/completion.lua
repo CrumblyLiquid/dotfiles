@@ -12,38 +12,42 @@ return {
     },
     config = function()
       vim.opt.completeopt = { "menu", "menuone", "noselect" }
-      vim.opt.shortmes:append("c")
+      vim.opt.shortmess:append("c")
 
       local lspkind = require("lspkind")
       lspkind.init({})
 
       -- Luasnip config below
       local luasnip = require("luasnip")
+
+      luasnip.config.set_config({
+        history = false,
+        updateevents = "TextChanged,TextChangedI",
+      })
+
+      -- Load snippets
+      for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/custom/snippets/*.lua", true)) do
+        loadfile(ft_path)()
+      end
+
       local cmp = require("cmp")
+
       cmp.setup({
         sources = {
           { name = "nvim_lsp" },
-          { name = "luasnip" },
           { name = "buffer" },
           { name = "path" },
         },
+        snippet = {
+          expand = function(args)
+            luasnip.lsp_expand(args.body)
+          end,
+        },
         mapping = cmp.mapping.preset.insert({
-          snippet = {
-            expand = function(args)
-              luasnip.lsp_expand(args.body)
-            end,
-          },
+          ["<C-n>"] = cmp.mapping.select_next_item(),
+          ["<C-p>"] = cmp.mapping.select_prev_item(),
 
-          ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-          ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-
-          ["<C-Space>"] = cmp.mapping(
-            cmp.mapping.confirm({
-              behavior = cmp.ConfirmBehavior.Insert,
-              select = true,
-            }),
-            { "i", "c" }
-          ),
+          ["<C-Space>"] = cmp.mapping.confirm({select = true}),
 
           -- Manually trigger a completion from nvim-cmp
           ["<C-y>"] = cmp.mapping.complete({}),
@@ -62,16 +66,6 @@ return {
           end, { "i", "s" }),
         }),
       })
-
-      luasnip.config.set_config({
-        history = false,
-        updateevents = "TextChanged,TextChangedI",
-      })
-
-      -- Load snippets
-      for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/custom/snippets/*.lua", true)) do
-        loadfile(ft_path)()
-      end
     end,
   },
 }
