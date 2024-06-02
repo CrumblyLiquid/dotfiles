@@ -18,9 +18,23 @@
     ripgrep
     eza
     bat
+    tree-sitter
+    lldb
+    fzf
+    dig
+    outils
+    bvi
+    pwntools
+    rsbkb
+    p7zip
+
+    virtualbox
 
     nodejs
     libpng
+    libjpeg
+    doxygen
+    graphviz
     libxkbcommon
     libGL
     wayland
