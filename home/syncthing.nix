@@ -29,6 +29,10 @@
           path = "/home/${globals.user}/School";
           devices = [ "laptop" "mobile" ];
         };
+        "Pictures" = {
+          path = "/home/${globals.user}/Pictures";
+          devices = [ "mobile" ];
+        };
       };
     };
   };

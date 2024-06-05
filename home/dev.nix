@@ -56,7 +56,7 @@
     # simavr
     openjdk8
     openjdk17
-    openjdk19
+    openjdk22
     ghidra
 
     rustup
@@ -67,7 +67,6 @@
     nil
     lua-language-server
     nixpkgs-fmt
-    rnix-lsp
 
     jetbrains.datagrip
     jetbrains.clion

@@ -43,7 +43,6 @@
   home-manager.users."${globals.user}" = {
     imports = [
       inputs.hyprland.homeManagerModules.default
-      inputs.hyprpaper.homeManagerModules.default
     ];
 
     home.sessionVariables = {
@@ -53,7 +52,7 @@
 
     qt = {
       enable = true;
-      platformTheme = "qtct";
+      platformTheme.name = "qtct";
       style = {
         package = pkgs.kdePackages.breeze;
         name = "breeze-dark";

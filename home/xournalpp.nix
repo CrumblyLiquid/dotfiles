@@ -1,6 +1,8 @@
 { globals, pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     xournalpp
+    # Fix crashes
+    gnome.adwaita-icon-theme
   ];
 
   home-manager.users."${globals.user}" = {

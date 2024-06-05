@@ -10,7 +10,7 @@
   networking.networkmanager.enable = true;
 
   # Enable touchpad support (+ tablet support)
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   time.timeZone = "Europe/Prague";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -24,18 +24,17 @@
     LC_MONETARY = "cs_CZ.UTF-8";
   };
 
-
   services.xserver = {
     enable = true;
 
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
-    desktopManager.plasma6.enable = true;
-
     # Configure keymap in X11
     xkb.layout = "us";
+  };
+
+  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
   };
 
   # Printing
@@ -103,17 +102,6 @@
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
-
-  /*
-    environment.sessionVariables = {
-    XDG_CACHE_HOME = "$HOME/.cache";
-    XDG_CONFIG_DIRS = "/etc/xdg";
-    XDG_CONFIG_HOME = "$HOME/.config";
-    XDG_DATA_DIRS = "/usr/local/share/:/usr/share/";
-    XDG_DATA_HOME = "$HOME/.local/share";
-    XDG_STATE_HOME = "$HOME/.local/state";
-    };
-  */
 
   # Fix running dynamically linked binaries
   programs.nix-ld = {

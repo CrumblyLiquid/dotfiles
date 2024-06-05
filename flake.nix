@@ -9,8 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprpaper.url = "github:hyprwm/hyprpaper";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     # plasma-manager.url = "github:pjones/plasma-manager";
   };
 
