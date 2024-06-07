@@ -25,6 +25,7 @@
     ./syncthing.nix
     ./dev.nix
     ./sound.nix
+    ./keyboard.nix
     ./fun.nix
   ];
 
