@@ -8,7 +8,7 @@
     via
   ];
 
-  service.udev.packages = [ pkgs.via ];
+  services.udev.packages = [ pkgs.via ];
 }
 
 

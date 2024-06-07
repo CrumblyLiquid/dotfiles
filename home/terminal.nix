@@ -14,7 +14,7 @@
     outils
     bvi # Binary Visual Editor
     pwntools
-    rsbkp
+    rsbkb
     p7zip
     nmap
 
