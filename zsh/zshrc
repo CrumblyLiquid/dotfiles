@@ -33,7 +33,7 @@ zinit cdreplay -q
 
 # Keybindings
 # Set keybindings to Emacs mode
-bindkey -e
+# bindkey -e
 
 # Forward and backward searching in history
 # with something typed in
@@ -109,3 +109,5 @@ alias gppwpa="g++ -Wall -pedantic -fsanitize=address"
 
 alias vim="nvim"
 alias nv="nvim"
+
+alias cat="bat"
