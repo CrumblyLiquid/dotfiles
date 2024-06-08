@@ -1,10 +1,9 @@
 { config, pkgs, ... }:
 {
-  programs.plasma = {
-    workspace = {
-      them = "breeze-dark";
-      colorScheme = "BreezeDark";
-    };
-  };
+  services.desktopManager.plasma6.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    libsForQt5.polonium
+  ];
 }
 

@@ -3,7 +3,7 @@
 {
   imports = [
     inputs.home-manager.nixosModules.default
-    # ./plasma.nix
+    ./plasma.nix
     ./terminal.nix
     ./kitty.nix
     ./zsh.nix
@@ -11,8 +11,12 @@
     ./neovim.nix
     ./tmux.nix
     ./hyprland.nix
+    ./apps.nix
     ./tofi.nix
     ./eww.nix
+    ./dunst.nix
+    ./swayidle.nix
+    ./swaylock.nix
     ./waybar.nix
     ./firefox.nix
     ./spotify.nix
