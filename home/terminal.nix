@@ -6,6 +6,8 @@
     fd
     busybox
     ripgrep
+    htop # Better top
+    btop # Even better top
 
     eza # Better ls
     bat # Better cat
@@ -16,6 +18,11 @@
     pwntools
     rsbkb
     p7zip
+    zip
+    unzip
+    curl
+    wget
+    git
     nmap
 
     tldr # Community maintained man pages

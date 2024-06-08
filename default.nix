@@ -26,7 +26,6 @@
 
   services.xserver = {
     enable = true;
-
     # Configure keymap in X11
     xkb.layout = "us";
   };
@@ -40,47 +39,15 @@
   # Printing
   services.printing.enable = true;
 
-
   services.flatpak.enable = true;
 
   environment.systemPackages = with pkgs; [
     vim
-
     git
     wget
     curl
-
     zip
     unzip
-
-    bat
-    fzf
-    procps
-
-    htop
-    btop
-
-    firefox
-    thunderbird
-    kdePackages.dolphin
-    kdePackages.dolphin-plugins
-    kdePackages.ark
-    kdePackages.karchive
-    kdePackages.kate
-    kdePackages.filelight
-    kdePackages.gwenview
-    kdePackages.bluez-qt
-    kdePackages.breeze
-    kdePackages.breeze-gtk
-    kdePackages.breeze-icons
-    vlc
-    gimp
-    keepassxc
-    audacity
-    obs-studio
-
-    logisim-evolution
-    # mathematica
   ];
 
   fonts.packages = with pkgs; [
