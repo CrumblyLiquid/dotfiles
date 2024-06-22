@@ -7,7 +7,7 @@
     gnumake
 
     # Editors
-    jetbrains.datagrip
+    # jetbrains.datagrip
     jetbrains.clion
 
     # Neovim stuff
@@ -23,7 +23,7 @@
     gdb
 
     # https://github.com/cyrus-and/gdb-dashboard
-    python311Packages.pygments
+    # python311Packages.pygments
 
     tree-sitter
     lldb

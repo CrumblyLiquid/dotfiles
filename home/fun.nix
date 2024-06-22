@@ -2,8 +2,8 @@
 {
   # environment.enableDebugInfo = true;
   environment.systemPackages = with pkgs; [
-    aseprite # Pixel art
-    vmpk # Virtual piano
+    # aseprite # Pixel art
+    # vmpk # Virtual piano
   ];
 
   # home-manager.users."${globals.user}" = {
