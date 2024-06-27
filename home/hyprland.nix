@@ -138,7 +138,7 @@
         ];
 
         exec-once = [
-          "exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE"
+          "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE"
           "hyprpaper"
           "dunst"
           "waybar"
@@ -150,15 +150,26 @@
           "XDG_CURRENT_DESKTOP,Hyprland"
           "XDG_SESSION_DESKTOP,Hyprland"
           "XDG_SESSION_TYPE,wayland"
+
+          "SDL_VIDEODRIVER,wayland"
+
           "GDK_BACKEND,wayland"
           "GTK_USE_PORTAL,1"
+
           "QT_QPA_PLATFORMTHEME,qt6ct"
           "QT_QPA_PLATFORM,wayland"
           "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
           "QT_AUTO_SCREEN_SCALE_FACTOR,1"
-          "MOZ_ENABLE_WAYLAND,1"
+
+          # Wayland support should be enabled by default
+          # "MOZ_ENABLE_WAYLAND,1"
+
           # https://wiki.hyprland.org/Configuring/Tearing/
+          # Not needed for kernel ver >= 6.8
+          # but not supported in amdgpu yet
+          # https://github.com/hyprwm/Hyprland/issues/5103
           "WLR_DRM_NO_ATOMIC,1"
+
           # "WLR_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
         ];
 
