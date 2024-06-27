@@ -10,9 +10,18 @@
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  services.xserver.videoDrivers = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+
+  hardware.graphics = {
+    # Enable OpenCL
+    extraPackages = with pkgs; [
+      rocmPackages.clr.icd
+    ];
+    enable32Bit = true;
+  };
 
   fileSystems."/" =
     {
