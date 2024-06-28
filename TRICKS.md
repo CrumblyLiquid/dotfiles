@@ -16,7 +16,9 @@ Source: https://www.reddit.com/r/linux_gaming/comments/1ap67bh/counterstrike_2_h
 Caused by CARGO_HOME and RUSTUP_HOME environment variables being set wrong
 (to `/cargo` and `/rustup`)
 
-I'm not sure yet but this is probably specific to NixOS
+That was caused by the XDG environment variables not being set
+but `CARGO_HOME` and `RUSTUP_HOME` were set to
+`"$XDG_DATA_HOME"/cargo` or `rustup`
 
 # Observations
 
