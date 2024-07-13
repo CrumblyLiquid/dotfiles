@@ -8,7 +8,7 @@ posthooks = [ "tmux source-file ~/.config/tmux/tmux.conf" ]
 [settings.dots]
 kitty = { source = "kitty/kitty.conf", target = ".config/kitty/kitty.conf" }
 kitty-theme = { source = "kitty/catppuccin-mocha.conf", target = ".config/kitty/catppuccin-mocha.conf" }
-zshrc = { source = "zsh/zshrc", target = ".zshrc" }
+zshrc = { source = "zsh/zshrc", target = ".config/.zshrc" }
 zshenv = { source = "zsh/zshenv", target = ".zshenv" }
 fish = { source = "fish", target = ".config/fish" }
 starship = { source = "starship/starship.toml", target = ".config/starship.toml" }

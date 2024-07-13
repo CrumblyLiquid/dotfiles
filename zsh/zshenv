@@ -3,6 +3,12 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_STATE_HOME="$HOME/.local/state"
 
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+# Programs that don't follow the XDG spec >:(
 export LESSHISTFILE="$XDG_STATE_HOME"/less/history
 
 export GTK_RC_FILES="$XDG_CONFIG_HOME"/gtk-1.0/gtkrc
