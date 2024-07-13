@@ -20,6 +20,16 @@ That was caused by the XDG environment variables not being set
 but `CARGO_HOME` and `RUSTUP_HOME` were set to
 `"$XDG_DATA_HOME"/cargo` or `rustup`
 
+## rust-analyzer failing to run in nvim
+
+NeoVim will point to `~/.local/state/nvim/lsp.log` which will say
+
+```
+rust-analyzer' is not installed for the toolchain 'stable-x86_64-unknown-linux-gnu
+```
+
+To fix this run `rustup component add rust-analyzer` as per https://stackoverflow.com/questions/77453247/error-rust-analyzer-is-not-installed-for-the-toolchain-stable-x86-64-unknown
+
 # Observations
 
 ## NixOS

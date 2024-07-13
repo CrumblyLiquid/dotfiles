@@ -50,6 +50,7 @@
     # Rust stuff
     rustup
     cargo
+    rust-analyzer
 
     python3
     nodejs
