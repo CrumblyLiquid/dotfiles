@@ -5,6 +5,7 @@
     # General
     git
     gnumake
+    loc
 
     # Editors
     # jetbrains.datagrip
@@ -21,9 +22,6 @@
     clang
     clang-tools
     gdb
-
-    # https://github.com/cyrus-and/gdb-dashboard
-    # python311Packages.pygments
 
     tree-sitter
     lldb
@@ -53,7 +51,17 @@
     rust-analyzer
 
     python3
+
+    python312Packages.selenium
+    python312Packages.mpmath
+    python312Packages.pillow
+
+    # https://github.com/cyrus-and/gdb-dashboard
+    # python311Packages.pygments
+
     nodejs
+
+    geckodriver
   ];
 
   # home-manager.users."${globals.user}" = {
