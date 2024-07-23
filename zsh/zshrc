@@ -111,7 +111,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # === Exports ===
 
 # Enable 256-color mode
-export TERM="xterm-256color"
+export TERM='xterm-256color'
 
 # Set nvim as the default editor
 export EDITOR='nvim'
@@ -133,7 +133,7 @@ up () {
     done
     cd $cdstr
   else
-    echo "Argument must be a positive integer."
+    echo 'Argument must be a positive integer.'
   fi
 }
 
@@ -146,28 +146,28 @@ up () {
 #done
 
 # Open file with the default program
-alias open="xdg-open"
+alias open='xdg-open'
 
 # Go to .dotfiles directory
-alias dotfiles="cd ~/.dotfiles"
+alias dotfiles='cd ~/.dotfiles'
 alias dots=dotfiles
 
 # List files
-alias ls="eza --icons=auto"
-alias ll="ls -alh"
-alias sl="sl -e"
+alias ls='eza --icons=auto'
+alias ll='ls -alh'
+alias sl='sl -e'
 
-alias gpp="g++"
-alias gppwp="g++ -Wall -pedantic"
-alias gppwpa="g++ -Wall -pedantic -fsanitize=address"
+alias gpp='g++'
+alias gppwp='g++ -Wall -pedantic'
+alias gppwpa='g++ -Wall -pedantic -fsanitize=address'
 
-alias vim="nvim"
-alias nv="nvim"
+alias vim='nvim'
+alias nv='nvim'
 
-alias cat="bat"
+alias cat='bat'
 
 # Use custom hsts cache file location
-alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
 
 # Use custom home
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
