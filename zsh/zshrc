@@ -108,8 +108,17 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
+# === Exports ===
+
 # Enable 256-color mode
 export TERM="xterm-256color"
+
+# Set nvim as the default editor
+export EDITOR='nvim'
+export VISUAL="$EDITOR"
+
+# === Up ===
+# The best function I've ever used
 
 # Go up certain amount of directories
 up () {
@@ -127,6 +136,8 @@ up () {
     echo "Argument must be a positive integer."
   fi
 }
+
+# === Aliases ===
 
 # Git
 # Not needed for now because of OMZ git plugin
