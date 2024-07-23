@@ -1,3 +1,7 @@
+# Resources:
+# https://wiki.archlinux.org/title/Zsh
+# https://zsh.sourceforge.io/Guide/zshguide02.html#l24
+
 # Enable Starship prompt
 eval "$(starship init zsh)"
 # Initialize zoxide
@@ -34,7 +38,7 @@ autoload -Uz compinit && compinit -d "${ZDOTDIR}/zcompdump-${ZSH_VERSION}"
 # Replay cached completions
 zinit cdreplay -q
 
-# Keybindings
+# === Keybindings ===
 # Set keybindings to Vim mode
 bindkey -v
 # Make switching between modes faster
@@ -45,26 +49,58 @@ export KEYTIMEOUTE=1
 # bindkey '^p' history-search-backward
 # bindkey '^n' history-search-forward
 
-# History
+# === History ===
 [ ! -d "$XDG_STATE_HOME/zsh" ] && mkdir -p "$XDG_STATE_HOME/zsh"
 HISTFILE="$XDG_STATE_HOME/zsh/history"
+# The size of history to load
 HISTSIZE=10000
+# The size of history to save
+# Should be same size or smaller than $HISTSIZE
 SAVEHIST=$HISTSIZE
 # No duplicates
 HISTDUP=erase
-# Don't overwrite history
-setopt appendhistory
-# Share history between terminal sessions
-setopt sharehistory
-# Commands that start with a space won't be saved to history
-setopt hist_ignore_space
-# Ignore duplicates in search and don't save them
-setopt hist_ignore_dups
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_find_no_dups
 
-# Completion styling
+# Note: Capitalization and underscores (`_`) don't matter
+#       for setting options
+
+# Append to the history file incrementally
+# Each command is added to the history when executed
+setopt inc_append_history
+# Share history between terminal sessions
+setopt share_history
+# Saves start time and duration for each command
+setopt extended_history
+# Commands that start with a space won't be saved to history
+# (for example for sensitive commands)
+setopt hist_ignore_space
+# Ignore duplicate commands
+# (as in when a command is run multiple times at once)
+# (does nothing when duplicate commands aren't adjecent)
+setopt hist_ignore_dups
+# Ignore duplicates commands across the whole history
+# setopt hist_ignore_all_dups
+# Remove duplicates first when history space runs out
+setopt hist_expire_dups_first
+# Don't include duplicates in backwards search
+setopt hist_find_no_dups
+# Tidy up the command by removing any excess blanks
+# (this can make it a duplicate of another command)
+setopt hist_reduce_blanks
+
+# === Other misc options ===
+
+# Disable beeping
+setopt no_beep
+
+# If it's a directory and not a command you don't have to
+# use cd to cd into the direcotry
+setopt auto_cd
+
+# Enable extended globbing
+setopt extended_glob
+
+
+# === Completion styling ===
 # Match lower case characters to upper case characters
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
