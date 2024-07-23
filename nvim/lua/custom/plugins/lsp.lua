@@ -33,6 +33,7 @@ return {
         bashls = true,
         lua_ls = true,
         rust_analyzer = true,
+        pyright = true,
 
         jsonls = {
           settings = {

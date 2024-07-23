@@ -9,15 +9,17 @@ return {
       { "nvim-telescope/telescope-smart-history.nvim" },
       { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
     },
-    config = function()
-      require("telescope").setup({
+    opts = {
         extensions = {
           fzf = {},
           wrap_results = true,
         },
-      })
+    },
+    config = function(_, opts)
+      local telescope = require("telescope")
+      telescope.setup(opts)
 
-      pcall(require("telescope").load_extension, "fzf")
+      pcall(telescope.load_extension, "fzf")
 
       local builtin = require("telescope.builtin")
       vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
