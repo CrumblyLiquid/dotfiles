@@ -8,7 +8,6 @@ return {
     build = ":TSUpdate",
     opts = {
       ensure_installed = {
-        "community",
         "bash",
         "c",
         "cpp",
