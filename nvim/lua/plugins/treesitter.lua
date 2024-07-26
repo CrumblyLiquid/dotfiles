@@ -5,7 +5,10 @@ return {
     -- (https://www.reddit.com/r/neovim/comments/110x08m/treesitter_keeps_recompiling_parsers/)
     version = nil,
     lazy = false,
-    build = ":TSUpdate",
+    build = function()
+      -- :TSUpdate won't work on first install
+      require("nvim-treesitter.install").update({ with_sync = true })()
+    end,
     opts = {
       ensure_installed = {
         "bash",
