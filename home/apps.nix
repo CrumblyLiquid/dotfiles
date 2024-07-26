@@ -29,5 +29,6 @@
     hunspell
     kdePackages.neochat
     ungoogled-chromium
+    gimp
   ];
 }
