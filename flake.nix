@@ -10,7 +10,6 @@
     };
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    # plasma-manager.url = "github:pjones/plasma-manager";
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -28,12 +27,14 @@
           specialArgs = {
             inherit inputs globals;
           };
-          modules = [ ./hosts/solid ];
+          modules = [ ./nix-solid ];
         };
         /*
           liquid = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [ ./hosts/liquid ];
+            specialArgs = {
+              inherit inputs globals;
+            };
+            modules = [ ./nix-liquid ];
           };
         */
       };

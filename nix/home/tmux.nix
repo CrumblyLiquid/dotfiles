@@ -3,7 +3,7 @@
     programs.tmux = {
       enable = true;
       extraConfig = ''
-        ${builtins.readFile ./../tmux/tmux.conf}
+        ${builtins.readFile ./../../tmux/tmux.conf}
       '';
     };
   };

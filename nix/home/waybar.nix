@@ -9,7 +9,7 @@
     services.status-notifier-watcher.enable = true;
     home.file = {
       ".config/waybar" = {
-        source = ./../waybar;
+        source = ./../../waybar;
         recursive = true;
       };
     };

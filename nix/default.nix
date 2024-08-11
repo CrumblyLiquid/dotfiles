@@ -1,6 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
-
-{
+{ config, lib, pkgs, inputs, ... }: {
   imports = [ ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

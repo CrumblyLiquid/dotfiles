@@ -1,37 +1,44 @@
-{ inputs, globals, pkgs, ... }:
-
-{
+{ inputs, globals, pkgs, ... }: {
   imports = [
     inputs.home-manager.nixosModules.default
-    ./plasma.nix
-    ./terminal.nix
-    ./kitty.nix
-    ./zsh.nix
-    ./starship.nix
-    ./neovim.nix
-    ./tmux.nix
-    ./hyprland.nix
+    ./theming.nix
+
+    ./sound.nix
+    ./keyboard.nix
+    ./dev.nix
+
+    # Applications
     ./apps.nix
-    ./tofi.nix
-    ./eww.nix
-    ./dunst.nix
-    ./swayidle.nix
-    ./swaylock.nix
-    ./waybar.nix
+    # ./fun.nix
     ./firefox.nix
     ./spotify.nix
     ./steam.nix
     ./opentabletdriver.nix
     ./xournalpp.nix
     # Disabled because gns3 gui doesn't support Python 3.12
-    # ./gns3.nix
+    ./gns3.nix
     ./wireshark.nix
     ./virtmanager.nix
     ./syncthing.nix
-    ./dev.nix
-    ./sound.nix
-    ./keyboard.nix
-    ./fun.nix
+
+    # Terminal
+    ./terminal.nix
+    ./kitty.nix
+    ./zsh.nix
+    ./starship.nix
+    ./neovim.nix
+    ./tmux.nix
+
+    # Window Manager
+    ./hyprland.nix
+    ./tofi.nix
+    ./eww.nix
+    ./dunst.nix
+    ./swayidle.nix
+    ./swaylock.nix
+    ./waybar.nix
+
+    ./plasma.nix
   ];
 
   home-manager = {

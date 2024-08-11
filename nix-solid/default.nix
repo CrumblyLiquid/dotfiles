@@ -1,13 +1,10 @@
-{ config, lib, pkgs, inputs, globals, ... }:
-
-{
-  imports =
-    [
-      inputs.home-manager.nixosModules.default
-      ./../../default.nix # default.nix - Default system configuration
-      ./hardware-configuration.nix
-      ./../../home
-    ];
+{ config, lib, pkgs, inputs, globals, ... }: {
+  imports = [
+    inputs.home-manager.nixosModules.default
+    ./../nix/default.nix # default.nix - Default system configuration
+    ./../nix/home
+    ./hardware-configuration.nix
+  ];
 
   networking.hostName = "solid";
 
@@ -15,7 +12,7 @@
     users."${globals.user}" = {
       programs.ssh = {
         enable = true;
-        extraConfig = builtins.readFile ./../../ssh/config;
+        extraConfig = builtins.readFile ./../ssh/config;
       };
 
       home = {
@@ -26,7 +23,6 @@
       };
     };
   };
-
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

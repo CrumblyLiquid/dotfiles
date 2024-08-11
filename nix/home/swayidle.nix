@@ -8,7 +8,7 @@
   home-manager.users."${globals.user}" = {
     home.file = {
       ".config/swayidle/config" = {
-        source = ./../swayidle/config;
+        source = ./../../swayidle/config;
       };
     };
   };

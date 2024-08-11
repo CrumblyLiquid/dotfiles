@@ -10,7 +10,7 @@
   home-manager.users."${globals.user}" = {
     home.file = {
       ".config/sway-lock/config" = {
-        source = ./../swaylock/config;
+        source = ./../../swaylock/config;
       };
     };
   };

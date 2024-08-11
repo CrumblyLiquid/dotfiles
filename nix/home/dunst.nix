@@ -1,12 +1,12 @@
-{ globals, pkgs, config, ... }: {
+{ globals, pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    tofi
+    dunst
   ];
 
   home-manager.users."${globals.user}" = {
     home.file = {
-      ".config/tofi" = {
-        source = ../tofi;
+      ".config/dunst" = {
+        source = ./../../dunst;
         recursive = true;
       };
     };

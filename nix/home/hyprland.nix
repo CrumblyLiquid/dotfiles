@@ -51,69 +51,36 @@
       NIXOS_OZONE_WL = "1";
     };
 
-    qt = {
-      enable = true;
-      platformTheme.name = "qtct";
-      style = {
-        package = pkgs.kdePackages.breeze;
-        name = "breeze-dark";
-      };
-    };
-
-    home.pointerCursor = {
-      gtk.enable = true;
-      x11.enable = true;
-      name = "Vimix-cursors";
-      size = 32;
-      package = pkgs.vimix-cursor-theme;
-    };
-
-    gtk = {
-      enable = true;
-      theme = {
-        name = "Breeze-Dark";
-        package = pkgs.kdePackages.breeze-gtk;
-      };
-      iconTheme = {
-        package = pkgs.papirus-icon-theme;
-        name = "Papirus-Dark";
-      };
-      font = {
-        name = "Sans";
-        size = 12;
-      };
-    };
-
     home.file = {
       ".config/hypr/hyprpaper.conf" = {
-        source = ./../hypr/hyprpaper.conf;
+        source = ./../../hypr/hyprpaper.conf;
       };
       /* ".config/hypr/hyprland.conf" = {
-        source = ./../hypr/hyprland.conf;
+        source = ./../../hypr/hyprland.conf;
       }; */
       ".config/hypr/autostart.conf" = {
-        source = ./../hypr/autostart.conf;
+        source = ./../../hypr/autostart.conf;
       };
       ".config/hypr/general.conf" = {
-        source = ./../hypr/general.conf;
+        source = ./../../hypr/general.conf;
       };
       ".config/hypr/input.conf" = {
-        source = ./../hypr/input.conf;
+        source = ./../../hypr/input.conf;
       };
       ".config/hypr/monitor.conf" = {
-        source = ./../hypr/monitor.conf;
+        source = ./../../hypr/monitor.conf;
       };
       ".config/hypr/animation.conf" = {
-        source = ./../hypr/animation.conf;
+        source = ./../../hypr/animation.conf;
       };
       ".config/hypr/rules.conf" = {
-        source = ./../hypr/rules.conf;
+        source = ./../../hypr/rules.conf;
       };
       ".config/hypr/binds.conf" = {
-        source = ./../hypr/binds.conf;
+        source = ./../../hypr/binds.conf;
       };
       ".config/scripts" = {
-        source = ./../scripts;
+        source = ./../../scripts;
         recursive = true;
       };
     };

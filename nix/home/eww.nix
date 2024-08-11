@@ -1,15 +1,14 @@
 { globals, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    dunst
+    jq
+    socat
   ];
 
   home-manager.users."${globals.user}" = {
-    home.file = {
-      ".config/dunst" = {
-        source = ./../dunst;
-        recursive = true;
-      };
+    programs.eww = {
+      enable = true;
+      configDir = ./../../eww;
     };
   };
 }
