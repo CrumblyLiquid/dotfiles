@@ -30,6 +30,13 @@ rust-analyzer' is not installed for the toolchain 'stable-x86_64-unknown-linux-g
 
 To fix this run `rustup component add rust-analyzer` as per https://stackoverflow.com/questions/77453247/error-rust-analyzer-is-not-installed-for-the-toolchain-stable-x86-64-unknown
 
+## Fix Flatpak cursor theme on NixOS
+
+Allow Flatpak applications to read the icon theme
+```bash
+flatpak --user override --filesystem=/home/$USER/.icons/:ro
+```
+
 # Observations
 
 ## NixOS

@@ -110,7 +110,7 @@
           "dunst"
           "waybar"
           "swayidle -w"
-          "hyprctl setcursor Vimix-cursors 32"
+          "hyprctl setcursor Vimix-Cursors-White 32"
         ];
 
         env = [

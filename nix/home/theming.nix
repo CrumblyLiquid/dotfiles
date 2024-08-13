@@ -1,5 +1,22 @@
 { inputs, globals, pkgs, ... }: {
+  environment.systemPackages = with pkgs; [
+    vimix-cursor-theme
+  ];
+
+  environment.sessionVariables = {
+    XCURSOR_THEME = "Vimix-Cursors-White";
+    XCURSOR_SIZE = 32;
+  };
+
   home-manager.users."${globals.user}" = {
+    home.pointerCursor = {
+      gtk.enable = true;
+      x11.enable = true;
+      name = "Vimix-Cursors-White";
+      size = 32;
+      package = pkgs.vimix-cursor-theme;
+    };
+
     qt = {
       enable = true;
       platformTheme.name = "qtct";
@@ -25,12 +42,5 @@
       };
     };
 
-    home.pointerCursor = {
-      gtk.enable = true;
-      x11.enable = true;
-      name = "Vimix-cursors";
-      size = 32;
-      package = pkgs.vimix-cursor-theme;
-    };
   };
 }
