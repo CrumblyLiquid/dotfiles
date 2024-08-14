@@ -3,11 +3,13 @@
   imports = [
     ./swayidle.nix
     ./swaylock.nix
+    ./flameshot.nix
   ];
 
   environment.systemPackages = with pkgs; [
     hyprland
     hyprpaper
+    hyprlock
     xdg-utils
     dbus
     qt6Packages.qt6ct
@@ -55,6 +57,9 @@
       ".config/hypr/hyprpaper.conf" = {
         source = ./../../hypr/hyprpaper.conf;
       };
+      /* ".config/hypr/hyprlock.conf" = {
+        source = ./../../hypr/hyprlock.conf;
+      }; */
       /* ".config/hypr/hyprland.conf" = {
         source = ./../../hypr/hyprland.conf;
       }; */
