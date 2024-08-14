@@ -29,5 +29,6 @@
     kdePackages.neochat
     ungoogled-chromium
     gimp
+    fontforge
   ];
 }
