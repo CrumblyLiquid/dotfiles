@@ -26,7 +26,10 @@
     anki-bin
     libreoffice-qt
     hunspell
-    kdePackages.neochat
+    # Temporarily disabled because of
+    # dependency on olm which is not maintained
+    # and insecure
+    # kdePackages.neochat
     ungoogled-chromium
     gimp
     fontforge
