@@ -1,8 +1,8 @@
 { globals, inputs, pkgs, ... }:
 {
   imports = [
-    ./swayidle.nix
-    ./swaylock.nix
+    # ./swayidle.nix
+    # ./swaylock.nix
     ./flameshot.nix
   ];
 
@@ -10,6 +10,7 @@
     hyprland
     hyprpaper
     hyprlock
+    hypridle
     xdg-utils
     dbus
     qt6Packages.qt6ct
@@ -57,9 +58,16 @@
       ".config/hypr/hyprpaper.conf" = {
         source = ./../../hypr/hyprpaper.conf;
       };
-      /* ".config/hypr/hyprlock.conf" = {
+      ".config/hypr/theme.conf" = {
+        source = ./../../hypr/theme.conf;
+      };
+      ".config/hypr/hyprlock.conf" = {
         source = ./../../hypr/hyprlock.conf;
-      }; */
+      };
+      ".config/hypr/hypridle.conf" = {
+        source = ./../../hypr/hypridle.conf;
+      };
+
       /* ".config/hypr/hyprland.conf" = {
         source = ./../../hypr/hyprland.conf;
       }; */
@@ -111,10 +119,13 @@
 
         exec-once = [
           "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE"
+          "/usr/lib/polkit-kde-authentication-agent-1"
           "hyprpaper"
           "dunst"
+          "eww daemon"
+          "eww update laptop_mode=false"
           "waybar"
-          "swayidle -w"
+          "hypridle"
           "hyprctl setcursor Vimix-Cursors-White 32"
         ];
 
