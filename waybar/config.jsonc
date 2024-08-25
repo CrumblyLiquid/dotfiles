@@ -14,10 +14,10 @@
         "custom/left-arrow-light",
         "custom/left-arrow-dark",
         "hyprland/language",
-        "keyboard-state",
+        // "keyboard-state",
         "custom/left-arrow-light",
         "custom/left-arrow-dark",
-        "pulseaudio",
+        "group/audio",
         "backlight",
         "custom/right-arrow-dark"
     ],
@@ -28,32 +28,17 @@
     ],
     "modules-right": [
         "custom/left-arrow-dark",
-        "network",
+        "group/net",
         "custom/left-arrow-light",
         "custom/left-arrow-dark",
-        "cpu",
-        "custom/separator",
-        "memory",
-        "custom/separator",
-        "temperature",
-        "battery#sep",
+        "group/stats",
+        "battery/separator",
         "battery",
         "custom/left-arrow-light",
         "custom/left-arrow-dark",
-        "group/time",
+        "group/time"
     ],
 
-    "group/time": {
-        "orientation": "horizontal",
-        "drawer": {
-            "transition-duration": 250,
-            "transition-left-to-right": false,
-        },
-        "modules": [
-            "clock#1",
-            "clock#2"
-        ]
-    },
     "custom/separator": {
         "format": "|",
         "tooltip": false
@@ -80,9 +65,13 @@
         "numlock": false,
         "format": "{icon}",
         "format-icons": {
-            "locked": "",
-            "unlocked": ""
+            "locked": "Caps",
+            "unlocked": ""
         },
+        // "format-icons": {
+        //     "locked": "",
+        //     "unlocked": ""
+        // },
         // "device-path": "/dev/input/by-id/usb-Keychron_Keychron_K8_Pro-event-kbd"
     },
 
@@ -97,6 +86,62 @@
         // "icon-size": 21,
         "spacing": 10
     },
+
+    "pulseaudio#1": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} ",
+        "format-bluetooth": "{volume}% {icon} ",
+        "format-bluetooth-muted": "  ",
+        "format-muted": " ",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "default": ["", ""],
+            "headphone": "",
+            "headset": "",
+            "phone": "",
+            "hands-free": "󱡒",
+            "portable": "",
+            "car": ""
+        },
+        "on-click": "pavucontrol",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
+        "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    },
+    "pulseaudio#2": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{format_source}",
+        "format-bluetooth": "{format_source}",
+        "format-bluetooth-muted": "{format_source}",
+        "format-muted": "{format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "default": ["", ""],
+            "headphone": "",
+            "headset": "",
+            "phone": "",
+            "hands-free": "󱡒",
+            "portable": "",
+            "car": ""
+        },
+        "on-click": "pavucontrol",
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%",
+        "on-click-middle": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+    },
+    "group/audio": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 250,
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "pulseaudio#1",
+            "pulseaudio#2"
+        ]
+    },
     "clock#1": {
         "interval": 1,
         "format": "{:%H:%M:%S}",
@@ -107,6 +152,19 @@
         "format": "{:%d.%m. %Y}",
         "tooltip-format": "<big>{:%d.%m. %Y}</big>\n<tt><small>{calendar}</small></tt>"
     },
+    "group/time": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 250,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "clock#1",
+            "clock#2",
+            "custom/separator"
+        ]
+    },
+
     "cpu": {
         "format": "{usage}%",
         "tooltip": false
@@ -114,7 +172,6 @@
     "memory": {
         "format": "{used} GiB"
     },
-
     "temperature": {
         // "thermal-zone": 2,
         "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
@@ -124,13 +181,31 @@
         "format": "{temperatureC}°C",
         "format-icons": ["", "", ""]
     },
+    "group/stats": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 250,
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "cpu",
+            "custom/separator",
+            "memory",
+            "custom/separator",
+            "temperature"
+        ]
+    },
 
+    "backlight#separator": {
+        "format": "|",
+        "tooltip": false
+    },
     "backlight": {
         // "device": "acpi_video1",
         "format": "{percent}% {icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
-    "battery#sep": {
+    "battery#separator": {
         "format": "|",
         "tooltip": false
     },
@@ -160,33 +235,34 @@
         "power-saver": ""
       }
     },
-    "network": {
+    "network#1": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-linked": "",
+        "format-ethernet": "󰈀",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "format-disconnected": "󰈂",
+        "tooltip-format": "{ifname} via {gwaddr}"
+    },
+    "network#2": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{ipaddr}/{cidr}",
+        "format-ethernet": "{ipaddr}/{cidr}",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "No IP",
+        "format-disconnected": "Disconnected",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
+    "group/net": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 250,
+            "transition-left-to-right": true
         },
-        "on-click": "pavucontrol"
+        "modules": [
+            "network#1",
+            "network#2"
+        ]
     },
     "hyprland/workspaces": {
         "on-scroll-up": "hyprctl dispatch workspace e-1",
@@ -200,5 +276,8 @@
         "format": "{}",
         "format-en": "en",
         "format-cs": "cs",
+        "on-click": "hyprctl switchxkblayout keychron-keychron-k8-pro-keyboard next || hyprctl switchxkblayout at-translated-set-2-keyboard next",
+        "on-scroll-up": "hyprctl switchxkblayout keychron-keychron-k8-pro-keyboard next || hyprctl switchxkblayout at-translated-set-2-keyboard next",
+        "on-scroll-down": "hyprctl switchxkblayout keychron-keychron-k8-pro-keyboard next || hyprctl switchxkblayout at-translated-set-2-keyboard next",
     }
 }

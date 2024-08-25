@@ -1,6 +1,7 @@
 @define-color secondary #181825;
 @define-color primary #1e1e2e;
 @define-color text #fdf6e3;
+@define-color tertiary #333340;
 /* @define-color primary #292b2e;
 @define-color secondary #1a1a1a; */
 
@@ -70,16 +71,15 @@ window#waybar {
 
 #workspaces button.active {
     color: #89b4fa;
-    background: @primary;
+    background: @tertiary;
 }
 
 #workspaces button.urgent {
     color: #ec3939;
 }
 
-
-#separator, #sep {
-    color: @primary;
+#custom-separator, #battery-separator, #backlight-separator {
+    color: @tertiary;
     background: @secondary;
 }
 
@@ -87,13 +87,18 @@ window#waybar {
 #keyboard-state,
 #language,
 #pulseaudio,
+#tray,
 #backlight,
 #window,
 #network,
 #cpu,
 #memory,
+#clock,
 #temperature,
-#battery,
-#time {
+#battery {
     padding: 0 12px;
+}
+
+#pulseaudio {
+    padding: 0 6px;
 }
