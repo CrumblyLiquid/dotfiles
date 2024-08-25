@@ -33,5 +33,7 @@
     ungoogled-chromium
     gimp
     fontforge
+
+    prismlauncher
   ];
 }
