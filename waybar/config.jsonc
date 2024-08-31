@@ -18,6 +18,7 @@
         "custom/left-arrow-light",
         "custom/left-arrow-dark",
         "group/audio",
+        "backlight#separator",
         "backlight",
         "custom/right-arrow-dark"
     ],
@@ -32,7 +33,7 @@
         "custom/left-arrow-light",
         "custom/left-arrow-dark",
         "group/stats",
-        "battery/separator",
+        "battery#separator",
         "battery",
         "custom/left-arrow-light",
         "custom/left-arrow-dark",
@@ -166,7 +167,7 @@
     },
 
     "cpu": {
-        "format": "{usage}%",
+        "format": "{usage}% ",
         "tooltip": false
     },
     "memory": {
@@ -174,7 +175,7 @@
     },
     "temperature": {
         // "thermal-zone": 2,
-        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon9/temp1_input",
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         // "format": "{temperatureC}°C {icon}",
@@ -261,6 +262,7 @@
         },
         "modules": [
             "network#1",
+            "custom/separator",
             "network#2"
         ]
     },
