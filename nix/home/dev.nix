@@ -49,6 +49,12 @@
     rustup
     cargo
     rust-analyzer
+    libiconv
+    openssl
+    pkg-config
+    sqlitebrowser
+    sqlite
+    sqlite-interactive
 
     python3
 
