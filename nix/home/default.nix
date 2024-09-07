@@ -8,6 +8,7 @@
     ./dev.nix
 
     # Applications
+    ./flatpak.nix
     ./apps.nix
     # ./fun.nix
     ./firefox.nix
