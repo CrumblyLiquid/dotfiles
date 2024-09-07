@@ -34,8 +34,8 @@
     ./tofi.nix
     ./eww.nix
     ./dunst.nix
-    ./swayidle.nix
-    ./swaylock.nix
+    # ./swayidle.nix
+    # ./swaylock.nix
     ./waybar.nix
 
     ./plasma.nix

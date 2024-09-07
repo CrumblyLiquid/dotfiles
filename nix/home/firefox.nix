@@ -1,7 +1,7 @@
 { globals, pkgs, ... }: {
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox-devedition;
+    package = pkgs.firefox;
     languagePacks = [ "cs" "de" "en-GB" "en-US" ];
     preferences = {
       "widget.use-xdg-desktop-portal.file-picker" = 1;
