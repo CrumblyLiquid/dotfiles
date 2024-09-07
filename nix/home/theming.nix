@@ -1,4 +1,12 @@
 { inputs, globals, pkgs, ... }: {
+  fonts.packages = with pkgs; [
+    nerdfonts
+    meslo-lgs-nf
+    noto-fonts
+    noto-fonts-emoji
+    font-awesome
+  ];
+
   environment.systemPackages = with pkgs; [
     vimix-cursor-theme
   ];

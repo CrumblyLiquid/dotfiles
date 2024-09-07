@@ -3,8 +3,8 @@
         base = ./..;
     in [
     inputs.home-manager.nixosModules.default
-    (base + ./nix/default.nix) # default.nix - Default system configuration
-    (base + ./nix/home)
+    (base + /nix/default.nix) # default.nix - Default system configuration
+    (base + /nix/home)
     ./hardware-configuration.nix
   ];
 
