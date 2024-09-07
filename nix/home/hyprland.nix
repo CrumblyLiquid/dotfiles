@@ -7,13 +7,14 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    hyprland
+    # hyprland
     hyprpaper
     hyprlock
     hypridle
     xdg-utils
     dbus
     qt6Packages.qt6ct
+    qt6.qtwayland
     appimage-run
     dunst
     grimblast
@@ -21,7 +22,10 @@
     cliphist
     wl-screenrec
     wdisplays
+    xwaylandvideobridge
     brightnessctl
+    pipewire
+    wireplumber
     playerctl
   ];
 
@@ -29,7 +33,10 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    portalPackage = pkgs.xdg-desktop-portal-hyprland;
+    # set the flake package
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # make sure to also set the portal package, so that they are in sync
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
   xdg.portal = {
@@ -38,9 +45,8 @@
     # wlr.enable = true;
     extraPortals = [
       pkgs.kdePackages.xdg-desktop-portal-kde
-      pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-wlr
-      pkgs.xdg-desktop-portal-gtk
+      # pkgs.xdg-desktop-portal-gtk
     ];
   };
 
