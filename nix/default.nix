@@ -38,8 +38,6 @@
   # Printing
   services.printing.enable = true;
 
-  services.flatpak.enable = true;
-
   environment.systemPackages = with pkgs; [
     vim
     git
@@ -47,14 +45,6 @@
     curl
     zip
     unzip
-  ];
-
-  fonts.packages = with pkgs; [
-    nerdfonts
-    meslo-lgs-nf
-    noto-fonts
-    noto-fonts-emoji
-    font-awesome
   ];
 
   programs.gnupg.agent = {
