@@ -1,8 +1,10 @@
 { config, lib, pkgs, inputs, globals, ... }: {
-  imports = [
+  imports = let
+        base = ./..;
+    in [
     inputs.home-manager.nixosModules.default
-    ./../nix/default.nix # default.nix - Default system configuration
-    ./../nix/home
+    (base + ./nix/default.nix) # default.nix - Default system configuration
+    (base + ./nix/home)
     ./hardware-configuration.nix
   ];
 

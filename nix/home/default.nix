@@ -1,5 +1,5 @@
 { inputs, globals, pkgs, ... }: {
-  imports = [
+  imports = let base = ./../..; in [
     inputs.home-manager.nixosModules.default
     ./theming.nix
 
@@ -13,8 +13,8 @@
     ./firefox.nix
     ./spotify.nix
     ./steam.nix
-    ./opentabletdriver.nix
-    ./xournalpp.nix
+    (base + /opentabletdriver)
+    (base + /xournalpp)
     # Disabled because gns3 gui doesn't support Python 3.12
     ./gns3.nix
     ./wireshark.nix
@@ -23,22 +23,22 @@
 
     # Terminal
     ./terminal.nix
-    ./kitty.nix
-    ./zsh.nix
-    ./starship.nix
-    ./neovim.nix
-    ./tmux.nix
+    (base + /kitty)
+    (base + /zsh)
+    (base + /starship)
+    (base + /nvim)
+    (base + /tmux)
 
     # Window Manager
-    ./hyprland.nix
-    ./tofi.nix
-    ./eww.nix
-    ./dunst.nix
-    # ./swayidle.nix
-    # ./swaylock.nix
-    ./waybar.nix
+    (base + /hypr)
+    (base + /tofi)
+    (base + /eww)
+    (base + /dunst)
+    # (base + /swayidle)
+    # (base + /swaylock)
+    (base + /waybar)
 
-    ./plasma.nix
+    (base + /plasma)
   ];
 
   home-manager = {
