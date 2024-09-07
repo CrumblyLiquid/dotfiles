@@ -1,8 +1,6 @@
 { globals, inputs, pkgs, ... }:
 {
   imports = [
-    # ./swayidle.nix
-    # ./swaylock.nix
     ./flameshot.nix
   ];
 
@@ -46,7 +44,8 @@
     extraPortals = [
       pkgs.kdePackages.xdg-desktop-portal-kde
       pkgs.xdg-desktop-portal-wlr
-      # pkgs.xdg-desktop-portal-gtk
+      # Need this for things like opening links, etc.
+      pkgs.xdg-desktop-portal-gtk
     ];
   };
 
