@@ -6,7 +6,7 @@
   home-manager.users."${globals.user}" = {
     home.file = {
       ".config/dunst" = {
-        source = ./../../dunst;
+        source = ./.;
         recursive = true;
       };
     };

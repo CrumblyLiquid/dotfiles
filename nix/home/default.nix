@@ -39,7 +39,7 @@
     # (base + /swaylock)
     (base + /waybar)
 
-    (base + /plasma)
+    (base + /kde)
   ];
 
   home-manager = {

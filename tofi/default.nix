@@ -6,7 +6,7 @@
   home-manager.users."${globals.user}" = {
     home.file = {
       ".config/tofi" = {
-        source = ./../../tofi;
+        source = ./.;
         recursive = true;
       };
     };

@@ -68,6 +68,7 @@
     nodejs
 
     geckodriver
+    libnotify
   ];
 
   # home-manager.users."${globals.user}" = {

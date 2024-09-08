@@ -6,7 +6,7 @@
   home-manager.users."${globals.user}" = {
     home.file = {
       ".config/xournalpp" = {
-        source = ./../../xournalpp;
+        source = ./.;
         recursive = true;
       };
     };

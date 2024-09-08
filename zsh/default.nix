@@ -6,10 +6,10 @@
   home-manager.users."${globals.user}" = {
     home.file = {
       ".config/zsh/.zshrc" = {
-        source = ./../../zsh/zshrc;
+        source = ./zshrc;
       };
       ".zshenv" = {
-        source = ./../../zsh/zshenv;
+        source = ./zshenv;
       };
     };
   };

@@ -1,7 +1,7 @@
 { globals, inputs, pkgs, ... }:
 {
   imports = [
-    ./flameshot.nix
+    ./../nix/home/flameshot.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -61,44 +61,44 @@
 
     home.file = {
       ".config/hypr/hyprpaper.conf" = {
-        source = ./../../hypr/hyprpaper.conf;
+        source = ./hyprpaper.conf;
       };
       ".config/hypr/theme.conf" = {
-        source = ./../../hypr/theme.conf;
+        source = ./theme.conf;
       };
       ".config/hypr/hyprlock.conf" = {
-        source = ./../../hypr/hyprlock.conf;
+        source = ./hyprlock.conf;
       };
       ".config/hypr/hypridle.conf" = {
-        source = ./../../hypr/hypridle.conf;
+        source = ./hypridle.conf;
       };
 
       /* ".config/hypr/hyprland.conf" = {
-        source = ./../../hypr/hyprland.conf;
+        source = ./hyprland.conf;
       }; */
       ".config/hypr/autostart.conf" = {
-        source = ./../../hypr/autostart.conf;
+        source = ./autostart.conf;
       };
       ".config/hypr/general.conf" = {
-        source = ./../../hypr/general.conf;
+        source = ./general.conf;
       };
       ".config/hypr/input.conf" = {
-        source = ./../../hypr/input.conf;
+        source = ./input.conf;
       };
       ".config/hypr/monitor.conf" = {
-        source = ./../../hypr/monitor.conf;
+        source = ./monitor.conf;
       };
       ".config/hypr/animation.conf" = {
-        source = ./../../hypr/animation.conf;
+        source = ./animation.conf;
       };
       ".config/hypr/rules.conf" = {
-        source = ./../../hypr/rules.conf;
+        source = ./rules.conf;
       };
       ".config/hypr/binds.conf" = {
-        source = ./../../hypr/binds.conf;
+        source = ./binds.conf;
       };
       ".config/scripts" = {
-        source = ./../../scripts;
+        source = ./../scripts;
         recursive = true;
       };
     };

@@ -8,7 +8,7 @@
   home-manager.users."${globals.user}" = {
     programs.eww = {
       enable = true;
-      configDir = ./../../eww;
+      configDir = ./.;
     };
   };
 }
