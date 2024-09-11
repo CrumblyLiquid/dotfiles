@@ -1,25 +1,39 @@
 return {
+  -- Fuzzy Finder (files, lsp, etc)
   {
     "nvim-telescope/telescope.nvim",
     event = "VimEnter",
     branch = "0.1.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        cond = function()
+          return vim.fn.executable "make" == 1
+        end,
+      },
       { "nvim-telescope/telescope-smart-history.nvim" },
-      { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
-    },
-    opts = {
-        extensions = {
-          fzf = {},
-          wrap_results = true,
-        },
+      { "nvim-telescope/telescope-ui-select.nvim" },
+      {
+        "nvim-tree/nvim-web-devicons",
+        enabled = vim.g.have_nerd_font
+      },
     },
     config = function(_, opts)
       local telescope = require("telescope")
-      telescope.setup(opts)
+      telescope.setup({
+        extensions = {
+          fzf = {},
+          wrap_results = true,
+          ["ui-select"] = {
+            require("telescope.themes").get_dropdown(),
+          }
+        },
+      })
 
       pcall(telescope.load_extension, "fzf")
+      pcall(require("telescope").load_extension, "ui-select")
 
       local builtin = require("telescope.builtin")
       vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
@@ -34,12 +48,14 @@ return {
       vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 
       -- Slightly advanced example of overriding default behavior and theme
-      vim.keymap.set(
-        "n",
-        "<leader>/",
-        builtin.current_buffer_fuzzy_find,
-        { desc = "[/] Fuzzily search in current buffer" }
-      )
+      vim.keymap.set("n", "<leader>/", function()
+        -- You can pass additional configuration to Telescope to change the theme, layout, etc.
+        builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {
+          winblend = 10,
+          previewer = false,
+        })
+      end, { desc = "[/] Fuzzily search in current buffer" })
+
 
       vim.keymap.set("n", "<leader>s/", function()
         builtin.live_grep({
