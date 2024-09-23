@@ -76,6 +76,9 @@
       /* ".config/hypr/hyprland.conf" = {
         source = ./hyprland.conf;
       }; */
+      ".config/hypr/env.conf" = {
+        source = ./env.conf;
+      };
       ".config/hypr/autostart.conf" = {
         source = ./autostart.conf;
       };
@@ -114,6 +117,7 @@
       settings = {
         source = [
           # "~/.config/hypr/autostart.conf"
+          "~/.config/hypr/env.conf"
           "~/.config/hypr/general.conf"
           "~/.config/hypr/binds.conf"
           "~/.config/hypr/rules.conf"
@@ -135,29 +139,17 @@
         ];
 
         env = [
-          "XDG_CURRENT_DESKTOP,Hyprland"
-          "XDG_SESSION_DESKTOP,Hyprland"
-          "XDG_SESSION_TYPE,wayland"
-
-          "SDL_VIDEODRIVER,wayland"
-
-          "GDK_BACKEND,wayland"
-          "GTK_USE_PORTAL,1"
-
-          "QT_QPA_PLATFORMTHEME,qt6ct"
-          "QT_QPA_PLATFORM,wayland"
-          "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-          "QT_AUTO_SCREEN_SCALE_FACTOR,1"
-
           # Wayland support should be enabled by default
           # "MOZ_ENABLE_WAYLAND,1"
 
           # https://wiki.hyprland.org/Configuring/Tearing/
           # Not needed for kernel ver >= 6.8
-          # but not supported in amdgpu yet
+          # -- but not supported in amdgpu yet --
+          # might be finally supported so this is not needed anymore
           # https://github.com/hyprwm/Hyprland/issues/5103
-          "WLR_DRM_NO_ATOMIC,1"
+          # "WLR_DRM_NO_ATOMIC,1"
 
+          # Use iGPU to render Hyprland
           # "WLR_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
         ];
 
