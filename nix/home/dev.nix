@@ -23,6 +23,9 @@
     clang-tools
     gdb
 
+    iverilog
+    gtkwave
+
     tree-sitter
     lldb
     ghidra
