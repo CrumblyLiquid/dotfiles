@@ -12,6 +12,7 @@
     ./apps.nix
     # ./fun.nix
     ./firefox.nix
+    ./obs.nix
     ./spotify.nix
     ./steam.nix
     (base + /opentabletdriver)

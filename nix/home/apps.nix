@@ -7,7 +7,6 @@
 
     keepassxc
     audacity
-    obs-studio
 
     kdePackages.dolphin
     kdePackages.dolphin-plugins
