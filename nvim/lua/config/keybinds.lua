@@ -9,6 +9,12 @@ vim.keymap.set("n", "<leader>q", "<cmd>confirm q<CR>", { desc = "Quit" })
 vim.keymap.set("n", "<leader>fe", vim.cmd.Explore, { desc = "Open explorer" })
 vim.keymap.set("n", "<leader>fw", vim.cmd.Rexplore, { desc = "Close explorer" })
 
+-- Tabbing in other modes
+vim.keymap.set("n", "<TAB>", ">>")
+vim.keymap.set("n", "<S-TAB>", "<<")
+vim.keymap.set("v", "<TAB>", ">gv")
+vim.keymap.set("v", "<S-TAB>", "<gv")
+
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })

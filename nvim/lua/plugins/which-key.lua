@@ -25,7 +25,6 @@ return {
           NL = "<NL> ",
           BS = "<BS> ",
           Space = "<Space> ",
-          Tab = "<Tab> ",
           F1 = "<F1>",
           F2 = "<F2>",
           F3 = "<F3>",
@@ -43,7 +42,7 @@ return {
 
       -- Document existing key chains
       spec = {
-        { "<leader>c", group = "[C] Code", mode = { "n", "x" } },
+        { "<leader>c", group = "[C] Code",     mode = { "n", "x" } },
         { "<leader>d", group = "[D] Document" },
         { "<leader>r", group = "[R] Rename" },
         { "<leader>s", group = "[S] Search" },
