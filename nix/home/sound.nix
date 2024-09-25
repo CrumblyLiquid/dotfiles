@@ -37,6 +37,9 @@
     };
   };
 
+  # Noisetorch
+  programs.noisetorch.enable = true;
+
   environment.systemPackages = with pkgs; [
     pipewire
     wireplumber
