@@ -41,7 +41,8 @@ return {
       local servers = {
         bashls = {},
         lua_ls = {},
-        rust_analyzer = {},
+        -- We're using rustaceanvim so we don't need to do the setup on our own
+        -- rust_analyzer = {},
         -- Failing to install
         -- basedpyright = {},
         pyright = {},
