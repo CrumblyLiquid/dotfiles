@@ -3,10 +3,22 @@
   boot.kernelModules = [ "kvm-amd" "kvm-intel" ];
   boot.extraModprobeConfig = "options kvm_amd nested=1";
 
-  virtualisation.libvirtd.enable = true;
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu = {
+        ovmf = {
+          enable = true;
+          packages = [ pkgs.OVMFFull ];
+        };
+        swtpm.enable = true;
+      };
+    };
+  };
   users.groups.libvirtd = {
     members = [ "${globals.user}" ];
   };
+  environment.sessionVariables.LIBVIRT_DEFAULT_URI = [ "qemu:///system" ];
   programs.virt-manager.enable = true;
 
   virtualisation.virtualbox.host.enable = true;
