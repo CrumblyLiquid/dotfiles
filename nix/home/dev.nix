@@ -74,6 +74,16 @@
     libnotify
   ];
 
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
+  users.users."${globals.user}".extraGroups = [ "docker" ];
+  virtualisation.docker.storageDriver = "btrfs";
+
   # home-manager.users."${globals.user}" = {
   # };
 }
