@@ -7,6 +7,7 @@
 
     keepassxc
     audacity
+    lmms
 
     kdePackages.dolphin
     kdePackages.dolphin-plugins
