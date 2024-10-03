@@ -25,6 +25,7 @@
     anki-bin
     libreoffice-qt
     hunspell
+    topgrade
     # Temporarily disabled because of
     # dependency on olm which is not maintained
     # and insecure
