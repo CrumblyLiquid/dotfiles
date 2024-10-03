@@ -36,4 +36,6 @@
 
     prismlauncher
   ];
+
+  services.fwupd.enable = true;
 }
