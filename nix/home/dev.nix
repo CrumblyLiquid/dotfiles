@@ -70,6 +70,9 @@
 
     nodejs
 
+    ruby
+    texlive.combined.scheme-small
+
     geckodriver
     libnotify
   ];
@@ -80,11 +83,8 @@
       enable = true;
       setSocketVariable = true;
     };
+    storageDriver = "btrfs";
   };
   users.users."${globals.user}".extraGroups = [ "docker" ];
-  virtualisation.docker.storageDriver = "btrfs";
-
-  # home-manager.users."${globals.user}" = {
-  # };
 }
 
