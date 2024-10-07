@@ -4,6 +4,10 @@ Host github.com
     IdentityFile ~/.ssh/id_ed25519
     IdentitiesOnly yes
 
+Host gitlab.fit.cvut.cz
+    IdentityFile ~/.ssh/id_fit_ed25519
+    IdentitiesOnly yes
+
 # Another user on github
 # Host gitother
 #     HostName github.com
