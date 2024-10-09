@@ -35,6 +35,7 @@
     fontforge
 
     prismlauncher
+    lunar-client
   ];
 
   services.fwupd.enable = true;
