@@ -64,6 +64,18 @@
     python312Packages.selenium
     python312Packages.mpmath
     python312Packages.pillow
+    python312Packages.pandas
+    python312Packages.requests
+    python312Packages.pip
+    python312Packages.setuptools
+    python312Packages.venvShellHook
+    python312Packages.virtualenv
+    python312Packages.python-lsp-ruff
+    ruff-lsp
+    ruff
+
+    uv
+    conda
 
     # https://github.com/cyrus-and/gdb-dashboard
     # python311Packages.pygments
@@ -72,6 +84,7 @@
 
     ruby
     texlive.combined.scheme-small
+    deno
 
     geckodriver
     libnotify
