@@ -17,7 +17,7 @@
     dunst
     grimblast
     wl-clipboard
-    cliphist
+    # cliphist
     wl-screenrec
     wdisplays
     xwaylandvideobridge
