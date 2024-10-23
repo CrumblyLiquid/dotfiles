@@ -7,6 +7,8 @@
     gnumake
     loc
 
+    openssl
+
     # Editors
     # jetbrains.datagrip
     jetbrains.clion
@@ -22,6 +24,7 @@
     clang
     clang-tools
     gdb
+    valgrind
 
     iverilog
     gtkwave
@@ -71,11 +74,15 @@
     python312Packages.venvShellHook
     python312Packages.virtualenv
     python312Packages.python-lsp-ruff
+    python312Packages.conda
     ruff-lsp
     ruff
 
     uv
     conda
+
+    jupyter-all
+    python312Packages.jupyter-core
 
     # https://github.com/cyrus-and/gdb-dashboard
     # python311Packages.pygments
@@ -83,8 +90,28 @@
     nodejs
 
     ruby
-    texlive.combined.scheme-small
+    texliveFull
     deno
+    pandoc
+    pdf2svg
+    poppler_utils
+    dos2unix
+    toybox
+    gnuplot
+    gnuplot_qt
+    graphviz
+    texlivePackages.graphviz
+    texlivePackages.dejavu
+    texlivePackages.libertine
+    texlivePackages.luaotfload
+    python312Packages.pip
+    python312Packages.pygments
+    python312Packages.networkx
+    python312Packages.pygraphviz
+    python312Packages.numpy
+    python312Packages.scipy
+
+    rars
 
     geckodriver
     libnotify
