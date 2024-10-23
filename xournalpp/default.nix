@@ -3,13 +3,13 @@
     xournalpp
   ];
 
-  home-manager.users."${globals.user}" = {
+  /* home-manager.users."${globals.user}" = {
     home.file = {
       ".config/xournalpp" = {
         source = ./.;
         recursive = true;
       };
     };
-  };
+  }; */
 }
 
