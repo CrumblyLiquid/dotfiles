@@ -5,6 +5,8 @@
     noto-fonts
     noto-fonts-emoji
     font-awesome
+    dejavu_fonts
+    libertine
   ];
 
   environment.systemPackages = with pkgs; [
