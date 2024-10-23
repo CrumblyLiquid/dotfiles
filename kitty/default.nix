@@ -28,7 +28,7 @@
         enableFishIntegration = true;
       };
 
-      theme = "Catppuccin-Mocha";
+      themeFile = "Catppuccin-Mocha";
     };
   };
 }
