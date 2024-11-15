@@ -1,6 +1,8 @@
 { globals, pkgs, ... }:
 {
   # Sound
+
+  # Make pipewire realtime-capable
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -8,6 +10,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
+
     # https://nixos.wiki/wiki/PipeWire#Low-latency_setup
     extraConfig.pipewire."92-low-latency" = {
       context.properties = {
@@ -33,6 +36,15 @@
       stream.properties = {
         node.latency = "32/48000";
         resample.quality = 1;
+      };
+    };
+
+    wireplumber.extraConfig.bluetoothEnhancements = {
+      "monitor.bluez.properties" = {
+          "bluez5.enable-sbc-xq" = true;
+          "bluez5.enable-msbc" = true;
+          "bluez5.enable-hw-volume" = true;
+          "bluez5.roles" = [ "hsp_hs" "hsp_ag" "hfp_hf" "hfp_ag" ];
       };
     };
   };
