@@ -32,6 +32,7 @@
     # kdePackages.neochat
     ungoogled-chromium
     gimp
+    krita
     fontforge
 
     prismlauncher
