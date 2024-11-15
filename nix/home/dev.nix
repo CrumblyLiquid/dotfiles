@@ -1,5 +1,4 @@
-{ globals, inputs, pkgs, ... }:
-{
+{ globals, inputs, pkgs, ... }: {
   # environment.enableDebugInfo = true;
   environment.systemPackages = with pkgs; [
     # General
@@ -7,7 +6,13 @@
     gnumake
     loc
 
+    linuxPackages_latest.perf
+
+    vscodium.fhs
+
     openssl
+    pkg-config
+    libiconv
 
     # Editors
     # jetbrains.datagrip
@@ -125,6 +130,8 @@
     };
     storageDriver = "btrfs";
   };
-  users.users."${globals.user}".extraGroups = [ "docker" ];
+
+  programs.adb.enable = true;
+  users.users."${globals.user}".extraGroups = [ "docker" "kvm" ];
 }
 
