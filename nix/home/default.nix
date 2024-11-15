@@ -5,16 +5,17 @@
 
     ./sound.nix
     ./keyboard.nix
+    ./bluetooth.nix
     ./dev.nix
 
     # Applications
     ./flatpak.nix
     ./apps.nix
+    ./gaming.nix
     # ./fun.nix
     ./firefox.nix
     ./obs.nix
     ./spotify.nix
-    ./steam.nix
     (base + /opentabletdriver)
     (base + /xournalpp)
     # Disabled because gns3 gui doesn't support Python 3.12

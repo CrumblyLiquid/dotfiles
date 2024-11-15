@@ -1,4 +1,4 @@
-{ globals, pkgs, ... }: {
+{ globals, pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     gamescope
     mangohud
@@ -6,8 +6,12 @@
     winetricks
     protontricks
     dxvk
+    heroic
+    lutris
+    protonup-qt
   ];
 
+  programs.gamemode.enable = true;
   programs.steam = {
     enable = true;
     gamescopeSession.enable = false;
