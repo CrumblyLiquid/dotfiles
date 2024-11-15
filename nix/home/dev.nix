@@ -54,7 +54,7 @@
     # Java stuff
     openjdk8
     openjdk17
-    openjdk22
+    openjdk
 
     # Rust stuff
     rustup
@@ -79,7 +79,7 @@
     python312Packages.venvShellHook
     python312Packages.virtualenv
     python312Packages.python-lsp-ruff
-    python312Packages.conda
+    # python312Packages.conda
     ruff-lsp
     ruff
 
