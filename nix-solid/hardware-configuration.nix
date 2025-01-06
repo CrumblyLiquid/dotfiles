@@ -18,7 +18,7 @@
   hardware.graphics = {
     # Enable OpenCL
     extraPackages = with pkgs; [
-      rocmPackages.clr.icd
+      # rocmPackages.clr.icd
     ];
     enable32Bit = true;
   };

@@ -18,7 +18,7 @@
         user = "crumbly";
         homePath = "/home/${user}";
         system = "x86_64-linux";
-        wallpaper = ./wallpapers/dolphin.png;
+        wallpaper = ./wallpapers/polar_bear.png;
       };
     in
     {

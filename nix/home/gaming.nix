@@ -6,7 +6,8 @@
     winetricks
     protontricks
     dxvk
-    heroic
+    # Failing to build Electron: https://github.com/NixOS/nixpkgs/issues/370014
+    # heroic
     lutris
     protonup-qt
   ];
