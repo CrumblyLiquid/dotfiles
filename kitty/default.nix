@@ -17,7 +17,7 @@
         bold_font = "auto";
         italic_font = "auto";
         bold_italic_font = "auto";
-        background_opacity = 1;
+        background_opacity = 0.95;
         window_padding_width = 2;
         map = "ctrl+shift+n no_op";
       };
