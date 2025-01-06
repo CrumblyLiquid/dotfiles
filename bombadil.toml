@@ -3,22 +3,50 @@ dotfiles_dir = ".dotfiles"
 
 [settings]
 vars = [ "vars.toml" ]
-posthooks = [ "tmux source-file ~/.config/tmux/tmux.conf" ]
 
 [settings.dots]
-kitty = { source = "kitty/kitty.conf", target = ".config/kitty/kitty.conf" }
-kitty-theme = { source = "kitty/catppuccin-mocha.conf", target = ".config/kitty/catppuccin-mocha.conf" }
+
+[profiles.zsh.dots]
 zshrc = { source = "zsh/zshrc", target = ".config/zsh/.zshrc" }
 zshenv = { source = "zsh/zshenv", target = ".zshenv" }
+
+[profiles.fish.dots]
 fish = { source = "fish", target = ".config/fish" }
+
+[profiles.starship.dots]
 starship = { source = "starship/starship.toml", target = ".config/starship.toml" }
+
+[profiles.tmux]
+posthooks = [ "tmux source-file ~/.config/tmux/tmux.conf" ]
+
+[profiles.tmux.dots]
 tmux = { source = "tmux", target = ".config/tmux" }
-nvim = { source = "nvim", target = ".config/nvim" }
+
+[profiles.git.dots]
 git = { source = "git/gitconfig", target = ".gitconfig" }
+
+[profiles.ssh.dots]
 ssh = { source = "ssh/config", target = ".ssh/config" }
+
+[profiles.kde.dots]
 dolphin = { source = "kde/dolphinui.rc", target = ".local/share/kxmlgui5/dolphin/dolphinui.rc" }
 konsole = { source = "kde/konsoleui.rc", target = ".local/share/kxmlgui5/konsole/konsoleui.rc" }
+
+[profiles.scripts.dots]
 scripts = { source = "scripts", target = ".config/scripts" }
+
+[profiles.kitty.dots]
+kitty = { source = "kitty/kitty.conf", target = ".config/kitty/kitty.conf" }
+kitty-theme = { source = "kitty/catppuccin-mocha.conf", target = ".config/kitty/catppuccin-mocha.conf" }
+
+[profiles.nvim]
+vars = [ "vars.toml" ]
+
+[profiles.nvim.dots]
+nvim = { source = "nvim", target = ".config/nvim" }
+
+[profiles.terminal]
+extra_profiles = [ "kitty", "zsh", "fish", "starship", "tmux", "ssh", "git", "scripts", "kde", "nvim" ]
 
 [profiles.gsr.dots]
 env = { source = "gpu-screen-recorder/gpu-screen-recorder.env", target = ".config/gpu-screen-recorder.env" }
@@ -27,7 +55,7 @@ service = { source = "gpu-screen-recorder/gsr-replay.service", target = ".config
 # script = { source = "gpu-screen-recorder/save_replay", target = ".config/scripts/save_replay" }
 
 [profiles.wallpaper.dots]
-wallpaper = { source = "wallpapers/ocean.png", target = ".config/wallpaper.png" }
+wallpaper = { source = "wallpapers/polar_bear.png", target = ".config/wallpaper.png" }
 
 # I'm unsure if linking from home is a good idea
 [profiles.sddm.dots]
@@ -62,6 +90,7 @@ extra_profiles = ["dunst", "tofi", "rofi", "waybar", "eww", "swaylock", "swayidl
 posthooks = ["hyprctl reload"]
 
 [profiles.laptop]
+extra_profiles = [ "terminal", "hyprland" ]
 vars = ["laptop-vars.toml"]
 
 [profiles.cs.dots]

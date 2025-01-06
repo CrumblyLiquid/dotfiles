@@ -15,12 +15,12 @@
       nv = "nvim";
     };
 
-    home.file = {
+    /* home.file = {
       ".config/nvim" = {
         source = ./.;
         recursive = true;
       };
-    };
+    }; */
   };
 }
 
