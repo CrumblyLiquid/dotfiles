@@ -1,9 +1,15 @@
 { inputs, globals, pkgs, ... }: {
   fonts.packages = with pkgs; [
-    nerdfonts
-    meslo-lgs-nf
-    noto-fonts
-    noto-fonts-emoji
+    nerd-fonts.fira-code
+    nerd-fonts.fira-mono
+    nerd-fonts.dejavu-sans-mono
+    nerd-fonts.inconsolata
+    nerd-fonts.inconsolata-go
+    nerd-fonts.iosevka
+    nerd-fonts.zed-mono
+    nerd-fonts.meslo-lg
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.noto
     font-awesome
     dejavu_fonts
     libertine
