@@ -17,6 +17,7 @@
     # Editors
     # jetbrains.datagrip
     jetbrains.clion
+    helix
 
     # Neovim stuff
     neovim
