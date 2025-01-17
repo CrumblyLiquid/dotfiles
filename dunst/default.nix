@@ -3,13 +3,13 @@
     dunst
   ];
 
-  home-manager.users."${globals.user}" = {
+  /* home-manager.users."${globals.user}" = {
     home.file = {
       ".config/dunst" = {
         source = ./.;
         recursive = true;
       };
     };
-  };
+  }; */
 }
 
