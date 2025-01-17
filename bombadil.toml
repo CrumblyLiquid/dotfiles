@@ -61,6 +61,9 @@ wallpaper = { source = "wallpapers/polar_bear.png", target = ".config/wallpaper.
 [profiles.sddm.dots]
 sddm = { source = "kde/sddm.conf", target = "/etc/sddm.conf.d/configuration.conf" }
 
+[profiles.dunst]
+vars = [ "vars.toml" ]
+
 [profiles.dunst.dots]
 dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
 
@@ -88,6 +91,9 @@ hyprland = { source = "hypr", target = ".config/hypr" }
 [profiles.hyprland]
 extra_profiles = ["dunst", "tofi", "rofi", "waybar", "eww", "swaylock", "swayidle", "hypr", "wallpaper", "gsr"]
 posthooks = ["hyprctl reload"]
+
+[profiles.solid]
+extra_profiles = [ "dunst", "nvim" ]
 
 [profiles.laptop]
 extra_profiles = [ "terminal", "hyprland" ]
