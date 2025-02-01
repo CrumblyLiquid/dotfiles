@@ -7,6 +7,7 @@
     ./keyboard.nix
     ./bluetooth.nix
     ./dev.nix
+    ./android.nix
 
     # Applications
     ./flatpak.nix
