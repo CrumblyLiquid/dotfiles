@@ -7,12 +7,12 @@
 
   home-manager.users."${globals.user}" = {
     services.status-notifier-watcher.enable = true;
-    home.file = {
+    /* home.file = {
       ".config/waybar" = {
         source = ./.;
         recursive = true;
       };
-    };
+    }; */
   };
 }
 
