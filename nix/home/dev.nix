@@ -4,7 +4,6 @@
     # General
     git
     gnumake
-    loc
 
     linuxPackages_latest.perf
 
@@ -102,7 +101,6 @@
     pdf2svg
     poppler_utils
     dos2unix
-    toybox
     gnuplot
     gnuplot_qt
     graphviz
