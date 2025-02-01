@@ -2,7 +2,6 @@
 {
     "layer": "top",
     "position": "top",
-
     "height": 45, // Waybar height (to be removed for auto height)
     // "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
@@ -15,6 +14,7 @@
         "custom/left-arrow-dark",
         "hyprland/language",
         // "keyboard-state",
+        "idle_inhibitor",
         "custom/left-arrow-light",
         "custom/left-arrow-dark",
         "group/audio",
@@ -39,7 +39,6 @@
         "custom/left-arrow-dark",
         "group/time"
     ],
-
     "custom/separator": {
         "format": "|",
         "tooltip": false
@@ -60,7 +59,6 @@
         "format": "",
         "tooltip": false
     },
-
     "keyboard-state": {
         "capslock": true,
         "numlock": false,
@@ -68,14 +66,13 @@
         "format-icons": {
             "locked": "Caps",
             "unlocked": ""
-        },
+        }
         // "format-icons": {
         //     "locked": "",
         //     "unlocked": ""
         // },
         // "device-path": "/dev/input/by-id/usb-Keychron_Keychron_K8_Pro-event-kbd"
     },
-
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
@@ -87,7 +84,6 @@
         // "icon-size": 21,
         "spacing": 10
     },
-
     "pulseaudio#1": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} ",
@@ -97,7 +93,10 @@
         "format-source": "",
         "format-source-muted": "",
         "format-icons": {
-            "default": ["", ""],
+            "default": [
+                "",
+                ""
+            ],
             "headphone": "",
             "headset": "",
             "phone": "",
@@ -119,7 +118,10 @@
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
-            "default": ["", ""],
+            "default": [
+                "",
+                ""
+            ],
             "headphone": "",
             "headset": "",
             "phone": "",
@@ -165,7 +167,6 @@
             "custom/separator"
         ]
     },
-
     "cpu": {
         "format": "{usage}% ",
         "tooltip": false
@@ -180,7 +181,11 @@
         // "format-critical": "{temperatureC}°C {icon}",
         // "format": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C",
-        "format-icons": ["", "", ""]
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
     },
     "group/stats": {
         "orientation": "horizontal",
@@ -196,7 +201,6 @@
             "temperature"
         ]
     },
-
     "backlight#separator": {
         "format": "|",
         "tooltip": false
@@ -204,7 +208,17 @@
     "backlight": {
         // "device": "acpi_video1",
         "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
     },
     "battery#separator": {
         "format": "|",
@@ -223,18 +237,24 @@
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
     },
     "power-profiles-daemon": {
-      "format": "{icon}",
-      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-      "tooltip": true,
-      "format-icons": {
-        "default": "",
-        "performance": "",
-        "balanced": "",
-        "power-saver": ""
-      }
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
     },
     "network#1": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface

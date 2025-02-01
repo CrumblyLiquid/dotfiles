@@ -53,6 +53,7 @@ window#waybar {
 #cpu,
 #keyboard-state,
 #temperature,
+#idle_inhibitor,
 #disk,
 #tray {
     background: @secondary;
