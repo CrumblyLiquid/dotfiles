@@ -2,6 +2,7 @@
   imports = let base = ./../..; in [
     inputs.home-manager.nixosModules.default
     ./theming.nix
+    ./firewall.nix
 
     ./sound.nix
     ./keyboard.nix
