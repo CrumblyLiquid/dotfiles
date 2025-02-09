@@ -66,5 +66,8 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   boot.swraid.enable = true;
-  boot.swraid.mdadmConf = "ARRAY /dev/md/crumbly-pc:0 level=raid1 num-devices=2 metadata=1.2 name=crumbly-pc:0 UUID=b7f88a79:c8cbcbdb:b9c72930:261591d8 devices=/dev/sda1,/dev/sdb1";
+  boot.swraid.mdadmConf = ''
+    ARRAY /dev/md/crumbly-pc:0 level=raid1 num-devices=2 metadata=1.2 name=crumbly-pc:0 UUID=b7f88a79:c8cbcbdb:b9c72930:261591d8 devices=/dev/sda1,/dev/sdb1
+    PROGRAM=/home/crumbly/.config/scripts/mdadm_program
+  '';
 }

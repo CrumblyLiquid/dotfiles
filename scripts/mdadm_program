@@ -1,0 +1,118 @@
+#!/usr/bin/env bash
+
+EVENT=$1
+MD_DEVICE=$2
+COMPONENT_DEVICE=$3
+
+case "$EVENT" in
+    DeviceDisappeared)
+        SUMMARY="'$MD_DEVICE' disappeared"
+        BODY="
+An md array which previously was configured appears to
+no longer be configured.
+        "
+        URGENCY="critical"
+        ;;
+    RebuildStarted)
+        SUMMARY="Reconstruction of array '$MD_DEVICE' started"
+        BODY="
+An md array started reconstruction (e.g. recovery,
+resync, reshape, check, repair).
+        "
+        URGENCY="normal"
+        ;;
+    Rebuild??)
+        SUMMARY="${EVENT:(-2)}% of '$MD_DEVICE' array rebuilt"
+        BODY="
+Where NN is a two-digit number (eg. 05, 48). This
+indicates that the rebuild has reached that percentage
+of the total. The events are generated at a fixed
+increment from 0. The increment size may be specified
+with a command-line option (the default is 20).
+        "
+        URGENCY="normal"
+        ;;
+    RebuildFinished)
+        SUMMARY="Rebuilding of array '$MD_DEVICE' finished or was aborted"
+        BODY="
+An md array that was rebuilding, isn't any more, either
+because it finished normally or was aborted.
+        "
+        URGENCY="normal"
+        ;;
+    Fail)
+        SUMMARY="Active component '$COMPONENT_DEVICE' failed in array '$MD_DEVICE'"
+        BODY="
+An active component device of an array has been marked
+as faulty.
+        "
+        URGENCY="critical"
+        ;;
+    FailSpare)
+        SUMMARY="Spare component '$COMPONENT_DEVICE' failed while trying to rebuild array '$MD_DEVICE'"
+        BODY="
+A spare component device which was being rebuilt to
+replace a faulty device has failed.
+        "
+        URGENCY="critical"
+        ;;
+    SpareActive)
+        SUMMARY="Spare component '$COMPONENT_DEVICE' rebuilt and is now active in array '$MD_DEVICE'"
+        BODY="
+A spare component device which was being rebuilt to
+replace a faulty device has been successfully rebuilt
+and has been made active.
+        "
+        URGENCY="low"
+        ;;
+    NewArray)
+        SUMMARY="New array '$MD_DEVICE' detected"
+        BODY="
+A new md array has been detected in the /proc/mdstat
+file.
+        "
+        URGENCY="low"
+        ;;
+    DegradedArray)
+        SUMMARY="'$MD_DEVICE' appears to be degraded!"
+        BODY="
+A newly noticed array appears to be degraded. This
+message is not generated when mdadm notices a drive
+failure which causes degradation, but only when mdadm
+notices that an array is degraded when it first sees
+the array.
+        "
+        URGENCY="critical"
+        ;;
+    MoveSpare)
+        SUMMARY="Spare '$COMPONENT_DEVICE' has been moved to array '$MD_DEVICE'"
+        BODY="
+A spare drive has been moved from one array in a spare-
+group or domain to another to allow a failed drive to
+be replaced.
+        "
+        URGENCY="low"
+        ;;
+    SparesMissing)
+        SUMMARY="'$MD_DEVICE' is missing some spare devices"
+        BODY="
+If mdadm has been told, via the config file, that an
+array should have a certain number of spare devices,
+and mdadm detects that it has fewer than this number
+when it first sees the array, it will report a
+SparesMissing message.
+        "
+        URGENCY="normal"
+        ;;
+    TestMessage)
+        SUMMARY="Test Message from '$MD_DEVICE'"
+        BODY="
+An array was found at startup, and the --test flag was
+given.
+        "
+        URGENCY="low"
+        ;;
+esac
+
+notify-send --app-name="MDADM" --urgency="$URGENCY" "$EVENT: $SUMMARY" "$BODY"
+
