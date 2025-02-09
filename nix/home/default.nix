@@ -1,6 +1,7 @@
 { inputs, globals, pkgs, ... }: {
   imports = let base = ./../..; in [
     inputs.home-manager.nixosModules.default
+    ./fixes.nix
     ./theming.nix
     ./firewall.nix
 
