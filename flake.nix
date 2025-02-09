@@ -10,6 +10,7 @@
     };
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    musnix = { url = "github:musnix/musnix"; };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:

@@ -12,7 +12,7 @@
     jack.enable = true;
 
     # https://nixos.wiki/wiki/PipeWire#Low-latency_setup
-    extraConfig.pipewire."92-low-latency" = {
+    /* extraConfig.pipewire."92-low-latency" = {
       context.properties = {
         default.clock.rate = 48000;
         default.clock.quantum = 32;
@@ -37,7 +37,7 @@
         node.latency = "32/48000";
         resample.quality = 1;
       };
-    };
+    }; */
 
     wireplumber.extraConfig.bluetoothEnhancements = {
       "monitor.bluez.properties" = {

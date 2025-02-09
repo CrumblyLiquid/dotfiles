@@ -5,6 +5,7 @@
     ./firewall.nix
 
     ./sound.nix
+    ./music.nix
     ./keyboard.nix
     ./bluetooth.nix
     ./dev.nix
