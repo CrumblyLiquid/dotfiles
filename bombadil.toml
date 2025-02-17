@@ -96,7 +96,7 @@ posthooks = ["hyprctl reload"]
 extra_profiles = [ "dunst", "nvim", "waybar" ]
 
 [profiles.laptop]
-extra_profiles = [ "terminal", "hyprland" ]
+extra_profiles = [ "terminal", "hyprland", "wallpaper" ]
 vars = ["laptop-vars.toml"]
 
 [profiles.cs.dots]
