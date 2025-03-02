@@ -1,7 +1,7 @@
 # Programs
 terminal = "kitty"
 file_manager = "dolphin"
-browser = "firefox"
+browser = "librewolf"
 
 # Theming
 theme = "Breeze"
