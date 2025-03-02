@@ -20,7 +20,7 @@
     # cliphist
     wl-screenrec
     wdisplays
-    xwaylandvideobridge
+    kdePackages.xwaylandvideobridge
     brightnessctl
     pipewire
     wireplumber
