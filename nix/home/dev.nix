@@ -116,6 +116,7 @@
     python312Packages.scipy
 
     rars
+    burpsuite
 
     geckodriver
     libnotify
