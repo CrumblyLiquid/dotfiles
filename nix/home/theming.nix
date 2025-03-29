@@ -16,11 +16,11 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    vimix-cursor-theme
+    vimix-cursors
   ];
 
   environment.sessionVariables = {
-    XCURSOR_THEME = "Vimix-Cursors-White";
+    XCURSOR_THEME = "Vimix-white-cursors";
     XCURSOR_SIZE = 32;
   };
 
@@ -28,9 +28,9 @@
     home.pointerCursor = {
       gtk.enable = true;
       x11.enable = true;
-      name = "Vimix-Cursors-White";
+      name = "Vimix-white-cursors";
       size = 32;
-      package = pkgs.vimix-cursor-theme;
+      package = pkgs.vimix-cursors;
     };
 
     qt = {
