@@ -1,4 +1,13 @@
 { globals, inputs, pkgs, ... }: {
+  documentation = {
+    enable = true;
+    man = {
+      enable = true;
+      generateCaches = true;
+    };
+    dev.enable = true;
+  };
+
   # environment.enableDebugInfo = true;
   environment.systemPackages = with pkgs; [
     # General
@@ -7,93 +16,45 @@
 
     linuxPackages_latest.perf
 
-    vscodium.fhs
-
-    openssl
-    pkg-config
-    libiconv
-
-    # Editors
-    # jetbrains.datagrip
-    jetbrains.clion
-    helix
-
-    # Neovim stuff
-    neovim
-    nil
-    lua-language-server
-    nixpkgs-fmt
+    linux-manual
+    man-pages
+    man-pages-posix
+    stdmanpages
+    llvmPackages.clang-manpages
+    llvmPackages.lldb-manpages
+    llvmPackages.llvm-manpages
 
     # C/C++ things
     gcc
     clang
     clang-tools
     gdb
-    valgrind
-
-    iverilog
-    gtkwave
-
-    tree-sitter
     lldb
-    ghidra
+    valgrind
+    # https://github.com/cyrus-and/gdb-dashboard
 
-    libpng
-    libjpeg
     doxygen
     graphviz
 
-    libxkbcommon
-    libGL
-    wayland
-    xorg.libX11
-    xorg.libXcursor
-    xorg.libXrandr
-    xorg.libXi
+    # Rust stuff
+    rustup
+    cargo
+    rust-analyzer
 
     # Java stuff
     openjdk8
     openjdk17
     openjdk
 
-    # Rust stuff
-    rustup
-    cargo
-    rust-analyzer
-    libiconv
-    openssl
-    pkg-config
+    # SQL
     sqlitebrowser
     sqlite
     sqlite-interactive
 
-    python3
-
-    python312Packages.selenium
-    python312Packages.mpmath
-    python312Packages.pillow
-    python312Packages.pandas
-    python312Packages.requests
-    python312Packages.pip
-    python312Packages.setuptools
-    python312Packages.venvShellHook
-    python312Packages.virtualenv
-    python312Packages.python-lsp-ruff
-    # python312Packages.conda
-    ruff-lsp
-    ruff
-
-    uv
-    conda
-
-    jupyter-all
-    python312Packages.jupyter-core
-
-    # https://github.com/cyrus-and/gdb-dashboard
-    # python311Packages.pygments
-
+    # JavaScript
     nodejs
 
+    # WooWoo
     ruby
     texliveFull
     deno
@@ -115,11 +76,71 @@
     python312Packages.numpy
     python312Packages.scipy
 
-    rars
-    burpsuite
+    # Python
+    python3
+    python312Packages.mpmath
+    python312Packages.pillow
+    python312Packages.pandas
+    python312Packages.requests
+    python312Packages.pip
+    python312Packages.setuptools
+    python312Packages.venvShellHook
+    python312Packages.virtualenv
 
     geckodriver
-    libnotify
+    python312Packages.selenium
+
+    uv
+    conda
+
+    python312Packages.pygments
+
+    # Security
+    ida-free
+    radare2
+    iaito
+    cutter
+    ghidra
+    metasploit
+    burpsuite
+
+    # Editors
+    # helix
+    # jetbrains.datagrip
+    jetbrains.clion
+    vscodium.fhs
+
+    # Neovim stuff
+    neovim
+    nil
+    lua-language-server
+    nixpkgs-fmt
+    ruff-lsp
+    ruff
+    python312Packages.python-lsp-ruff
+
+    # School design
+    # iverilog
+    # gtkwave
+    # rars
+
+    # libiconv
+    # openssl
+    # pkg-config
+    #
+    # libnotify
+    #
+    # tree-sitter
+    #
+    # libpng
+    # libjpeg
+    # libxkbcommon
+    # libGL
+    # wayland
+    # xorg.libX11
+    # xorg.libXcursor
+    # xorg.libXrandr
+    # xorg.libXi
   ];
 
   virtualisation.docker = {
