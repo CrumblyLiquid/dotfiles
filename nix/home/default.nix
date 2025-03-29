@@ -22,8 +22,7 @@
     ./spotify.nix
     (base + /opentabletdriver)
     (base + /xournalpp)
-    # Disabled because gns3 gui doesn't support Python 3.12
-    ./gns3.nix
+    # ./gns3.nix
     ./wireshark.nix
     ./virtmanager.nix
     ./syncthing.nix

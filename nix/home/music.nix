@@ -10,14 +10,16 @@
     lmms
     ardour
 
+    # Disable since I wasn't using them
+
     # VSTs
-    vital
-    infamousPlugins
-    lsp-plugins
+    # vital
+    # infamousPlugins
+    # lsp-plugins
 
     # Windows VSTs
-    yabridge
-    yabridgectl
+    # yabridge
+    # yabridgectl
   ];
 
   users.users."${globals.user}".extraGroups = [ "audio" ];

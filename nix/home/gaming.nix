@@ -8,7 +8,7 @@
     dxvk
     # Failing to build Electron: https://github.com/NixOS/nixpkgs/issues/370014
     # heroic
-    lutris
+    # lutris
     protonup-qt
   ];
 
