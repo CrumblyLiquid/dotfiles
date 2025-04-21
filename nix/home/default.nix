@@ -55,7 +55,7 @@
 
   home-manager.users."${globals.user}" = {
     xdg.enable = true;
-    xdg.configFile."wallpaper.png" = { source = globals.wallpaper; };
+    # xdg.configFile."wallpaper.png" = { source = globals.wallpaper; };
     xdg.mimeApps = {
       enable = true;
       defaultApplications = {

@@ -55,7 +55,7 @@ service = { source = "gpu-screen-recorder/gsr-replay.service", target = ".config
 # script = { source = "gpu-screen-recorder/save_replay", target = ".config/scripts/save_replay" }
 
 [profiles.wallpaper.dots]
-wallpaper = { source = "wallpapers/polar_bear.png", target = ".config/wallpaper.png" }
+wallpaper = { source = "wallpapers/flow.png", target = ".config/wallpaper.png" }
 
 # I'm unsure if linking from home is a good idea
 [profiles.sddm.dots]
@@ -93,7 +93,7 @@ extra_profiles = ["dunst", "tofi", "rofi", "waybar", "eww", "swaylock", "swayidl
 posthooks = ["hyprctl reload"]
 
 [profiles.solid]
-extra_profiles = [ "dunst", "nvim", "waybar" ]
+extra_profiles = [ "zsh", "kitty", "dunst", "nvim", "waybar", "wallpaper" ]
 
 [profiles.laptop]
 extra_profiles = [ "terminal", "hyprland", "wallpaper" ]
