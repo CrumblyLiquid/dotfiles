@@ -18,7 +18,7 @@
       # https://docs.syncthing.net/users/faq.html#should-i-keep-my-device-ids-secret
       devices = {
         "laptop" = { id = "GU3XLR2-MLFV3M2-2CJYBDE-WHSIHHH-H3RRNXB-TZEDVON-2W5VDO6-Y2YE3QN"; };
-        "mobile" = { id = "WGOHU5L-6AU35BL-E7YMB3E-RYMEWKD-4MIBMVF-JSASZVI-CQIXX23-RICHHA3"; };
+        "mobile" = { id = "KFCIMYO-Q6LLB4R-N4GSJTK-K73JDXF-NMNXO65-P7DQVVE-DNVWWQF-DBLLKQZ"; };
       };
       folders = {
         "Misc" = {
@@ -29,8 +29,8 @@
           path = "/home/${globals.user}/School";
           devices = [ "laptop" "mobile" ];
         };
-        "Pictures" = {
-          path = "/home/${globals.user}/Pictures";
+        "Photos" = {
+          path = "/home/${globals.user}/Pictures/Pixel";
           devices = [ "mobile" ];
         };
       };
