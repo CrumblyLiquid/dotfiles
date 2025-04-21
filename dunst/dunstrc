@@ -1,7 +1,7 @@
 [global]
     ### Display ###
     # Which monitor should the notifications be displayed on.
-    monitor = 1
+    monitor = 0
     follow = none
 
     ### Geometry ###
@@ -14,7 +14,7 @@
     height = 300
 
     # Position the notification in the top right corner
-    origin = top-left
+    origin = top-right
     # Offset from the origin
     offset = 5x5
 
