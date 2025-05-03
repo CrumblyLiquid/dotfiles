@@ -46,7 +46,7 @@ vars = [ "vars.toml" ]
 nvim = { source = "nvim", target = ".config/nvim" }
 
 [profiles.terminal]
-extra_profiles = [ "kitty", "zsh", "fish", "starship", "tmux", "ssh", "git", "scripts", "kde", "nvim" ]
+extra_profiles = [ "kitty", "zsh", "fish", "starship", "tmux", "ssh", "git", "scripts", "nvim" ]
 
 [profiles.gsr.dots]
 env = { source = "gpu-screen-recorder/gpu-screen-recorder.env", target = ".config/gpu-screen-recorder.env" }
@@ -80,9 +80,11 @@ swaylock = { source = "swaylock/config", target = ".config/sway-lock/config" }
 swayidle = { source = "swayidle/config", target = ".config/swayidle/config" }
 
 [profiles.waybar.dots]
+extra_profiles = [ "scripts" ]
 waybar = { source = "waybar", target = ".config/waybar" }
 
 [profiles.eww.dots]
+extra_profiles = [ "scripts" ]
 config = { source = "eww", target = ".config/eww" }
 
 [profiles.hypr.dots]
@@ -95,8 +97,8 @@ posthooks = ["hyprctl reload"]
 [profiles.solid]
 extra_profiles = [ "zsh", "kitty", "git", "dunst", "nvim", "waybar", "wallpaper" ]
 
-[profiles.laptop]
-extra_profiles = [ "terminal", "hyprland", "wallpaper" ]
+[profiles.liquid]
+extra_profiles = [ "terminal", "kde", "hyprland", "wallpaper" ]
 vars = ["laptop-vars.toml"]
 
 [profiles.cs.dots]
