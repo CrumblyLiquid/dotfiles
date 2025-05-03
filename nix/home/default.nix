@@ -45,6 +45,7 @@
     (base + /waybar)
 
     (base + /kde)
+    # (base + /cosmic)
   ];
 
   home-manager = {
