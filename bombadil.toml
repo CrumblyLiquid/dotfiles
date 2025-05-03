@@ -23,7 +23,7 @@ posthooks = [ "tmux source-file ~/.config/tmux/tmux.conf" ]
 tmux = { source = "tmux", target = ".config/tmux" }
 
 [profiles.git.dots]
-git = { source = "git/gitconfig", target = ".gitconfig" }
+git = { source = "git/config", target = ".config/git/config" }
 
 [profiles.ssh.dots]
 ssh = { source = "ssh/config", target = ".ssh/config" }
@@ -93,7 +93,7 @@ extra_profiles = ["dunst", "tofi", "rofi", "waybar", "eww", "swaylock", "swayidl
 posthooks = ["hyprctl reload"]
 
 [profiles.solid]
-extra_profiles = [ "zsh", "kitty", "dunst", "nvim", "waybar", "wallpaper" ]
+extra_profiles = [ "zsh", "kitty", "git", "dunst", "nvim", "waybar", "wallpaper" ]
 
 [profiles.laptop]
 extra_profiles = [ "terminal", "hyprland", "wallpaper" ]

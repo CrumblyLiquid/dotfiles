@@ -1,0 +1,199 @@
+; Sources:
+; https://blog.gitbutler.com/how-git-core-devs-configure-git/
+; https://github.com/codingjerk/dotfiles/blob/main/config/git/config
+
+[core]
+    compression = 9
+    whitespace = error
+    preloadindex = true
+
+; [advice]
+;     addEmptyPathspec = false
+;     pushNonFastForward = false
+;     statusHints = false
+
+[column]
+    ui = auto
+
+[help]
+    autocorrect = prompt
+
+[init]
+    defaultBranch = main
+
+; Reuse recorded resolutions
+[rerere]
+    ; Record the before and after states
+    ; of rebase conflicts
+    enabled = true
+    ; Automatically re-apply those resolutions
+    autoupdate = true
+
+[push]
+    ; Automatically setup remote
+    ; tracking branches
+    autoSetupRemote = true
+    ; Push tags every time
+    followTags = true
+
+[fetch]
+    ; Delete branch if it was deleted
+    ; on the remote server
+    prune = true
+    ; Delete tags if they were deleted
+    ; on the remote server
+    pruneTags = true
+    all = true
+
+[pull]
+    ; Rebase current commits on top of
+    ; the remote ones by default
+    rebase = true
+
+[commit]
+    ; Add more information (diff)
+    ; to the commit buffer
+    verbose = true
+
+[rebase]
+    autoSquash = true
+    ; Automatically stash uncommited changes
+    ; (to apply them afterwards)
+    autoStash = true
+    ; Takes stacked refs in a branch and makes sure
+    ; they're also moved when a branch is rebased
+    updateRefs = true
+    ; Warn if I remove some commits
+    ; while manually rebasing
+    missingCommitsCheck = warn
+
+[merge]
+    ; How conflictmarkers should look like
+    conflictstyle = zdiff3
+
+[status]
+    ; Show current branch
+    branch = true
+    ; Show stash info
+    showStash = true
+    ; Show all untracked files without grouping
+    ; them into directories
+    showUntrackedFiles = all
+
+[log]
+    abbrevCommit = true
+    graphColors = blue,yellow,cyan,magenta,green,red
+
+[color "decorate"]
+    HEAD = red
+    branch = blue
+    tag = yellow
+    remoteBranch = magenta
+
+[branch]
+    sort = -commiterdate
+
+[color "branch"]
+    current = magenta
+    local = default
+    remote = yellow
+    upstream = green
+    plain = blue
+
+[tag]
+    ; Sort tags by version number (not alphabetic)
+    sort = version:refname
+
+[diff]
+    ; Better diff algorithm
+    algorithm = histogram
+    ; Color code movement differently
+    ; than add/remove
+    colorMoved = plain
+    ; Replaces `a/` and `b/`
+    ; with `i/` (index), `w/` (working directory)
+    ; and `c/` (commit)
+    mnemonicPrefix = true
+    ; Reduce context lines to 3
+    context = 3
+    ; Detect renames and copies as well
+    renames = copies
+    ; If changes are close, group them
+    ; together
+    interHunkContext = 10
+
+[color "diff-highlight"]
+    oldNormal = "red bold"
+    oldHighlight = "red bold 52"
+    newNormal = "green bold"
+    newHighlight = "green bold 22"
+
+[color "diff"]
+    meta = "11"
+    frag = "magenta bold"
+    func = "146 bold"
+    commit = "yellow bold"
+    old = "red bold"
+    new = "green bold"
+    whitespace = "red reverse"
+
+[pager]
+    ; Use `diff-so-fancy` for diffs
+    diff = diff-so-fancy | $PAGER
+    ; Don't use a pager for listing
+    ; branches and tags
+    branch = false
+    tag = false
+
+[interactive]
+    ; Use `diff-so-fancy` for colorized diff
+    ; in interactive stuff like `git add --patch`
+    diffFilter = diff-so-fancy --patch
+    ; No need to hit enter to confirm action
+    singlekey = true
+
+[diff-so-fancy]
+    ; Should the first block of an empty line be colored
+    markEmptyLines = false
+
+[url "git@gitlab.com:"]
+    insteadOf = "gl:"
+
+[url "git@github.com:"]
+    insteadOf = "gh:"
+
+[url "git@github.com:CrumblyLiquid/"]
+    insteadOf = "cr:"
+
+[alias]
+    # one-line log
+    l = log --graph --all --pretty=format:"%C(magenta)%h\\ %C(white)\\ %an\\ %ar%C(blue)\\ %D%n%s%n"
+
+    a = add
+    ap = add -p
+    c = commit --verbose
+    ca = commit -a --verbose
+    cm = commit -m
+    cam = commit -a -m
+    m = commit --amend --verbose
+
+    d = diff
+    ds = diff --staged
+    dst = diff --stat
+    dc = diff --cached
+    dwd = diff --word-diff
+
+    s = status -s
+    sa = status
+    st = stash
+    stl = stash list
+    stp = stash pop
+    co = checkout
+    cob = checkout -b
+    # list branches sorted by last modified
+    b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+
+    # list aliases
+    la = "!git config -l | grep alias | cut -c 7-"
+
+; vim: set ft=gitconfig
