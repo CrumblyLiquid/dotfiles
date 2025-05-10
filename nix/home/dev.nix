@@ -3,7 +3,7 @@
     enable = true;
     man = {
       enable = true;
-      generateCaches = true;
+      generateCaches = false;
     };
     dev.enable = true;
   };
@@ -21,7 +21,7 @@
     man-pages-posix
     stdmanpages
     llvmPackages.clang-manpages
-    llvmPackages.lldb-manpages
+    # llvmPackages.lldb-manpages
     llvmPackages.llvm-manpages
 
     # C/C++ things
@@ -94,14 +94,15 @@
     conda
 
     python312Packages.pygments
+    python312Packages.pypdf
 
     # Security
-    ida-free
-    radare2
-    iaito
-    cutter
-    ghidra
-    metasploit
+    # ida-free
+    # radare2
+    # iaito
+    # cutter
+    # ghidra
+    # metasploit
     burpsuite
 
     # Editors
@@ -115,7 +116,6 @@
     nil
     lua-language-server
     nixpkgs-fmt
-    ruff-lsp
     ruff
     python312Packages.python-lsp-ruff
 
