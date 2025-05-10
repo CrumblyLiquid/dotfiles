@@ -40,7 +40,7 @@
     # and insecure
     # kdePackages.neochat
     ungoogled-chromium
-    gimp
+    gimp3
     krita
     fontforge
 
