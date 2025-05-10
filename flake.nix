@@ -1,6 +1,15 @@
 {
   description = "CrumblyLiquid's System Wide Flake";
 
+  nixConfig = {
+    extra-substituters = [
+      "https://hyprland.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+    ];
+  };
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -30,7 +39,12 @@
           specialArgs = {
             inherit inputs globals;
           };
-          modules = [ ./nix-solid ];
+          modules = [
+            ./nix-solid
+            {
+              nix.settings.trusted-users = [ globals.user ];
+            }
+          ];
         };
         /*
           liquid = nixpkgs.lib.nixosSystem {
