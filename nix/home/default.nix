@@ -30,6 +30,7 @@
     # Terminal
     ./terminal.nix
     (base + /kitty)
+    (base + /wezterm)
     (base + /zsh)
     (base + /starship)
     (base + /nvim)

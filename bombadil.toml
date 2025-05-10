@@ -39,6 +39,9 @@ scripts = { source = "scripts", target = ".config/scripts" }
 kitty = { source = "kitty/kitty.conf", target = ".config/kitty/kitty.conf" }
 kitty-theme = { source = "kitty/catppuccin-mocha.conf", target = ".config/kitty/catppuccin-mocha.conf" }
 
+[profiles.wezterm.dots]
+wezterm = { source = "wezterm/wezterm.lua", target = ".config/wezterm/wezterm.lua" }
+
 [profiles.nvim]
 vars = [ "vars.toml" ]
 
@@ -46,7 +49,7 @@ vars = [ "vars.toml" ]
 nvim = { source = "nvim", target = ".config/nvim" }
 
 [profiles.terminal]
-extra_profiles = [ "kitty", "zsh", "fish", "starship", "tmux", "ssh", "git", "scripts", "nvim" ]
+extra_profiles = [ "wezterm", "kitty", "zsh", "fish", "starship", "tmux", "ssh", "git", "scripts", "nvim" ]
 
 [profiles.gsr.dots]
 env = { source = "gpu-screen-recorder/gpu-screen-recorder.env", target = ".config/gpu-screen-recorder.env" }
@@ -95,7 +98,7 @@ extra_profiles = ["dunst", "tofi", "rofi", "waybar", "eww", "swaylock", "swayidl
 posthooks = ["hyprctl reload"]
 
 [profiles.solid]
-extra_profiles = [ "zsh", "kitty", "git", "dunst", "nvim", "waybar", "wallpaper" ]
+extra_profiles = [ "zsh", "wezterm", "kitty", "git", "dunst", "nvim", "waybar", "wallpaper" ]
 
 [profiles.liquid]
 extra_profiles = [ "terminal", "kde", "hyprland", "wallpaper" ]
