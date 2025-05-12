@@ -4,6 +4,8 @@ return {
     -- Sets the loading event to "VimEnter"
     event = "VimEnter",
     opts = {
+      -- Delay between pressing a key and opening which-key (in ms)
+      delay = 0,
       icons = {
         -- set icon mappings to true if you have a Nerd Font
         mappings = vim.g.have_nerd_font,
@@ -42,9 +44,6 @@ return {
 
       -- Document existing key chains
       spec = {
-        { "<leader>c", group = "[C] Code",     mode = { "n", "x" } },
-        { "<leader>d", group = "[D] Document" },
-        { "<leader>r", group = "[R] Rename" },
         { "<leader>s", group = "[S] Search" },
         { "<leader>t", group = "[T] Toggle" },
         { "<leader>h", group = "[H] Git Hunk", mode = { "n", "v" } },

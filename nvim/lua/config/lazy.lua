@@ -12,7 +12,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -21,8 +21,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 
 -- Add lazy to the `runtimepath`, this allows us to `require` it
----@diagnostic disable-next-line: undefined-field
-vim.opt.rtp:prepend(lazypath)
+---@type vim.Option
+local rtp = vim.opt.rtp
+rtp:prepend(lazypath)
 
 -- Set up lazy
 require("lazy").setup({ import = "plugins" })
