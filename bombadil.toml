@@ -82,12 +82,16 @@ swaylock = { source = "swaylock/config", target = ".config/sway-lock/config" }
 [profiles.swayidle.dots]
 swayidle = { source = "swayidle/config", target = ".config/swayidle/config" }
 
-[profiles.waybar.dots]
+[profiles.waybar]
 extra_profiles = [ "scripts" ]
+
+[profiles.waybar.dots]
 waybar = { source = "waybar", target = ".config/waybar" }
 
-[profiles.eww.dots]
+[profiles.eww]
 extra_profiles = [ "scripts" ]
+
+[profiles.eww.dots]
 config = { source = "eww", target = ".config/eww" }
 
 [profiles.hypr.dots]
@@ -95,14 +99,14 @@ hyprland = { source = "hypr", target = ".config/hypr" }
 
 [profiles.hyprland]
 extra_profiles = ["dunst", "tofi", "rofi", "waybar", "eww", "swaylock", "swayidle", "hypr", "wallpaper", "gsr"]
-posthooks = ["hyprctl reload"]
+posthooks = [ "hyprctl reload" ]
 
 [profiles.solid]
 extra_profiles = [ "zsh", "wezterm", "kitty", "git", "dunst", "nvim", "waybar", "wallpaper" ]
 
 [profiles.liquid]
 extra_profiles = [ "terminal", "kde", "hyprland", "wallpaper" ]
-vars = ["laptop-vars.toml"]
+vars = [ "laptop-vars.toml" ]
 
 [profiles.cs.dots]
 cs = { source = "autoexec.cfg", target = ".local/share/Steam/steamapps/common/Counter-Strike Global Offensive/game/csgo/cfg/autoexec.cfg" }
