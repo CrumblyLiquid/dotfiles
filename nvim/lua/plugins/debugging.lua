@@ -1,5 +1,5 @@
 return {
-  {
+  --[[ {
     "mfussenegger/nvim-dap",
     dependencies = {
       "rcarriga/nvim-dap-ui",
@@ -82,5 +82,5 @@ return {
     "julianolf/nvim-dap-lldb",
     dependencies = { "mfussenegger/nvim-dap" },
     opts = {}
-  }
+  } ]]
 }
