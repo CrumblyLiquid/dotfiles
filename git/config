@@ -196,4 +196,4 @@
     # list aliases
     la = "!git config -l | grep alias | cut -c 7-"
 
-; vim: set ft=gitconfig
+; vi: ft=gitconfig
