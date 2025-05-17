@@ -12,6 +12,8 @@
     ./dev.nix
     ./android.nix
 
+    ./typst.nix
+
     # Applications
     ./flatpak.nix
     ./apps.nix
