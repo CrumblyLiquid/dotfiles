@@ -18,8 +18,8 @@ return {
     },
     opts = {},
     keys = {
-      { "<leader>po", "<cmd>OmniPreview start<CR>", desc = "OmniPreview Start" },
-      { "<leader>pc", "<cmd>OmniPreview stop<CR>",  desc = "OmniPreview Stop" },
+      { "<leader>po", function() require('omni-preview').command({ args = "start" }) end, desc = "Start preview" },
+      { "<leader>pc", function() require('omni-preview').command({ args = "stop" }) end,  desc = "Stop preview" },
     }
   },
 }
