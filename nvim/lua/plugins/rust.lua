@@ -1,7 +1,7 @@
 return {
   {
     "mrcjkb/rustaceanvim",
-    version = "^5",
+    version = "^6",
     lazy = false,
     config = function()
       local mason_registry = require("mason-registry")
@@ -30,9 +30,6 @@ return {
           },
         },
       }
-      require('cmp').setup.buffer({
-        sources = { { name = "crates" } }
-      })
     end
   }
 }
