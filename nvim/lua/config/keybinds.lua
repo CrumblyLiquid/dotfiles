@@ -5,9 +5,10 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Write" })
 vim.keymap.set("n", "<leader>q", "<cmd>confirm q<CR>", { desc = "Quit" })
 
+-- Superseded by Oil.nvim
 -- Open and close the Netrw file explorer
-vim.keymap.set("n", "<leader>fe", vim.cmd.Explore, { desc = "Open explorer" })
-vim.keymap.set("n", "<leader>fw", vim.cmd.Rexplore, { desc = "Close explorer" })
+-- vim.keymap.set("n", "<leader>fe", vim.cmd.Explore, { desc = "Open explorer" })
+-- vim.keymap.set("n", "<leader>fw", vim.cmd.Rexplore, { desc = "Close explorer" })
 
 -- Tabbing in other modes
 vim.keymap.set("n", "<TAB>", ">>")
