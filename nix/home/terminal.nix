@@ -8,6 +8,7 @@
     ripgrep
     htop # Better top
     btop # Even better top
+    yazi
 
     eza # Better ls
     bat # Better cat
