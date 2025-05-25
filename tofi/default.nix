@@ -3,13 +3,13 @@
     tofi
   ];
 
-  home-manager.users."${globals.user}" = {
-    home.file = {
-      ".config/tofi" = {
-        source = ./.;
-        recursive = true;
-      };
-    };
-  };
+  # home-manager.users."${globals.user}" = {
+  #   home.file = {
+  #     ".config/tofi" = {
+  #       source = ./.;
+  #       recursive = true;
+  #     };
+  #   };
+  # };
 }
 

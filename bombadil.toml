@@ -49,7 +49,7 @@ vars = [ "vars.toml" ]
 nvim = { source = "nvim", target = ".config/nvim" }
 
 [profiles.terminal]
-extra_profiles = [ "wezterm", "kitty", "zsh", "fish", "starship", "tmux", "ssh", "git", "scripts", "nvim" ]
+extra_profiles = [ "wezterm", "kitty", "zsh", "fish", "starship", "tmux", "ssh", "git", "tofi", "scripts", "nvim" ]
 
 [profiles.gsr.dots]
 env = { source = "gpu-screen-recorder/gpu-screen-recorder.env", target = ".config/gpu-screen-recorder.env" }
@@ -102,10 +102,10 @@ extra_profiles = ["dunst", "tofi", "rofi", "waybar", "eww", "swaylock", "swayidl
 posthooks = [ "hyprctl reload" ]
 
 [profiles.solid]
-extra_profiles = [ "zsh", "wezterm", "kitty", "git", "dunst", "nvim", "tmux", "waybar", "wallpaper" ]
+extra_profiles = [ "tofi", "zsh", "wezterm", "kitty", "git", "dunst", "nvim", "tmux", "waybar", "wallpaper" ]
 
 [profiles.liquid]
-extra_profiles = [ "terminal", "kde", "hyprland", "wallpaper" ]
+extra_profiles = [ "tofi", "terminal", "kde", "hyprland", "wallpaper" ]
 vars = [ "laptop-vars.toml" ]
 
 [profiles.cs.dots]
