@@ -44,6 +44,7 @@ Documented:
 - [x] [tofi](./tofi/README.md)
 - [x] [terminal](./TERMINAL.md) - incomplete
 - [x] [zsh](./zsh/README.md) - incomplete
+- [x] [nvim](./nvim/README.md) - incomplete
 
 Missing:
 
