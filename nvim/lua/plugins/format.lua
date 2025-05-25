@@ -44,6 +44,7 @@ return {
         c = { "clang" },
         cpp = { "clang" },
         rust = { "rustfmt" },
+        typst = { "tinymist" },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
 
