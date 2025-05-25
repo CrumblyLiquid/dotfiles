@@ -2,6 +2,7 @@
   environment.systemPackages = with pkgs; [
     spotify
     # spotifywm
+    spotify-player
   ];
 
   # Local discovery
