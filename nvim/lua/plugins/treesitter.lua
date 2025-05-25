@@ -1,10 +1,10 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    -- Fix treesitter madness
-    -- (https://www.reddit.com/r/neovim/comments/110x08m/treesitter_keeps_recompiling_parsers/)
-    version = nil,
-    lazy = false,
+    branch = 'main',
+    -- Load nvim-treesitter only when opening a buffer
+    -- for an already existing file or for a new one
+    event = { "BufReadPre", "BufNewFile" },
     build = function()
       -- :TSUpdate won't work on first install
       require("nvim-treesitter.install").update({ with_sync = true })()
@@ -21,15 +21,11 @@ return {
         "comment",
         "lua",
         "luadoc",
-        "vim",
-        "vimdoc",
         "nix",
         "rust",
         "python",
         "markdown",
         "markdown_inline",
-        "query",
-        "diff",
         "vim",
         "vimdoc"
       },
