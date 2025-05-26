@@ -2,7 +2,7 @@
 -- at lua/folder/file.lua (relative to init.lua)
 
 -- Load `lazy.nvim` - package manager
-require("lazy")
+require("manager")
 
 -- Basic options
 require("options")
