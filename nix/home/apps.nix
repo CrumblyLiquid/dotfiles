@@ -4,6 +4,7 @@
 
     vlc
     mpv
+    zathura
 
     keepassxc
 

@@ -106,7 +106,7 @@
     burpsuite
 
     # Editors
-    # helix
+    helix
     # jetbrains.datagrip
     jetbrains.clion
     vscodium.fhs
