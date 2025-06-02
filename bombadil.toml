@@ -102,7 +102,7 @@ extra_profiles = ["dunst", "tofi", "rofi", "waybar", "eww", "swaylock", "swayidl
 posthooks = [ "hyprctl reload" ]
 
 [profiles.solid]
-extra_profiles = [ "tofi", "zsh", "wezterm", "kitty", "git", "dunst", "nvim", "tmux", "waybar", "wallpaper" ]
+extra_profiles = [ "tofi", "zsh", "wezterm", "git", "dunst", "nvim", "tmux", "waybar", "wallpaper" ]
 
 [profiles.liquid]
 extra_profiles = [ "tofi", "terminal", "kde", "hyprland", "wallpaper" ]
