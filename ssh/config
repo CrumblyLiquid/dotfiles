@@ -8,6 +8,10 @@ Host gitlab.fit.cvut.cz
     IdentityFile ~/.ssh/id_fit_ed25519
     IdentitiesOnly yes
 
+Host gitlab.freedesktop.org
+    IdentityFile ~/.ssh/id_fdorg_ed25519
+    IdentitiesOnly yes
+
 # Another user on github
 # Host gitother
 #     HostName github.com
@@ -22,3 +26,5 @@ Host laptop
 
 Host pc
     HostName 192.168.1.110
+
+# vi: ft=sshconfig
