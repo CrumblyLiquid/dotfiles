@@ -45,6 +45,7 @@ Documented:
 - [x] [terminal](./TERMINAL.md) - incomplete
 - [x] [zsh](./zsh/README.md) - incomplete
 - [x] [nvim](./nvim/README.md) - incomplete
+- [x] [flatpak](./FLATPAK.md) - incomplete
 
 Missing:
 
