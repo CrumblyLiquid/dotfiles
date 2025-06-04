@@ -31,9 +31,22 @@
     xkb.layout = "us";
   };
 
-  services.displayManager.sddm = {
+  services.greetd = {
     enable = true;
-    wayland.enable = true;
+    settings = {
+      default_session = {
+        user = "greeter";
+        command = ''
+          ${pkgs.greetd.tuigreet}/bin/tuigreet \
+            --time \
+            --asterisks \
+            --user-menu \
+            --remember \
+            --remember-user-session \
+            --cmd Hyprland
+        '';
+      };
+    };
   };
 
   # Printing
