@@ -1,6 +1,7 @@
 { globals, pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     dunst
+    libnotify
   ];
 
   /* home-manager.users."${globals.user}" = {
