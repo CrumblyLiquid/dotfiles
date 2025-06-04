@@ -134,7 +134,7 @@
           "eww update laptop_mode=false"
           "waybar"
           "hypridle"
-          "hyprctl setcursor Vimix-Cursors-White 32"
+          "hyprctl setcursor Breeze_Light 32"
         ];
 
         env = [

@@ -20,7 +20,7 @@
   ];
 
   environment.sessionVariables = {
-    XCURSOR_THEME = "Vimix-white-cursors";
+    XCURSOR_THEME = "Breeze_Light";
     XCURSOR_SIZE = 32;
   };
 
@@ -28,7 +28,7 @@
     home.pointerCursor = {
       gtk.enable = true;
       x11.enable = true;
-      name = "Vimix-white-cursors";
+      name = "breeze_cursors";
       size = 32;
       package = pkgs.vimix-cursors;
     };
