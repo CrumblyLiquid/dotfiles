@@ -143,15 +143,15 @@
     # xorg.libXi
   ];
 
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-    storageDriver = "btrfs";
-  };
-
+  # virtualisation.docker = {
+  #   enable = true;
+  #   rootless = {
+  #     enable = true;
+  #     setSocketVariable = true;
+  #   };
+  #   storageDriver = "btrfs";
+  # };
+  #
   programs.adb.enable = true;
   users.users."${globals.user}".extraGroups = [ "docker" "kvm" ];
 }
