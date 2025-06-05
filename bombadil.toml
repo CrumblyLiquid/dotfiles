@@ -105,7 +105,7 @@ posthooks = [ "hyprctl reload" ]
 extra_profiles = [ "tofi", "zsh", "wezterm", "git", "dunst", "nvim", "tmux", "waybar", "wallpaper" ]
 
 [profiles.liquid]
-extra_profiles = [ "tofi", "terminal", "kde", "hyprland", "wallpaper" ]
+extra_profiles = [ "wezterm", "kitty", "zsh", "fish", "starship", "tmux", "ssh", "git", "scripts", "nvim", "kde", "dunst", "tofi", "rofi", "waybar", "eww", "swaylock", "swayidle", "hypr", "gsr", "wallpaper" ]
 vars = [ "laptop-vars.toml" ]
 
 [profiles.cs.dots]
