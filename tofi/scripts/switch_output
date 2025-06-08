@@ -1,0 +1,112 @@
+#!/usr/bin/env bash
+
+# https://gitlab.freedesktop.org/pipewire/wireplumber/-/issues/636
+
+# Get
+#     (category) `audio`/`video`
+#     (type) `sink`/`source`
+# from `wpctl`
+# Returns the node ID
+pw_get_devices() {
+    CATEGORY="$1"
+    TYPE="$2"
+
+    AUDIO="0"
+    VIDEO="0"
+    case "$CATEGORY" in
+        "audio")
+            AUDIO="1"
+            ;;
+        "video")
+            VIDEO="1"
+            ;;
+    esac
+
+    SINK="0"
+    SOURCE="0"
+    case "$TYPE" in
+        "sink")
+            SINK="1"
+            ;;
+        "source")
+            SOURCE="1"
+            ;;
+    esac
+
+    wpctl status |
+    awk "BEGIN {
+            category = 0;
+            sinks = 0;
+        }
+        /^Audio/ { category = $AUDIO; }
+        /^Video/ { category = $VIDEO; }
+        /^Settings/ { category = 0; }
+        /^ ├─ Sinks:/ { type = $SINK; }
+        /^ ├─ Sources:/ { type = $SOURCE; }
+        /^ ├─ Filters:/ { type = 0; }
+        {
+            if (category == 1 && type == 1 && / [[:digit:]]*\./) {
+                print;
+            }
+        }" |
+    sed 's/^.* \([[:digit:]]*\)\. \(.*\) \[.*$/\1/'
+}
+
+# Appends a name to each PipeWire node ID
+pw_get_nicer_name() {
+    # Name is taken from from `pw-cli info <id>`
+    # by looking for $NAME_SELECTOR
+
+    # Good options:
+    # node.nick
+    # node.description
+    # alsa.card_name
+    NAME_SELECTOR="$1"
+    # List of node IDs (probably taken from `pw_get_devices`)
+    ID_LIST="$2"
+
+    # Extract a nicer name from pw-cli
+    # Runs the given command for each line
+    #
+    # `sed` searches for `$NAME_SELECTOR`
+    # and if it finds `$NAME_SELECTOR`, it extracts the value from the
+    # key=value pair
+    echo "$ID_LIST" | xargs -I % sh -c \
+    "
+     echo \"% \$(
+         pw-cli info % | \
+         sed -n '/$NAME_SELECTOR/ \
+         { s/^.*$NAME_SELECTOR = \"\(.*\)\"$/\1/; p; }'
+     )\"
+    "
+}
+
+# Appends a name to each node ID
+pw_get_named_devices() {
+    CATEGORY="$1"
+    TYPE="$2"
+    NAME_SELECTOR="$3"
+
+    ID_LIST="$(pw_get_devices "$CATEGORY" "$TYPE")"
+    pw_get_nicer_name "$NAME_SELECTOR" "$ID_LIST"
+}
+
+choose() {
+    CATEGORY="$1"
+    TYPE="$2"
+
+    DEVICES="$(pw_get_named_devices "$CATEGORY" "$TYPE" "node.nick")"
+
+    CHOSEN_ID="$(echo "$DEVICES" | tofi | cut -d ' ' -f 1)"
+    wpctl set-default "$CHOSEN_ID"
+}
+
+choose_audio_sink() {
+    choose "audio" "sink"
+}
+
+choose_audio_source() {
+    choose "audio" "source"
+}
+
+choose_audio_sink

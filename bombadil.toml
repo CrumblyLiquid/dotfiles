@@ -74,7 +74,7 @@ dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
 rofi = { source = "rofi/rofi.rasi", target = ".config/rofi/config.rasi" }
 
 [profiles.tofi.dots]
-tofi = { source = "tofi/config", target = ".config/tofi/config" }
+tofi = { source = "tofi", target = ".config/tofi" }
 
 [profiles.swaylock.dots]
 swaylock = { source = "swaylock/config", target = ".config/sway-lock/config" }
@@ -102,7 +102,7 @@ extra_profiles = ["dunst", "tofi", "rofi", "waybar", "eww", "swaylock", "swayidl
 posthooks = [ "hyprctl reload" ]
 
 [profiles.solid]
-extra_profiles = [ "tofi", "zsh", "wezterm", "git", "dunst", "nvim", "tmux", "waybar", "wallpaper" ]
+extra_profiles = [ "tofi", "wezterm", "git", "dunst", "starship", "nvim", "tmux", "waybar", "wallpaper" ]
 
 [profiles.liquid]
 extra_profiles = [ "wezterm", "kitty", "zsh", "fish", "starship", "tmux", "ssh", "git", "scripts", "nvim", "kde", "dunst", "tofi", "rofi", "waybar", "eww", "swaylock", "swayidle", "hypr", "gsr", "wallpaper" ]
