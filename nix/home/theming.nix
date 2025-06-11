@@ -28,7 +28,7 @@
     home.pointerCursor = {
       gtk.enable = true;
       x11.enable = true;
-      name = "breeze_cursors";
+      name = "Breeze_Light";
       size = 32;
       package = pkgs.vimix-cursors;
     };
