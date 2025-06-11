@@ -20,9 +20,10 @@
     man-pages
     man-pages-posix
     stdmanpages
-    llvmPackages.clang-manpages
-    # llvmPackages.lldb-manpages
-    llvmPackages.llvm-manpages
+    llvmPackages_18.libllvm
+    llvmPackages_18.clang-manpages
+    llvmPackages_18.lldb-manpages
+    llvmPackages_18.llvm-manpages
 
     # C/C++ things
     gcc
@@ -109,6 +110,7 @@
     helix
     # jetbrains.datagrip
     jetbrains.clion
+    jetbrains.rust-rover
     vscodium.fhs
 
     # Neovim stuff
