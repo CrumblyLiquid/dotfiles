@@ -117,8 +117,8 @@
     # Editors
     helix
     # jetbrains.datagrip
-    jetbrains.clion
-    jetbrains.rust-rover
+    # jetbrains.clion
+    # jetbrains.rust-rover
     vscodium.fhs
 
     # Neovim stuff
