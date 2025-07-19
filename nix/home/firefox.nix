@@ -1,6 +1,7 @@
 { globals, pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     pkgs.librewolf
+    pkgs.tor
     pkgs.firefox
   ];
 
