@@ -7,8 +7,8 @@
   # Following https://discourse.nixos.org/t/lmms-vst-plugins/42985/3
   environment.systemPackages = with pkgs; [
     audacity
-    lmms
-    ardour
+    # lmms
+    # ardour
 
     # Disable since I wasn't using them
 
