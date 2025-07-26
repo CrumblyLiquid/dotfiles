@@ -13,6 +13,7 @@
     font-awesome
     dejavu_fonts
     libertine
+    corefonts
   ];
 
   environment.systemPackages = with pkgs; [
