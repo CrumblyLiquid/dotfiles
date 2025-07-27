@@ -1,30 +1,118 @@
 return {
-  --[[ {
+  {
     "mfussenegger/nvim-dap",
     dependencies = {
+      -- Nice debugger UI
       "rcarriga/nvim-dap-ui",
-      "williamboman/mason.nvim",
-      "jay-babu/mason-nvim-dap.nvim",
 
+      -- Debugger support in Mason.nvim
+      -- "williamboman/mason.nvim",
+      -- "jay-babu/mason-nvim-dap.nvim",
+
+      -- Shows variable values inline as virtual text
       "theHamsta/nvim-dap-virtual-text",
+
+      -- Asynchronous IO
       "nvim-neotest/nvim-nio",
+    },
+    keys = {
+      {
+        "<leader>b",
+        function() require("dap").toggle_breakpoint() end,
+        desc = 'Debug: Toggle Breakpoint'
+      },
+      -- Breakpoints
+      {
+        "<leader>b",
+        function() require("dap").toggle_breakpoint() end,
+        desc = "Debug: Toggle Breakpoint"
+      },
+      {
+        "<leader>B",
+        function()
+          require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+        end,
+        desc = "Debug: Set Breakpoint"
+      },
+      -- Misc
+      {
+        "<leader>gb",
+        function() require("dap").run_to_cursor() end,
+        desc = "Debug: Run to cursor"
+      },
+      {
+        "<leader>?",
+        function()
+          require("dapui").eval(nil, { enter = true })
+        end,
+        desc = "Debug: Eval under cursor"
+      },
+      -- Debugger controls
+      {
+        "<F1>",
+        function() require("dap").step_into() end,
+        desc = "Debug: Step Into"
+      },
+      {
+        "<F2>",
+        function() require("dap").step_over() end,
+        desc = "Debug: Step Over"
+      },
+      {
+        "<F3>",
+        function() require("dap").step_out() end,
+        desc = "Debug: Step Out"
+      },
+      {
+        "<F4>",
+        function() require("dap").step_back() end,
+        desc = "Debug: Step Back"
+      },
+      {
+        "<F5>",
+        function() require("dap").continue() end,
+        desc = "Debug: Start/Continue"
+      },
+      {
+        "<F6>",
+        function() require("dap").restart() end,
+        desc = "Debug: Restart"
+      },
+      -- Toggle to see last session result.
+      -- Without this, you can't see session output in case of unhandled exception.
+      {
+        "<F7>",
+        function() require("dapui").toggle() end,
+        desc = "Debug: See last session result."
+      },
+      {
+        "<F8>",
+        function() require("dap").stop() end,
+        desc = "Debug: Stop"
+      },
     },
     config = function()
       local dap = require("dap")
+      local dapui = require("dapui")
 
-      local ui = require("dapui")
-
-      require("dapui").setup()
-      require("nvim-dap-virtual-text").setup({})
-
-      require("mason-nvim-dap").setup({
-        automatic_setup = true,
-        ensure_installed = {
-          "codelldb",
-          "cpptools",
-          "debugpy"
+      dapui.setup({
+        icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
+        controls = {
+          icons = {
+            pause = '⏸',
+            play = '▶',
+            step_into = '⏎',
+            step_over = '⏭',
+            step_out = '⏮',
+            step_back = 'b',
+            run_last = '▶▶',
+            terminate = '⏹',
+            disconnect = '⏏',
+          },
         },
       })
+
+      require("nvim-dap-virtual-text").setup({})
 
       dap.adapters.lldb = {
         type = "executable",
@@ -38,49 +126,15 @@ return {
         name = "gdb"
       }
 
-      -- Breakpoints
-      vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" })
-      vim.keymap.set("n", "<leader>B", function()
-        dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
-      end, { desc = "Debug: Set Breakpoint" })
-
-      -- Run to cursor
-      vim.keymap.set("n", "<space>gb", dap.run_to_cursor, { desc = "Run to cursor" })
-      -- Eval var under cursor
-      vim.keymap.set("n", "<space>?", function()
-        require("dapui").eval(nil, { enter = true })
-      end, { desc = "Eval under cursor" })
-
-      -- Debugger controls
-      vim.keymap.set("n", "<F1>", dap.step_into, { desc = "Debug: Step Into" })
-      vim.keymap.set("n", "<F2>", dap.step_over, { desc = "Debug: Step Over" })
-      vim.keymap.set("n", "<F3>", dap.step_out, { desc = "Debug: Step Out" })
-      vim.keymap.set("n", "<F4>", dap.step_back, { desc = "Debug: Step Back" })
-
-      vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debug: Start/Continue" })
-      vim.keymap.set("n", "<F6>", dap.restart, { desc = "Debug: Restart" })
-
-      -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
-      vim.keymap.set("n", "<F7>", require("dapui").toggle, { desc = "Debug: See last session result." })
-      vim.keymap.set("n", "<F8>", dap.stop, { desc = "Debug: Stop" })
-
-      dap.listeners.before.attach.dapui_config = function()
-        ui.open()
-      end
-      dap.listeners.before.launch.dapui_config = function()
-        ui.open()
-      end
-      dap.listeners.before.event_terminated.dapui_config = function()
-        ui.close()
-      end
-      dap.listeners.before.event_exited.dapui_config = function()
-        ui.close()
-      end
+      -- Automatically open/close DAP UI
+      dap.listeners.after.event_initialized['dapui_config'] = dapui.open
+      dap.listeners.before.event_terminated['dapui_config'] = dapui.close
+      dap.listeners.before.event_exited['dapui_config'] = dapui.close
     end,
   },
   {
     "julianolf/nvim-dap-lldb",
     dependencies = { "mfussenegger/nvim-dap" },
     opts = {}
-  } ]]
+  }
 }
