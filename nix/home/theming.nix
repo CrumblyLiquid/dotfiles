@@ -16,6 +16,11 @@
     corefonts
   ];
 
+  # https://nixos.wiki/wiki/Fonts#Flatpak_applications_can't_find_system_fonts
+  # Create font directory so
+  # Flatpak apps can access system fonts
+  fonts.fontDir.enable = true;
+
   environment.systemPackages = with pkgs; [
     vimix-cursors
   ];
