@@ -48,7 +48,7 @@ _I'll complete this section once I finish my Neovim config rewrite._
 Misc:
 
 - Rewrite lsp, completion and formatting configuration
-    - `lsp.lua`
+    - `lsp.lua` - maybe manual lsp server setup
     - `completaion.lua`
     - `treesitter.lua`
     - `debugging.lua`
