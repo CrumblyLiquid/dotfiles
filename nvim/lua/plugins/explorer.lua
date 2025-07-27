@@ -21,20 +21,6 @@ return {
         end,
         desc = "Open parent directory"
       },
-      {
-        "<leader>fe",
-        function()
-          require('oil').open_float()
-        end,
-        desc = "Open Oil browser"
-      },
-      {
-        "<leader>fw",
-        function()
-          require('oil').close()
-        end,
-        desc = "Close Oil browser"
-      }
     },
   },
 }
