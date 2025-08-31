@@ -45,7 +45,7 @@
     krita
     fontforge
 
-    # prismlauncher
+    prismlauncher
     lunar-client
   ];
 

@@ -8,16 +8,6 @@
     dev.enable = true;
   };
 
-  # https://github.com/NixOS/nixpkgs/issues/425323
-  nixpkgs.overlays = [
-    (final: prev: {
-      jdk8 = prev.jdk8.overrideAttrs {
-        separateDebugInfo = false;
-        __structuredAttrs = false;
-      };
-    })
-  ];
-
   # environment.enableDebugInfo = true;
   environment.systemPackages = with pkgs; [
     # General
