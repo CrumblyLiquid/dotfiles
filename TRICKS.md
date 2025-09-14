@@ -37,6 +37,16 @@ Allow Flatpak applications to read the icon theme
 flatpak --user override --filesystem=/home/$USER/.icons/:ro
 ```
 
+## Dolphin forgets file assocations every time
+
+Run these two commands :)
+```bash
+pacman -S archlinux-xdg-menu
+XDG_MENU_PREFIX=arch- kbuildsycoca6
+```
+
+Taken from https://github.com/prasanthrangan/hyprdots/issues/1406
+
 # Observations
 
 ## NixOS
