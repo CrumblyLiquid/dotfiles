@@ -7,6 +7,9 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 export EDITOR="nvim"
 export VISUAL="nvim"
+# Needs to also be set in .bashrc
+# for git diff to use the correct pager
+export PAGER="less"
 
 # Programs that don't follow the XDG spec >:(
 export LESSHISTFILE="$XDG_STATE_HOME"/less/history
