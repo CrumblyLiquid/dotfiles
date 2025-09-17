@@ -14,7 +14,7 @@
     git
     gnumake
 
-    linuxPackages_latest.perf
+    perf
 
     linux-manual
     man-pages
