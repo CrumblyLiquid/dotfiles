@@ -5,6 +5,7 @@
     vlc
     mpv
     zathura
+    calibre
 
     keepassxc
 
