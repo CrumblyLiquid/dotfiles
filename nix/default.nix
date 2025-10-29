@@ -59,6 +59,9 @@
     curl
     zip
     unzip
+    sops
+    age
+    ssh-to-age
   ];
 
   programs.gnupg.agent = {
