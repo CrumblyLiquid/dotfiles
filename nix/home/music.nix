@@ -6,9 +6,15 @@
 
   # Following https://discourse.nixos.org/t/lmms-vst-plugins/42985/3
   environment.systemPackages = with pkgs; [
+    # Fails to build at the moment
+    # https://github.com/NixOS/nixpkgs/issues/454746
+    # musescore
+    muse-sounds-manager
+
+    ardour
     audacity
+
     # lmms
-    # ardour
 
     # Disable since I wasn't using them
 

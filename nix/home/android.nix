@@ -9,9 +9,11 @@
 
   nixpkgs.config.android_sdk.accept_license = true;
 
-  services.udev.packages = with pkgs; [
-    android-udev-rules
-  ];
+  virtualisation.waydroid.enable = true;
+
+  # services.udev.packages = with pkgs; [
+  #   android-udev-rules
+  # ];
 
   programs.adb.enable = true;
   users.users."${globals.user}".extraGroups = [ "adbusers" "kvm" ];

@@ -41,6 +41,14 @@
     rustup
     cargo
     rust-analyzer
+    loco
+    sea-orm-cli
+
+    # Haskell
+    ghc
+    # haskellPackages.ghcup
+    haskell-language-server
+    stack
 
     # Java stuff
     openjdk
@@ -102,7 +110,7 @@
     # cutter
     # ghidra
     # metasploit
-    burpsuite
+    # burpsuite
 
     # Editors
     helix

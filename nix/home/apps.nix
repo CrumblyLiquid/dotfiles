@@ -5,9 +5,10 @@
     vlc
     mpv
     zathura
-    calibre
+    # calibre
 
     keepassxc
+    signal-desktop
 
     kdePackages.dolphin
     kdePackages.dolphin-plugins
