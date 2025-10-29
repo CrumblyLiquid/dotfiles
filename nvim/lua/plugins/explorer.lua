@@ -1,6 +1,11 @@
 return {
   {
     'stevearc/oil.nvim',
+    dependencies = {
+      { "echasnovski/mini.icons", opts = {} }
+    },
+    lazy = false,
+
     ---@module 'oil'
     ---@type oil.SetupOpts
     opts = {
@@ -9,10 +14,7 @@ return {
         signcolumn = "yes",
       }
     },
-    dependencies = {
-      { "echasnovski/mini.icons", opts = {} }
-    },
-    lazy = false,
+
     keys = {
       {
         "<leader>o",
