@@ -20,7 +20,7 @@ return {
         version = "^1.0.0",
         -- Use system provided binaries first if available
         opts = { PATH = "append" },
-        config = true
+        config = true,
       },
       {
         "mason-org/mason-lspconfig.nvim",
@@ -37,7 +37,7 @@ return {
       "saghen/blink.cmp",
     },
     config = function()
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
 
       -- See `:help lspconfig-all` for a list of all the pre-configured LSPs
       local servers = {
@@ -91,7 +91,7 @@ return {
       vim.list_extend(ensure_installed, servers_to_install)
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
-      require('mason-lspconfig').setup({
+      require("mason-lspconfig").setup({
         ensure_installed = {},
         automatic_installation = false,
         handlers = {
@@ -106,18 +106,6 @@ return {
         },
       })
 
-      --[[ local lspconfig = require("lspconfig")
-      for name, config in pairs(servers) do
-        if config == true then
-          config = {}
-        end
-        config = vim.tbl_deep_extend("force", {}, {
-          capabilities = capabilities,
-        }, config)
-
-        lspconfig[name].setup(config)
-      end ]]
-
       local disable_semantic_tokens = {
         lua = true,
       }
@@ -125,20 +113,44 @@ return {
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
         callback = function(event)
-          vim.keymap.set("n", "gd", require("telescope.builtin").lsp_definitions,
-            { buffer = event.buf, desc = "LSP: [G]oto [D]efinition" })
-          vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references,
-            { buffer = event.buf, desc = "LSP: [G]oto [R]eferences" })
-          vim.keymap.set("n", "gI", require("telescope.builtin").lsp_implementations,
-            { buffer = event.buf, desc = "LSP: [G]oto [I]mplementation" })
+          vim.keymap.set(
+            "n",
+            "gd",
+            require("telescope.builtin").lsp_definitions,
+            { buffer = event.buf, desc = "LSP: [G]oto [D]efinition" }
+          )
+          vim.keymap.set(
+            "n",
+            "gr",
+            require("telescope.builtin").lsp_references,
+            { buffer = event.buf, desc = "LSP: [G]oto [R]eferences" }
+          )
+          vim.keymap.set(
+            "n",
+            "gI",
+            require("telescope.builtin").lsp_implementations,
+            { buffer = event.buf, desc = "LSP: [G]oto [I]mplementation" }
+          )
           -- vim.keymap.set("n", "gD", require("telescope.builtin").lsp_declarations,
           --   { buffer = event.buf, desc = "LSP: [G]oto [D]eclaration" })
-          vim.keymap.set("n", "gT", require("telescope.builtin").lsp_type_definitions,
-            { buffer = event.buf, desc = "LSP: [T]ype Definition" })
-          vim.keymap.set("n", "gs", require("telescope.builtin").lsp_document_symbols,
-            { buffer = event.buf, desc = "LSP: Document [S]ymbol" })
-          vim.keymap.set("n", "gw", require("telescope.builtin").lsp_dynamic_workspace_symbols,
-            { buffer = event.buf, desc = "LSP: [W]orkspace Symbol" })
+          vim.keymap.set(
+            "n",
+            "gT",
+            require("telescope.builtin").lsp_type_definitions,
+            { buffer = event.buf, desc = "LSP: [T]ype Definition" }
+          )
+          vim.keymap.set(
+            "n",
+            "gs",
+            require("telescope.builtin").lsp_document_symbols,
+            { buffer = event.buf, desc = "LSP: Document [S]ymbol" }
+          )
+          vim.keymap.set(
+            "n",
+            "gw",
+            require("telescope.builtin").lsp_dynamic_workspace_symbols,
+            { buffer = event.buf, desc = "LSP: [W]orkspace Symbol" }
+          )
 
           -- vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0, desc = "[G]oto [D]efinition" })
           -- vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = 0, desc = "[G]oto [R]eferences" })
@@ -163,24 +175,24 @@ return {
           -- word under your cursor when your cursor rests there for a little while.
           -- When you move your cursor, the highlights will be cleared (the second autocommand).
           if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
-            local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
-            vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+            local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
+            vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
               buffer = event.buf,
               group = highlight_augroup,
               callback = vim.lsp.buf.document_highlight,
             })
 
-            vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+            vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
               buffer = event.buf,
               group = highlight_augroup,
               callback = vim.lsp.buf.clear_references,
             })
 
-            vim.api.nvim_create_autocmd('LspDetach', {
-              group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
+            vim.api.nvim_create_autocmd("LspDetach", {
+              group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
               callback = function(event2)
                 vim.lsp.buf.clear_references()
-                vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
+                vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
               end,
             })
           end
@@ -188,10 +200,8 @@ return {
           -- Create a keymap to toggle inlay hints if the language server supports them
           if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
             vim.keymap.set("n", "<leader>th", function()
-                vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
-              end,
-              { buffer = event.buf, desc = "LSP: [T]oggle Inlay [H]ints" }
-            )
+              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+            end, { buffer = event.buf, desc = "LSP: [T]oggle Inlay [H]ints" })
           end
         end,
       })

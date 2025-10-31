@@ -1,4 +1,10 @@
-{ globals, inputs, pkgs, ... }: {
+{
+  globals,
+  inputs,
+  pkgs,
+  ...
+}:
+{
   documentation = {
     enable = true;
     man = {
@@ -40,15 +46,16 @@
     # Rust stuff
     rustup
     cargo
-    rust-analyzer
     loco
     sea-orm-cli
 
     # Haskell
     ghc
     # haskellPackages.ghcup
-    haskell-language-server
     stack
+
+    # Lisp
+    sbcl
 
     # Java stuff
     openjdk
@@ -60,6 +67,12 @@
 
     # JavaScript
     nodejs
+
+    # Typst
+    typst
+
+    # Prolog
+    swi-prolog
 
     # WooWoo
     ruby
@@ -115,17 +128,9 @@
     # Editors
     helix
     # jetbrains.datagrip
-    # jetbrains.clion
+    jetbrains.clion
     # jetbrains.rust-rover
     vscodium.fhs
-
-    # Neovim stuff
-    neovim
-    nil
-    lua-language-server
-    nixpkgs-fmt
-    ruff
-    python312Packages.python-lsp-ruff
 
     # School design
     # iverilog
@@ -161,6 +166,8 @@
   # };
   #
   programs.adb.enable = true;
-  users.users."${globals.user}".extraGroups = [ "docker" "kvm" ];
+  users.users."${globals.user}".extraGroups = [
+    "docker"
+    "kvm"
+  ];
 }
-

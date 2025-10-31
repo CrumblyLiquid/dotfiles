@@ -1,4 +1,5 @@
-{ globals, pkgs, ... }: {
+{ globals, pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     # Neovim stuff
     neovim
@@ -8,27 +9,48 @@
     ast-grep
 
     # Lua
+    stylua
+    lua-language-server
     luajitPackages.lua-lsp
+
     # Rust
     rust-analyzer
+
+    # Haskell
+    haskell-language-server
+
     # TODO: Bacon, Bacon-ls (https://github.com/crisidev/bacon-ls?tab=readme-ov-file#nix)
     # C/C++
     clang-tools
+
     # Python
-    pyright # TODO: basedpyright
+    basedpyright
+    ruff
+    python312Packages.python-lsp-ruff
+
+    # SQL
+    sqruff
+
     # Bash
     bash-language-server
+
     # JSON
     nodePackages.vscode-json-languageserver
+
     # Yaml
     yaml-language-server
+
     # Typst
     tinymist # LSP
     typstyle # Formatter
+
+    # LaTeX
+    ltex-ls-plus
+
     # Nix
     nil
+    nixpkgs-fmt
   ];
-
 
   home-manager.users."${globals.user}" = {
     programs.neovim = {
@@ -45,12 +67,13 @@
       nv = "nvim";
     };
 
-    /* home.file = {
-      ".config/nvim" = {
-        source = ./.;
-        recursive = true;
+    /*
+      home.file = {
+        ".config/nvim" = {
+          source = ./.;
+          recursive = true;
+        };
       };
-    }; */
+    */
   };
 }
-

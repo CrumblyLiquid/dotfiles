@@ -9,3 +9,6 @@ require("options")
 
 -- Basic keybinds
 require("keybinds")
+
+-- LSP settings
+require("lsp")
