@@ -3,20 +3,54 @@
 -- Enable LSP servers
 -- (configured in `lua/plugins/` or `lsp/`)
 vim.lsp.enable({
-  "luals",
+  -- Lua
+  "lua_ls",
+  -- Rust
   "rust_analyzer",
+  -- C/C++
   "clangd",
+  -- Bash
   "bashls",
+  -- Nix
   "nil_ls",
+  -- Haskell
   "hls",
+  -- Typst
   "tinymist",
-  "emmet-language-server",
+  -- HTML/CSS/JavaScript
+  "emmet_language_server",
+  "prettierd",
+  -- TODO: Capabilities
+  -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#cssls
+  "cssls",
+  "css_variables",
+  -- Json
   "jsonls",
-  "ltex_plus",
-  "prolog_ls", -- requires https://github.com/jamesnvc/lsp_server
+  -- Yaml
+  "yamlls",
+  -- Prolog
+  -- "prolog_ls", -- requires https://github.com/jamesnvc/lsp_server
+  -- Python
   "ruff",
   "sqruff",
+  -- Hyprland
   -- "hyprls",
+  -- R
+  "air",
+
+  -- Writing
+  "ltex_plus",
+})
+
+-- Settings here:
+-- https://ltex-plus.github.io/ltex-plus/settings.html
+vim.lsp.config("ltex_plus", {
+  settings = {
+    ltex = {
+      checkFrequency = "save",
+      -- language = "en-GB",
+    },
+  },
 })
 
 -- Diagnostic Config

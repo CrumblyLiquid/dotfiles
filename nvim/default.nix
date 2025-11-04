@@ -47,9 +47,17 @@
     # LaTeX
     ltex-ls-plus
 
+    # HTML
+    emmet-language-server
+    prettierd
+    vscode-langservers-extracted
+
     # Nix
     nil
     nixpkgs-fmt
+
+    # R
+    air-formatter
   ];
 
   home-manager.users."${globals.user}" = {
