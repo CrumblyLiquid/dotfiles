@@ -57,6 +57,11 @@
     # Lisp
     sbcl
 
+    # R
+    R
+    rstudio
+    rstudio-server
+
     # Java stuff
     openjdk
 
@@ -80,7 +85,7 @@
     deno
     pandoc
     pdf2svg
-    poppler_utils
+    poppler-utils
     dos2unix
     gnuplot
     gnuplot_qt
