@@ -3,9 +3,19 @@ return {
     "sylvanfranklin/omni-preview.nvim",
     dependencies = {
       -- Typst
-      { 'chomosuke/typst-preview.nvim', lazy = true },
+      {
+        'chomosuke/typst-preview.nvim',
+        ft = 'typst',
+        -- lazy = true,
+        opts = {
+          dependencies_bin = {
+            ['tinymist'] = 'tinymist',
+            ['websocat'] = 'websocat',
+          },
+        }
+      },
       -- CSV
-      { 'hat0uma/csvview.nvim',         lazy = true },
+      { 'hat0uma/csvview.nvim', lazy = true },
       -- Markdown
       {
         "toppair/peek.nvim",
@@ -24,7 +34,10 @@ return {
   },
   {
     'MeanderingProgrammer/render-markdown.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'echasnovski/mini.icons'
+    }, -- if you use standalone mini plugins
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {},
