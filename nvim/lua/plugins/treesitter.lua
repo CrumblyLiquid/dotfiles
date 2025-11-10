@@ -1,7 +1,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    branch = 'main',
+    branch = "main",
     -- Load nvim-treesitter only when opening a buffer
     -- for an already existing file or for a new one
     event = { "BufReadPre", "BufNewFile" },
@@ -9,6 +9,8 @@ return {
       -- :TSUpdate won't work on first install
       require("nvim-treesitter.install").update({ with_sync = true })()
     end,
+    ---@module 'nvim-treesitter'
+    ---@type TSConfig
     opts = {
       ensure_installed = {
         "bash",
@@ -27,14 +29,11 @@ return {
         "markdown",
         "markdown_inline",
         "vim",
-        "vimdoc"
+        "vimdoc",
       },
       sync_install = true,
       highlight = { enable = true },
       indent = { enable = true },
     },
-    config = function(_, opts)
-      require("nvim-treesitter.configs").setup(opts)
-    end
   },
 }

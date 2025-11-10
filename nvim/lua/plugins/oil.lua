@@ -1,8 +1,8 @@
 return {
   {
-    'stevearc/oil.nvim',
+    "stevearc/oil.nvim",
     dependencies = {
-      { "echasnovski/mini.icons", opts = {} }
+      { "echasnovski/mini.icons", opts = {} },
     },
     lazy = false,
 
@@ -12,16 +12,16 @@ return {
       -- default_file_explorer = false,
       win_options = {
         signcolumn = "yes",
-      }
+      },
     },
 
     keys = {
       {
         "<leader>o",
         function()
-          require('oil').toggle_float()
+          require("oil").toggle_float()
         end,
-        desc = "Open parent directory"
+        desc = "Oil",
       },
     },
   },

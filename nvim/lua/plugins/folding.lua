@@ -29,6 +29,8 @@ return {
         })
       end ]]
     end,
+    ---@module 'ufo'
+    ---@type UfoConfig
     opts = {
       provider_selector = function(bufnr, filetype, buftype)
         return { "treesitter", "indent" }

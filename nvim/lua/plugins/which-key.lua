@@ -3,9 +3,31 @@ return {
     "folke/which-key.nvim",
     -- Sets the loading event to "VimEnter"
     event = "VimEnter",
+    ---@module 'which-key'
+    ---@type wk.Opts
     opts = {
+      ---@param mapping wk.Mapping
+      filter = function(mapping)
+        local filter_desc = {
+          ["Harpoon"] = true,
+          ["Quit"] = true,
+          ["Write"] = true,
+        }
+
+        local filter_lhs = {
+          ["y"] = true,
+          ["Y"] = true,
+          ["p"] = true,
+        }
+
+        return filter_desc[mapping.desc] ~= true and filter_lhs[mapping.lhs] ~= true
+      end,
       -- Delay between pressing a key and opening which-key (in ms)
       delay = 0,
+      keys = {
+        scroll_down = "<c-d>",
+        scroll_up = "<c-u>",
+      },
       icons = {
         -- set icon mappings to true if you have a Nerd Font
         mappings = vim.g.have_nerd_font,
@@ -46,7 +68,7 @@ return {
       spec = {
         { "<leader>s", group = "[S] Search" },
         { "<leader>t", group = "[T] Toggle" },
-        { "<leader>h", group = "[H] Git Hunk", mode = { "n", "v" } },
+        -- { "<leader>h", group = "[H] Git Hunk", mode = { "n", "v" } },
         { "<leader>k", group = "[K] Harpoon" },
       },
     },

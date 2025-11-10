@@ -4,6 +4,8 @@ return {
     "stevearc/conform.nvim",
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
+    ---@module 'lazy'
+    ---@type LazyKeysSpec[]
     keys = {
       {
         "<leader>f",
@@ -11,9 +13,11 @@ return {
           require("conform").format({ async = true, lsp_format = "fallback" })
         end,
         mode = "",
-        desc = "[F]ormat buffer",
+        desc = "Format buffer",
       },
     },
+    ---@module 'conform'
+    ---@type conform.setupOpts
     opts = {
       -- TODO: Set to false when done testing!
       notify_on_error = true,
@@ -33,6 +37,7 @@ return {
             lsp_format = "fallback",
           }
         end
+
         return {
           timeout_ms = 500,
           lsp_format = lsp_format_opt,

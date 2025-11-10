@@ -4,18 +4,19 @@ return {
     dependencies = {
       -- Typst
       {
-        'chomosuke/typst-preview.nvim',
-        ft = 'typst',
+        "chomosuke/typst-preview.nvim",
+        ft = "typst",
         -- lazy = true,
         opts = {
           dependencies_bin = {
-            ['tinymist'] = 'tinymist',
-            ['websocat'] = 'websocat',
+            ["tinymist"] = "tinymist",
+            ["websocat"] = "websocat",
           },
-        }
+        },
       },
+      { "chomosuke/typst-preview.nvim", lazy = true },
       -- CSV
-      { 'hat0uma/csvview.nvim', lazy = true },
+      { "hat0uma/csvview.nvim", lazy = true },
       -- Markdown
       {
         "toppair/peek.nvim",
@@ -23,23 +24,34 @@ return {
         build = "deno task --quiet build:fast",
         opts = {
           app = "browser",
-        }
-      }
+        },
+      },
     },
     opts = {},
     keys = {
-      { "<leader>po", function() require('omni-preview').command({ args = "start" }) end, desc = "Start preview" },
-      { "<leader>pc", function() require('omni-preview').command({ args = "stop" }) end,  desc = "Stop preview" },
-    }
+      {
+        "<leader>po",
+        function()
+          require("omni-preview").command({ args = "start" })
+        end,
+        desc = "Start preview",
+      },
+      {
+        "<leader>pc",
+        function()
+          require("omni-preview").command({ args = "stop" })
+        end,
+        desc = "Stop preview",
+      },
+    },
   },
   {
-    'MeanderingProgrammer/render-markdown.nvim',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-      'echasnovski/mini.icons'
-    }, -- if you use standalone mini plugins
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" }, -- if you use standalone mini plugins
+    lazy = true,
+    enabled = false,
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {},
-  }
+  },
 }

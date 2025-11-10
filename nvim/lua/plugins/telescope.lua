@@ -9,14 +9,14 @@ return {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
         cond = function()
-          return vim.fn.executable "make" == 1
+          return vim.fn.executable("make") == 1
         end,
       },
       { "nvim-telescope/telescope-smart-history.nvim" },
       { "nvim-telescope/telescope-ui-select.nvim" },
       {
         "nvim-tree/nvim-web-devicons",
-        enabled = vim.g.have_nerd_font
+        enabled = vim.g.have_nerd_font,
       },
     },
     config = function(_, opts)
@@ -27,7 +27,7 @@ return {
           wrap_results = true,
           ["ui-select"] = {
             require("telescope.themes").get_dropdown(),
-          }
+          },
         },
       })
 
@@ -49,12 +49,11 @@ return {
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set("n", "<leader>/", function()
         -- You can pass additional configuration to Telescope to change the theme, layout, etc.
-        builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {
+        builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
           winblend = 10,
           previewer = false,
-        })
+        }))
       end, { desc = "[/] Fuzzily search in current buffer" })
-
 
       vim.keymap.set("n", "<leader>s/", function()
         builtin.live_grep({
