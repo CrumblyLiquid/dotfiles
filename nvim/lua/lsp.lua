@@ -14,7 +14,7 @@ vim.lsp.enable({
   -- Nix
   "nil_ls",
   -- Haskell
-  "hls",
+  -- "hls",
   -- Typst
   "tinymist",
   -- HTML/CSS/JavaScript
