@@ -5,10 +5,12 @@ return {
     -- Load nvim-treesitter only when opening a buffer
     -- for an already existing file or for a new one
     event = { "BufReadPre", "BufNewFile" },
+    -- event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     build = function()
       -- :TSUpdate won't work on first install
       require("nvim-treesitter.install").update({ with_sync = true })()
     end,
+    -- https://www.lazyvim.org/plugins/treesitter
     ---@module 'nvim-treesitter'
     ---@type TSConfig
     opts = {
