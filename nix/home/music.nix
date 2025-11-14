@@ -1,4 +1,10 @@
-{ globals, inputs, pkgs, ... }: {
+{
+  globals,
+  inputs,
+  pkgs,
+  ...
+}:
+{
   imports = [
     # https://github.com/musnix/musnix
     inputs.musnix.nixosModules.musnix
@@ -8,7 +14,7 @@
   environment.systemPackages = with pkgs; [
     # Fails to build at the moment
     # https://github.com/NixOS/nixpkgs/issues/454746
-    # musescore
+    musescore
     muse-sounds-manager
 
     ardour
