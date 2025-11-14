@@ -16,6 +16,8 @@
 
   # environment.enableDebugInfo = true;
   environment.systemPackages = with pkgs; [
+    smartmontools
+    gsmartcontrol
     # General
     git
     gnumake
