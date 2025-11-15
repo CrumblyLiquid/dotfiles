@@ -1,12 +1,22 @@
-{ config, lib, pkgs, inputs, globals, ... }: {
-  imports = let
-        base = ./..;
-    in [
-    inputs.home-manager.nixosModules.default
-    (base + /nix/default.nix) # default.nix - Default system configuration
-    (base + /nix/home)
-    ./hardware-configuration.nix
-  ];
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  globals,
+  ...
+}:
+{
+  imports =
+    let
+      base = ./..;
+    in
+    [
+      inputs.home-manager.nixosModules.default
+      (base + /nix/default.nix) # default.nix - Default system configuration
+      (base + /nix/home)
+      ./hardware-configuration.nix
+    ];
 
   networking.hostName = "solid";
 
@@ -14,6 +24,10 @@
     users."${globals.user}" = {
       programs.ssh = {
         enable = true;
+        enableDefaultConfig = false;
+        matchBlocks."*" = {
+          userKnownHostsFile = "~/.ssh/known_hosts";
+        };
         extraConfig = builtins.readFile ./../ssh/config;
       };
 
@@ -30,4 +44,3 @@
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
   system.stateVersion = "23.11"; # Did you read the comment?
 }
-
