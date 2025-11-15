@@ -1,4 +1,9 @@
-{ globals, inputs, pkgs, ... }:
+{
+  globals,
+  inputs,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./../nix/home/flameshot.nix
@@ -11,7 +16,10 @@
     hypridle
     xdg-utils
     qt6Packages.qt6ct
-    # qt6.qtwayland
+    # xdg-desktop-protocol-hyprland needs this
+    # kdePackages.qtwayland
+    # libsForQt5.qt5.qtwayland
+
     # dbus
     appimage-run
     grimblast
@@ -26,7 +34,6 @@
     playerctl
   ];
 
-
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -34,7 +41,8 @@
     # set the flake package
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     # make sure to also set the portal package, so that they are in sync
-    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    portalPackage =
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
   xdg.portal = {
@@ -73,9 +81,11 @@
         source = ./hypridle.conf;
       };
 
-      /* ".config/hypr/hyprland.conf" = {
-        source = ./hyprland.conf;
-      }; */
+      /*
+        ".config/hypr/hyprland.conf" = {
+          source = ./hyprland.conf;
+        };
+      */
       ".config/hypr/env.conf" = {
         source = ./env.conf;
       };
@@ -111,7 +121,8 @@
       xwayland.enable = true;
 
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+      portalPackage =
+        inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
       settings = {
         source = [
@@ -159,4 +170,3 @@
     };
   };
 }
-
