@@ -1,55 +1,65 @@
-{ inputs, globals, pkgs, ... }: {
-  imports = let base = ./../..; in [
-    inputs.home-manager.nixosModules.default
-    ./fixes.nix
-    ./theming.nix
-    ./firewall.nix
+{
+  inputs,
+  globals,
+  pkgs,
+  ...
+}:
+{
+  imports =
+    let
+      base = ./../..;
+    in
+    [
+      inputs.home-manager.nixosModules.default
+      ./fixes.nix
+      ./theming.nix
+      ./firewall.nix
 
-    ./sound.nix
-    ./music.nix
-    ./keyboard.nix
-    ./bluetooth.nix
-    ./dev.nix
-    ./android.nix
+      ./sound.nix
+      ./music.nix
+      ./keyboard.nix
+      ./bluetooth.nix
+      ./dev.nix
+      # ./android.nix
 
-    ./typst.nix
+      ./typst.nix
 
-    # Applications
-    ./flatpak.nix
-    ./apps.nix
-    ./gaming.nix
-    # ./fun.nix
-    ./firefox.nix
-    ./obs.nix
-    ./spotify.nix
-    (base + /opentabletdriver)
-    (base + /xournalpp)
-    # ./gns3.nix
-    ./wireshark.nix
-    ./virtmanager.nix
-    ./syncthing.nix
+      # Applications
+      ./flatpak.nix
+      ./apps.nix
+      ./gaming.nix
+      # ./fun.nix
+      ./firefox.nix
+      ./obs.nix
+      ./spotify.nix
+      (base + /opentabletdriver)
+      (base + /xournalpp)
+      # ./gns3.nix
+      ./wireshark.nix
+      ./virtmanager.nix
+      ./syncthing.nix
 
-    # Terminal
-    ./terminal.nix
-    (base + /kitty)
-    (base + /wezterm)
-    (base + /zsh)
-    (base + /starship)
-    (base + /nvim)
-    (base + /tmux)
+      # Terminal
+      ./terminal.nix
+      (base + /kitty)
+      (base + /wezterm)
+      (base + /zsh)
+      (base + /starship)
+      (base + /nvim)
+      (base + /tmux)
 
-    # Window Manager
-    (base + /hypr)
-    (base + /tofi)
-    (base + /eww)
-    (base + /dunst)
-    # (base + /swayidle)
-    # (base + /swaylock)
-    (base + /waybar)
+      # Window Manager
+      (base + /hypr)
+      (base + /tofi)
+      (base + /eww)
+      (base + /dunst)
+      # (base + /swayidle)
+      # (base + /swaylock)
+      (base + /waybar)
 
-    (base + /kde)
-    # (base + /cosmic)
-  ];
+      (base + /kde)
+      # (base + /cosmic)
+    ];
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
