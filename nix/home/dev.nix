@@ -1,6 +1,5 @@
 {
   globals,
-  inputs,
   pkgs,
   ...
 }:
@@ -28,10 +27,10 @@
     man-pages
     man-pages-posix
     stdmanpages
-    llvmPackages_18.libllvm
-    llvmPackages_18.clang-manpages
-    llvmPackages_18.lldb-manpages
-    llvmPackages_18.llvm-manpages
+    # llvmPackages_18.libllvm
+    # llvmPackages_18.clang-manpages
+    # llvmPackages_18.lldb-manpages
+    # llvmPackages_18.llvm-manpages
 
     # C/C++ things
     gcc
@@ -135,7 +134,7 @@
     # Editors
     helix
     # jetbrains.datagrip
-    jetbrains.clion
+    # jetbrains.clion
     # jetbrains.rust-rover
     vscodium.fhs
 

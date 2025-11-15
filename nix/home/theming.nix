@@ -1,19 +1,29 @@
-{ inputs, globals, pkgs, ... }: {
+{
+  globals,
+  pkgs,
+  ...
+}:
+{
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     nerd-fonts.fira-mono
     nerd-fonts.dejavu-sans-mono
     nerd-fonts.inconsolata
-    nerd-fonts.inconsolata-go
+    # nerd-fonts.inconsolata-go
     nerd-fonts.iosevka
     nerd-fonts.zed-mono
     nerd-fonts.meslo-lg
     nerd-fonts.jetbrains-mono
     nerd-fonts.noto
+    nerd-fonts.liberation
+    # liberation_ttf
     font-awesome
     dejavu_fonts
     libertine
     corefonts
+    inter
+    # tex-gyre
+    # tex-gyre-math
   ];
 
   # https://nixos.wiki/wiki/Fonts#Flatpak_applications_can't_find_system_fonts

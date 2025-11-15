@@ -1,4 +1,5 @@
-{ globals, pkgs, ...}: {
+{ globals, pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     gamescope
     mangohud
@@ -20,10 +21,11 @@
     # https://www.reddit.com/r/NixOS/comments/1bmj4mz/gamescope_and_steam/
     # also maybe have to run `sudo chown <username> /tmp/.X11-unix`
     package = pkgs.steam.override {
-      extraPkgs = pkgs: with pkgs; [
-        libkrb5
-        keyutils
-      ];
+      extraPkgs =
+        pkgs: with pkgs; [
+          libkrb5
+          keyutils
+        ];
     };
   };
 
@@ -34,4 +36,3 @@
 
   # home-manager.users."${globals.user}" = { };
 }
-
