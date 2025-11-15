@@ -44,5 +44,9 @@
 ## Hyprland
 https://github.com/aurreland/nix-config
 
+## Hyprland + Storing secrets
+https://github.com/ryan4yin/nix-config
+https://github.com/ryan4yin/nix-config/blob/main/secrets/README.md
+
 ## Split NixOS configuration and Home-Manager + Hyprland
 https://gitlab.com/askyourself/dotfiles
