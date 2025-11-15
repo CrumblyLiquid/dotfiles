@@ -43,6 +43,7 @@
     # Typst
     tinymist # LSP
     typstyle # Formatter
+    websocat # required by typst-preview
 
     # LaTeX
     ltex-ls-plus
