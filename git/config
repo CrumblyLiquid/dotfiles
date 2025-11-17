@@ -91,7 +91,7 @@
     remoteBranch = magenta
 
 [branch]
-    sort = -commiterdate
+    sort = -committerdate
 
 [color "branch"]
     current = magenta
