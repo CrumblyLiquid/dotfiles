@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+THRESHOLD_MB=$((5*1024))
+INTERVAL_SEC=30
+
+get_avail_mem_mb() {
+    awk '/MemAvailable/ { printf "%d\n", $2/1024 }' /proc/meminfo
+}
+
+while true; do
+    AVAILABLE_MB="$(get_avail_mem_mb)"
+
+    if (( AVAILABLE_MB < THRESHOLD_MB )); then
+        APP='Memory Monitor'
+        URGENCY='critical'
+        SUMMARY="Low Memory Warning"
+        BODY="Available memory is low: $(echo "scale=2; $AVAILABLE_MB/1024" | bc -l) GB"
+
+
+        notify-send \
+            --app-name="$APP" \
+            --urgency="$URGENCY" \
+            --hint="string:markup:1" \
+            "$SUMMARY" "$BODY"
+    fi
+
+    sleep $INTERVAL_SEC
+done
