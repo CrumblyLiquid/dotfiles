@@ -70,10 +70,10 @@ return {
           },
         },
 
-        clangd = {
-          init_options = { clangdFileStatus = true },
-          filetypes = { "c", "cpp", "h", "hpp" },
-        },
+        -- clangd = {
+        --   init_options = { clangdFileStatus = true },
+        --   filetypes = { "c", "cpp", "h", "hpp" },
+        -- },
       }
 
       local servers_to_install = vim.tbl_filter(function(key)

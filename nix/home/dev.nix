@@ -27,6 +27,7 @@
     man-pages
     man-pages-posix
     stdmanpages
+    llvmPackages_latest.libcxxStdenv
     # llvmPackages_18.libllvm
     # llvmPackages_18.clang-manpages
     # llvmPackages_18.lldb-manpages
@@ -134,7 +135,7 @@
     # Editors
     helix
     # jetbrains.datagrip
-    # jetbrains.clion
+    jetbrains.clion
     # jetbrains.rust-rover
     vscodium.fhs
 

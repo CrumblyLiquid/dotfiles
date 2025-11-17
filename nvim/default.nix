@@ -21,7 +21,11 @@
 
     # TODO: Bacon, Bacon-ls (https://github.com/crisidev/bacon-ls?tab=readme-ov-file#nix)
     # C/C++
+    cmake
+    clang
     clang-tools
+    gcc
+    gccNGPackages_15.libstdcxx
 
     # Python
     basedpyright

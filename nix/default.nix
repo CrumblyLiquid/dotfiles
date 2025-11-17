@@ -1,6 +1,16 @@
-{ config, lib, pkgs, inputs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
+{
   imports = [ ];
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Use LTS instead
   # boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -62,6 +72,7 @@
     sops
     age
     ssh-to-age
+    cryptsetup
   ];
 
   programs.gnupg.agent = {
@@ -71,7 +82,11 @@
 
   users.users.crumbly = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "input" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "input"
+    ];
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
@@ -87,4 +102,3 @@
 
   nixpkgs.config.allowUnfree = true;
 }
-
