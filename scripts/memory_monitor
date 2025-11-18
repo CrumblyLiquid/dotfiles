@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 
-THRESHOLD_MB=$((5*1024))
-INTERVAL_SEC=30
+get_total_mem_mb() {
+    awk '/MemTotal/ { printf "%d\n", $2/1024 }' /proc/meminfo
+}
 
 get_avail_mem_mb() {
     awk '/MemAvailable/ { printf "%d\n", $2/1024 }' /proc/meminfo
 }
+
+TOTAL_MB=$(get_total_mem_mb)
+THRESHOLD_MB=$((TOTAL_MB / 8))
+INTERVAL_SEC=30
 
 while true; do
     AVAILABLE_MB="$(get_avail_mem_mb)"
