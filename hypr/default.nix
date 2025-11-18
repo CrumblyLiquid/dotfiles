@@ -141,6 +141,7 @@
           "/usr/lib/polkit-kde-authentication-agent-1"
           "hyprpaper"
           "dunst"
+          "~/.config/scripts/memory_monitor"
           "eww daemon"
           "eww update laptop_mode=false"
           "waybar"
