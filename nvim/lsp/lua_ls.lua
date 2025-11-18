@@ -1,0 +1,23 @@
+---@type vim.lsp.Config
+return {
+  -- settings = {
+  --   Lua = {
+  --     -- https://github.com/neovim/nvim-lspconfig/blob/master/lsp/lua_ls.lua
+  --     runtime = {
+  --       version = "LuaJIT",
+  --       path = {
+  --         "lua/?.lua",
+  --         "lua/?/init.lua",
+  --       },
+  --     },
+  --     -- Make the server aware of Neovim runtime files
+  --     workspace = {
+  --       checkThirdParty = false,
+  --       library = {
+  --         vim.env.VIMRUNTIME,
+  --         "${3rd}/luv/library",
+  --       },
+  --     },
+  --   },
+  -- },
+}
