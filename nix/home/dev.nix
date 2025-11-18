@@ -150,7 +150,6 @@
     #
     # libnotify
     #
-    # tree-sitter
     #
     # libpng
     # libjpeg

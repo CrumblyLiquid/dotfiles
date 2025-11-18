@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     # Neovim stuff
     neovim
+    tree-sitter
 
     # Language stuff
     # TODO: Language options flake (with preinstalled lsps, formatters, etc)
