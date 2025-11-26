@@ -33,10 +33,29 @@ return {
         "markdown_inline",
         "vim",
         "vimdoc",
+        "lambdalus",
       },
       sync_install = true,
       highlight = { enable = true },
       indent = { enable = true },
     },
+    config = function(_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+
+      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+      parser_config.lambdalus = {
+        install_info = {
+          url = "~/Programming/lambda/tree-sitter-lambdalus/",
+          files = { "src/parser.c" },
+        },
+        filetype = "lambdalus", -- if filetype does not match the parser name
+      }
+
+      vim.filetype.add({
+        extension = {
+          lambdalus = "lambdalus",
+        },
+      })
+    end,
   },
 }
