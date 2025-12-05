@@ -20,6 +20,11 @@
     # General
     git
     gnumake
+    flex
+    bison
+    ncurses
+    findutils
+    mlocate
 
     perf
 
