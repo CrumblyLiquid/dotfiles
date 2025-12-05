@@ -11,6 +11,8 @@
 
 - [ ] Switch to Wezterm
 
+- [ ] Switch to ironbar
+
 - [ ] Refactor Neovim config
     - [ ] Flatter structure
     - [ ] Clearer LSP, TreeSitter, etc.

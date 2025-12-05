@@ -20,6 +20,12 @@ That was caused by the XDG environment variables not being set
 but `CARGO_HOME` and `RUSTUP_HOME` were set to
 `"$XDG_DATA_HOME"/cargo` or `rustup`
 
+### error: command failed: 'cargo': No such file or directory (os error 2)
+
+Caused by some missing files, you can run `strace cargo` to find out more (maybe).
+
+Just `rustup uninstall stable`, then `rustup install stable`.
+
 ## rust-analyzer failing to run in nvim
 
 NeoVim will point to `~/.local/state/nvim/lsp.log` which will say

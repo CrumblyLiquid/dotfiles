@@ -42,6 +42,7 @@ Documented:
 - [x] [git](./git/README.md)
 - [x] [keepassxc](./keepassxc/README.md)
 - [x] [tofi](./tofi/README.md)
+- [x] [xournalpp](./xournalpp/README.md)
 - [x] [terminal](./TERMINAL.md) - incomplete
 - [x] [zsh](./zsh/README.md) - incomplete
 - [x] [nvim](./nvim/README.md) - incomplete
@@ -52,7 +53,6 @@ Missing:
 - [ ] hypr
 - [ ] waybar
 - [ ] wezterm
-- [ ] xournalpp
 - [ ] scripts
 - [ ] ssh
 - [ ] starship
