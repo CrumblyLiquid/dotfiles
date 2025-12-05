@@ -1,4 +1,4 @@
-; (variable) @variable
+(variable) @variable
 
 (macro_name) @function.macro
 (lambda) @keyword.function
