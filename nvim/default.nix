@@ -64,6 +64,12 @@
 
     # R
     air-formatter
+
+    # PHP
+    phpactor
+    php
+    php84Packages.phan
+    php84Packages.composer
   ];
 
   home-manager.users."${globals.user}" = {

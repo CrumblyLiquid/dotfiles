@@ -37,9 +37,12 @@ vim.lsp.enable({
   -- "hyprls",
   -- R
   "air",
+  -- PHP
+  "phpactor",
+  "phan",
 
   -- Writing
-  "ltex_plus",
+  -- "ltex_plus",
 })
 
 -- Diagnostic Config
