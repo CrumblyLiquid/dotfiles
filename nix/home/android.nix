@@ -1,4 +1,10 @@
-{ globals, inputs, pkgs, ... }: {
+{
+  globals,
+  inputs,
+  pkgs,
+  ...
+}:
+{
   # environment.enableDebugInfo = true;
   environment.systemPackages = with pkgs; [
     android-tools
@@ -16,7 +22,8 @@
   # ];
 
   programs.adb.enable = true;
-  users.users."${globals.user}".extraGroups = [ "adbusers" "kvm" ];
+  users.users."${globals.user}".extraGroups = [
+    "adbusers"
+    "kvm"
+  ];
 }
-
-

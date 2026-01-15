@@ -31,7 +31,7 @@
     # Python
     basedpyright
     ruff
-    python312Packages.python-lsp-ruff
+    # python312Packages.python-lsp-ruff
 
     # SQL
     sqruff

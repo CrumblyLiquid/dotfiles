@@ -18,6 +18,7 @@
     nerd-fonts.liberation
     # liberation_ttf
     font-awesome
+    font-awesome_6
     dejavu_fonts
     libertine
     corefonts

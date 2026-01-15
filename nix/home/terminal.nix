@@ -14,7 +14,7 @@
     eza # Better ls
     bat # Better cat
     dig
-    dogdns # Better dig
+    doggo # Better dig
     # Build failure: https://github.com/NixOS/nixpkgs/issues/370019
     # outils
     bvi # Binary Visual Editor

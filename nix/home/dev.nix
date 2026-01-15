@@ -66,8 +66,8 @@
 
     # R
     R
-    rstudio
-    rstudio-server
+    # rstudio
+    # rstudio-server
 
     # Java stuff
     openjdk
@@ -176,7 +176,6 @@
   #   storageDriver = "btrfs";
   # };
   #
-  programs.adb.enable = true;
   users.users."${globals.user}".extraGroups = [
     "docker"
     "kvm"

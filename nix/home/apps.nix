@@ -1,11 +1,12 @@
-{ globals, pkgs, ...}: {
+{ globals, pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     thunderbird
 
     vlc
     mpv
     zathura
-    # calibre
+    calibre
 
     keepassxc
     signal-desktop
@@ -34,6 +35,7 @@
     kdePackages.breeze-gtk
     kdePackages.breeze-icons
 
+    zotero
     anki-bin
     libreoffice-qt
     hunspell
@@ -52,7 +54,8 @@
   ];
 
   # Fix file associations for Dolphin and other KDE apps
-  environment.etc."/xdg/menus/plasma-applications.menu".text = builtins.readFile "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
+  environment.etc."/xdg/menus/plasma-applications.menu".text =
+    builtins.readFile "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
 
   services.fwupd.enable = true;
 }
