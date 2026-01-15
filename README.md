@@ -62,5 +62,3 @@ Missing:
 - [ ] nix
 - [ ] opentabletdriver
 - [ ] tmux
-- [ ] tofi
-- [ ] bombadil.toml
