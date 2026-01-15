@@ -29,7 +29,7 @@ vim.lsp.enable({
   -- Yaml
   "yamlls",
   -- Prolog
-  -- "prolog_ls", -- requires https://github.com/jamesnvc/lsp_server
+  "prolog_ls", -- requires https://github.com/jamesnvc/lsp_server
   -- Python
   "ruff",
   "sqruff",
