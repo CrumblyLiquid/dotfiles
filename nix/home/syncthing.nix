@@ -1,4 +1,5 @@
-{ pkgs, globals, ... }: {
+{ pkgs, globals, ... }:
+{
   services.syncthing = {
     enable = true;
     user = "${globals.user}";
@@ -9,25 +10,35 @@
     settings = {
       options = {
         /*
-        localAnnounceEnabled = false;
-        globalAnnounceEnabled = false;
-        relaysEnabled = false;
+          localAnnounceEnabled = false;
+          globalAnnounceEnabled = false;
+          relaysEnabled = false;
         */
         urAccepted = -1;
       };
       # https://docs.syncthing.net/users/faq.html#should-i-keep-my-device-ids-secret
       devices = {
-        "laptop" = { id = "GU3XLR2-MLFV3M2-2CJYBDE-WHSIHHH-H3RRNXB-TZEDVON-2W5VDO6-Y2YE3QN"; };
-        "mobile" = { id = "3A35K6U-NKQJIDT-F2X42OZ-5WJP4KS-V53TXBG-VCAEP6C-CQF4X4J-SHFYFAO"; };
+        "laptop" = {
+          id = "FDM5BL2-TLAVPQI-23FVPUJ-TNFJYPX-JBGI3SU-U2XGMNO-QFPVP6O-HKRTEA4";
+        };
+        "mobile" = {
+          id = "3A35K6U-NKQJIDT-F2X42OZ-5WJP4KS-V53TXBG-VCAEP6C-CQF4X4J-SHFYFAO";
+        };
       };
       folders = {
         "Misc" = {
           path = "/home/${globals.user}/Misc";
-          devices = [ "laptop" "mobile" ];
+          devices = [
+            "laptop"
+            "mobile"
+          ];
         };
         "Books" = {
           path = "/home/${globals.user}/Books";
-          devices = [ "laptop" "mobile" ];
+          devices = [
+            "laptop"
+            "mobile"
+          ];
         };
         "School" = {
           path = "/home/${globals.user}/School";
@@ -41,4 +52,3 @@
     };
   };
 }
-
