@@ -12,6 +12,10 @@ Host gitlab.freedesktop.org
     IdentityFile ~/.ssh/id_fdorg_ed25519
     IdentitiesOnly yes
 
+Host gitlab.nic.cz
+    IdentityFile ~/.ssh/cznic_ed25519
+    IdentitiesOnly yes
+
 # Another user on github
 # Host gitother
 #     HostName github.com
