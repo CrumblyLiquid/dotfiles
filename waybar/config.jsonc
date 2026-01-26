@@ -74,7 +74,7 @@
         // "device-path": "/dev/input/by-id/usb-Keychron_Keychron_K8_Pro-event-kbd"
     },
     "idle_inhibitor": {
-        "format": "{icon}",
+        "format": "{icon} ",
         "format-icons": {
             "activated": "",
             "deactivated": ""
