@@ -172,6 +172,10 @@ alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
 # Use custom home
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
 
-export GEM_HOME="$(gem env user_gemhome)"
-path+=("$GEM_HOME/bin")
-export PATH
+if command -v gem >/dev/null 2>&1
+then
+    export GEM_HOME="$(gem env user_gemhome)"
+    path+=("$GEM_HOME/bin")
+    export PATH
+fi
+
