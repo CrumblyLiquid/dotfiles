@@ -19,6 +19,7 @@
       ./music.nix
       ./keyboard.nix
       ./bluetooth.nix
+      ./printing.nix
       ./dev.nix
       # ./android.nix
 
@@ -28,7 +29,7 @@
       ./flatpak.nix
       ./apps.nix
       ./gaming.nix
-      # ./fun.nix
+      ./fun.nix
       ./firefox.nix
       ./obs.nix
       ./spotify.nix
