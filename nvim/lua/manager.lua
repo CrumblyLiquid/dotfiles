@@ -30,4 +30,7 @@ local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
 -- Set up lazy
-require("lazy").setup({ import = "plugins" })
+require("lazy").setup({
+  { import = "plugins" },
+  { import = "plugins.lang" },
+})
