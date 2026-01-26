@@ -1,4 +1,5 @@
-{ globals, pkgs, ... }: {
+{ globals, pkgs, ... }:
+{
   home-manager.users."${globals.user}" = {
     programs.kitty = {
       enable = true;
@@ -6,7 +7,7 @@
 
       font = {
         package = pkgs.meslo-lgs-nf;
-        name = "MesloLGS NF";
+        name = "MesloLGS Nerd Font Mono";
         size = 16;
       };
 
@@ -34,4 +35,3 @@
     };
   };
 }
-
