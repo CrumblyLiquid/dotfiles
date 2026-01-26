@@ -20,11 +20,11 @@
     # General
     git
     gnumake
-    flex
-    bison
-    ncurses
-    findutils
-    mlocate
+    # flex
+    # bison
+    # ncurses
+    # findutils
+    # mlocate
 
     perf
 
@@ -53,8 +53,8 @@
     # Rust stuff
     rustup
     cargo
-    loco
-    sea-orm-cli
+    # loco
+    # sea-orm-cli
 
     # Haskell
     ghc
@@ -73,7 +73,7 @@
     openjdk
 
     # SQL
-    sqlitebrowser
+    # sqlitebrowser
     sqlite
     sqlite-interactive
 
@@ -167,15 +167,15 @@
     # xorg.libXi
   ];
 
-  # virtualisation.docker = {
-  #   enable = true;
-  #   rootless = {
-  #     enable = true;
-  #     setSocketVariable = true;
-  #   };
-  #   storageDriver = "btrfs";
-  # };
-  #
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+    storageDriver = "btrfs";
+  };
+
   users.users."${globals.user}".extraGroups = [
     "docker"
     "kvm"

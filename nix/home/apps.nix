@@ -50,7 +50,7 @@
     fontforge
 
     prismlauncher
-    lunar-client
+    # lunar-client
   ];
 
   # Fix file associations for Dolphin and other KDE apps

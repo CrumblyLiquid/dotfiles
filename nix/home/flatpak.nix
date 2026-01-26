@@ -1,4 +1,11 @@
-{ lib, globals, inputs, pkgs, ... }: {
+{
+  lib,
+  globals,
+  inputs,
+  pkgs,
+  ...
+}:
+{
   services.flatpak = {
     enable = true;
   };
@@ -19,5 +26,3 @@
   # https://nixos.wiki/wiki/Fonts#Flatpak_applications_can.27t_find_system_fonts
   fonts.fontDir.enable = true;
 }
-
-

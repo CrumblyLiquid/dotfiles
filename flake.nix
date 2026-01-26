@@ -11,7 +11,7 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -21,10 +21,13 @@
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
 
-    musnix = { url = "github:musnix/musnix"; };
+    musnix = {
+      url = "github:musnix/musnix";
+    };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs =
+    { self, nixpkgs, ... }@inputs:
     let
       globals = rec {
         user = "crumbly";
