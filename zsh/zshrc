@@ -9,6 +9,11 @@ eval "$(zoxide init --cmd cd zsh)"
 # Fzf integration
 eval "$(fzf --zsh)"
 
+# ssh-agent
+# Assumes you're using the ssh-agent systemd user service
+# You can start it with: systemctl start --user ssh-agent.service
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 # Inspired by https://www.youtube.com/watch?v=ud7YxC33Z3w
 # Plugin manager
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit.zinit.git"
