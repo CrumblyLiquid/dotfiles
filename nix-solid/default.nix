@@ -22,14 +22,14 @@
 
   home-manager = {
     users."${globals.user}" = {
-      programs.ssh = {
-        enable = true;
-        enableDefaultConfig = false;
-        matchBlocks."*" = {
-          userKnownHostsFile = "~/.ssh/known_hosts";
-        };
-        extraConfig = builtins.readFile ./../ssh/config;
-      };
+      # programs.ssh = {
+      #   enable = true;
+      #   enableDefaultConfig = false;
+      #   matchBlocks."*" = {
+      #     userKnownHostsFile = "~/.ssh/known_hosts";
+      #   };
+      #   extraConfig = builtins.readFile ./../ssh/config;
+      # };
 
       home = {
         username = "crumbly";

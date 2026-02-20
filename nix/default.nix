@@ -65,16 +65,17 @@
     curl
     zip
     unzip
+    gnupg
     sops
     age
     ssh-to-age
     cryptsetup
   ];
 
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
 
   users.users.crumbly = {
     isNormalUser = true;
