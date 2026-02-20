@@ -18,6 +18,10 @@ Host gitlab.nic.cz
     IdentityFile ~/.ssh/cznic_ed25519
     IdentitiesOnly yes
 
+Host crumblyliquid.com
+    IdentityFile ~/.ssh/id_server_ed25519
+    IdentitiesOnly yes
+
 # Another user on github
 # Host gitother
 #     HostName github.com
