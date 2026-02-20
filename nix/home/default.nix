@@ -21,6 +21,7 @@
       ./bluetooth.nix
       ./printing.nix
       ./dev.nix
+      ./vpn.nix
       # ./android.nix
       (base + /ssh)
 

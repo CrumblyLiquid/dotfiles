@@ -10,6 +10,7 @@
 
     keepassxc
     signal-desktop
+    qbittorrent
 
     kdePackages.dolphin
     kdePackages.dolphin-plugins

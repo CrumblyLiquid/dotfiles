@@ -23,6 +23,7 @@
     libertine
     corefonts
     inter
+    cascadia-code
     # tex-gyre
     # tex-gyre-math
   ];

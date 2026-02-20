@@ -20,6 +20,7 @@
     # General
     git
     gnumake
+    just
     # flex
     # bison
     # ncurses
@@ -28,7 +29,8 @@
 
     perf
 
-    linux-manual
+    # https://github.com/NixOS/nixpkgs/issues/489956
+    # linux-manual
     man-pages
     man-pages-posix
     stdmanpages
@@ -46,6 +48,11 @@
     lldb
     valgrind
     # https://github.com/cyrus-and/gdb-dashboard
+
+    inotify-tools
+    file
+    trace-cmd
+    kernelshark
 
     doxygen
     graphviz
@@ -162,7 +169,7 @@
     # libGL
     # wayland
     # xorg.libX11
-    # xorg.libXcursor
+    # libxcursor
     # xorg.libXrandr
     # xorg.libXi
   ];
@@ -173,7 +180,7 @@
       enable = true;
       setSocketVariable = true;
     };
-    storageDriver = "btrfs";
+    # storageDriver = "btrfs";
   };
 
   users.users."${globals.user}".extraGroups = [

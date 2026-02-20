@@ -31,11 +31,11 @@
   programs.virt-manager.enable = true;
 
   # https://github.com/NixOS/nixpkgs/issues/363887#issuecomment-2536693220
-  boot.kernelParams = [ "kvm.enable_virt_at_load=0" ];
+  # boot.kernelParams = [ "kvm.enable_virt_at_load=0" ];
 
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-  users.extraGroups.vboxusers = {
-    members = [ "${globals.user}" ];
-  };
+  # virtualisation.virtualbox.host.enable = true;
+  # virtualisation.virtualbox.host.enableExtensionPack = true;
+  # users.extraGroups.vboxusers = {
+  #   members = [ "${globals.user}" ];
+  # };
 }

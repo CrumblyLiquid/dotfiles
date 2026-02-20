@@ -3,7 +3,7 @@
   environment.systemPackages = with pkgs; [
     gamescope
     mangohud
-    wineWowPackages.stable
+    wineWow64Packages.stable
     winetricks
     protontricks
     dxvk
