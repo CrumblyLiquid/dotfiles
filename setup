@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Install cargo and toml-bombadil
+# if needed
+# Create .config
+# Clone dotfiles
+# bombadil install
+# bombadil link -p liquid
