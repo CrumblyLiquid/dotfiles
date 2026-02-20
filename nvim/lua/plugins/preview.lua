@@ -6,7 +6,7 @@ return {
       {
         "chomosuke/typst-preview.nvim",
         ft = "typst",
-        -- lazy = true,
+        lazy = true,
         opts = {
           dependencies_bin = {
             ["tinymist"] = "tinymist",
@@ -14,7 +14,7 @@ return {
           },
         },
       },
-      { "chomosuke/typst-preview.nvim", lazy = true },
+      -- { "chomosuke/typst-preview.nvim", lazy = true },
       -- CSV
       { "hat0uma/csvview.nvim", lazy = true },
       -- Markdown

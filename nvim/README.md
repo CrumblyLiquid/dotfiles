@@ -61,4 +61,6 @@ Misc:
 Plugins:
 
 - [arrow.nvim](https://github.com/otavioschwanck/arrow.nvim) - better harpoon.nvim
-
+- [outline.nvim](https://github.com/hedyhli/outline.nvim) - outline of LSP symbols in a side view
+- [nvim-window](https://github.com/yorickpeterse/nvim-window) - better switching between windows
+- [vim-unimpaired](https://github.com/tpope/vim-unimpaired)
