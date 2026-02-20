@@ -62,3 +62,24 @@ Missing:
 - [ ] nix
 - [ ] opentabletdriver
 - [ ] tmux
+
+## Required packages
+
+### Arch Linux
+- `git`
+- `cargo`
+- `eza`
+- `bat`
+- `zsh`
+    - `starship`
+    - `zoxide`
+    - `fzf`
+- `kitty`
+- `tmux`
+- `neovim`
+    - `deno`
+- `hyprland`
+- Applications:
+    - `librewolf`
+    - `dolphin`
+    - `flatpak`
