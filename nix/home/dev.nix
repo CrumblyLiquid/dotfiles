@@ -8,7 +8,7 @@
     enable = true;
     man = {
       enable = true;
-      generateCaches = false;
+      cache.enable = false;
     };
     dev.enable = true;
   };

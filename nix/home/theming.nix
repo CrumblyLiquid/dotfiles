@@ -24,6 +24,7 @@
     corefonts
     inter
     cascadia-code
+    noto-fonts
     # tex-gyre
     # tex-gyre-math
   ];
