@@ -59,6 +59,7 @@
       # (base + /swayidle)
       # (base + /swaylock)
       (base + /waybar)
+      (base + /quickshell)
 
       (base + /kde)
       # (base + /cosmic)
