@@ -43,6 +43,9 @@ vim.lsp.enable({
 
   -- Writing
   -- "ltex_plus",
+
+  -- QML
+  "qmlls",
 })
 
 -- Diagnostic Config

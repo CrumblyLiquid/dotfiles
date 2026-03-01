@@ -70,6 +70,9 @@
     php
     php84Packages.phan
     php84Packages.composer
+
+    # QML
+    kdePackages.qtdeclarative
   ];
 
   home-manager.users."${globals.user}" = {
