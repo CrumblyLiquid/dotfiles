@@ -37,4 +37,9 @@ Host laptop
 Host pc
     HostName 192.168.1.110
 
+Host homelab
+    HostName 10.0.1.120
+    IdentityFile ~/.ssh/id_homelab_ed25519
+    IdentitiesOnly yes
+
 # vi: ft=sshconfig
