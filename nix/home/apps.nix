@@ -10,6 +10,7 @@
 
     keepassxc
     signal-desktop
+    # stoat-desktop
     qbittorrent
 
     kdePackages.dolphin
