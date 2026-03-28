@@ -16,6 +16,21 @@
     };
     spiceUSBRedirection.enable = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    OVMF
+    qemu
+    dnsmasq
+    edk2
+    (pkgs.writeShellScriptBin "qemu-system-x86_64-uefi" ''
+      qemu-system-x86_64 \
+        -bios ${pkgs.OVMF.fd}/FV/OVMF.fd \
+        "$@"
+    '')
+  ];
+
+  systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
+
   users.groups.libvirtd = {
     members = [ "${globals.user}" ];
   };
