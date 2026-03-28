@@ -58,6 +58,9 @@
     };
   };
 
+  # https://wiki.nixos.org/wiki/Systemd/logind
+  services.logind.settings.Login.HandlePowerKey = "suspend";
+
   environment.systemPackages = with pkgs; [
     vim
     git
