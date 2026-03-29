@@ -43,6 +43,7 @@ Documented:
 - [x] [keepassxc](./keepassxc/README.md)
 - [x] [tofi](./tofi/README.md)
 - [x] [xournalpp](./xournalpp/README.md)
+- [x] [hypr](./hypr/README.md) - incomplete
 - [x] [terminal](./TERMINAL.md) - incomplete
 - [x] [zsh](./zsh/README.md) - incomplete
 - [x] [nvim](./nvim/README.md) - incomplete
@@ -50,7 +51,6 @@ Documented:
 
 Missing:
 
-- [ ] hypr
 - [ ] waybar
 - [ ] wezterm
 - [ ] scripts
@@ -58,7 +58,6 @@ Missing:
 - [ ] starship
 - [ ] clangd
 - [ ] dunst
-- [ ] nvim
 - [ ] nix
 - [ ] opentabletdriver
 - [ ] tmux
