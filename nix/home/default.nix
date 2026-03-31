@@ -45,6 +45,7 @@
       # Terminal
       ./terminal.nix
       (base + /kitty)
+      (base + /ghostty)
       (base + /wezterm)
       (base + /zsh)
       (base + /starship)

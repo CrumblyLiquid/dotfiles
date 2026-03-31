@@ -39,6 +39,10 @@ scripts = { source = "scripts", target = ".config/scripts" }
 kitty = { source = "kitty/kitty.conf", target = ".config/kitty/kitty.conf" }
 kitty-theme = { source = "kitty/catppuccin-mocha.conf", target = ".config/kitty/catppuccin-mocha.conf" }
 
+[profiles.ghostty.dots]
+ghostty-config = { source = "ghostty/config.ghostty", target = ".config/ghostty/config.ghostty" }
+ghostty-shaders = { source = "ghostty/shaders", target = ".config/ghostty/shaders" }
+
 [profiles.wezterm.dots]
 wezterm = { source = "wezterm/wezterm.lua", target = ".config/wezterm/wezterm.lua" }
 
@@ -106,7 +110,7 @@ extra_profiles = ["dunst", "tofi", "rofi", "waybar", "eww", "swaylock", "swayidl
 posthooks = [ "hyprctl reload" ]
 
 [profiles.solid]
-extra_profiles = [ "tofi", "wezterm", "git", "dunst", "starship", "nvim", "tmux", "ssh", "waybar", "wallpaper" ]
+extra_profiles = [ "tofi", "ghostty", "wezterm", "git", "dunst", "starship", "nvim", "tmux", "ssh", "waybar", "wallpaper" ]
 
 [profiles.liquid]
 extra_profiles = [ "wezterm", "kitty", "zsh", "fish", "starship", "tmux", "ssh", "git", "scripts", "nvim", "kde", "dunst", "tofi", "rofi", "waybar", "eww", "swaylock", "swayidle", "hypr", "gsr", "wallpaper" ]
