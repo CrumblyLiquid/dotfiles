@@ -1,21 +1,11 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    branch = "master",
-    -- Load nvim-treesitter only when opening a buffer
-    -- for an already existing file or for a new one
-    event = { "BufReadPre", "BufNewFile" },
-    -- event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-    build = function()
-      -- :TSUpdate won't work on first install
-      require("nvim-treesitter.install").update({ with_sync = true })()
-    end,
-    main = "nvim-treesitter.configs",
-    -- https://www.lazyvim.org/plugins/treesitter
-    ---@module 'nvim-treesitter'
-    ---@type TSConfig
-    opts = {
-      ensure_installed = {
+    lazy = false,
+    build = ":TSUpdate",
+    branch = "main",
+    config = function()
+      local parsers = {
         "bash",
         "c",
         "cpp",
@@ -34,27 +24,66 @@ return {
         "vim",
         "vimdoc",
         "lambdalus",
-      },
-      sync_install = true,
-      highlight = { enable = true },
-      indent = { enable = true },
-    },
-    config = function(_, opts)
-      require("nvim-treesitter.configs").setup(opts)
-
-      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-      parser_config.lambdalus = {
-        install_info = {
-          url = "~/Programming/lambda/tree-sitter-lambdalus/",
-          files = { "src/parser.c" },
-        },
-        filetype = "lambdalus", -- if filetype does not match the parser name
       }
+      require("nvim-treesitter").install(parsers)
 
       vim.filetype.add({
         extension = {
           lambdalus = "lambdalus",
         },
+      })
+      vim.treesitter.language.register("lambdalus", "lambdalus")
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "TSUpdate",
+        callback = function()
+          require("nvim-treesitter.parsers").lambdalus = {
+            install_info = {
+              url = "https://github.com/CrumblyLiquid/tree-sitter-lambdalus",
+              revision = "HEAD",
+              -- optional entries:
+              -- queries = "queries/neovim", -- also install queries from given directory
+            },
+          }
+        end,
+      })
+
+      ---@param buf integer
+      ---@param language string
+      local function treesitter_try_attach(buf, language)
+        -- check if parser exists and load it
+        if not vim.treesitter.language.add(language) then
+          return
+        end
+        -- enables syntax highlighting and other treesitter features
+        vim.treesitter.start(buf, language)
+
+        -- enables treesitter based folds
+        -- for more info on folds see `:help folds`
+        vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+        vim.wo.foldmethod = "expr"
+
+        -- check if treesitter indentation is available for this language, and if so enable it
+        -- in case there is no indent query, the indentexpr will fallback to the vim's built in one
+        local has_indent_query = vim.treesitter.query.get(language, "indent") ~= nil
+
+        -- enables treesitter based indentation
+        if has_indent_query then
+          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
+      end
+
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function(args)
+          local buf, filetype = args.buf, args.match
+
+          local language = vim.treesitter.language.get_lang(filetype)
+          if not language then
+            return
+          end
+
+          treesitter_try_attach(buf, language)
+        end,
       })
     end,
   },
