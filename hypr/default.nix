@@ -95,6 +95,9 @@
       ".config/hypr/general.conf" = {
         source = ./general.conf;
       };
+      ".config/hypr/groups.conf" = {
+        source = ./groups.conf;
+      };
       ".config/hypr/input.conf" = {
         source = ./input.conf;
       };
@@ -129,11 +132,13 @@
           # "~/.config/hypr/autostart.conf"
           "~/.config/hypr/env.conf"
           "~/.config/hypr/general.conf"
+          "~/.config/hypr/groups.conf"
           "~/.config/hypr/binds.conf"
           "~/.config/hypr/rules.conf"
           "~/.config/hypr/monitor.conf"
           "~/.config/hypr/input.conf"
           "~/.config/hypr/animation.conf"
+          "~/.config/hypr/theme.conf"
         ];
 
         exec-once = [
