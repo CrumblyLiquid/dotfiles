@@ -4,6 +4,7 @@
     # Neovim stuff
     neovim
     tree-sitter
+    lua55Packages.tree-sitter-cli
 
     # Language stuff
     # TODO: Language options flake (with preinstalled lsps, formatters, etc)
@@ -40,7 +41,7 @@
     bash-language-server
 
     # JSON
-    nodePackages.vscode-json-languageserver
+    vscode-json-languageserver
 
     # Yaml
     yaml-language-server
@@ -82,6 +83,10 @@
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
+
+      # Home Manager new defaults
+      withPython3 = false;
+      withRuby = false;
 
       defaultEditor = true;
     };
