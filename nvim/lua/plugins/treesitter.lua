@@ -23,7 +23,6 @@ return {
         "markdown_inline",
         "vim",
         "vimdoc",
-        "lambdalus",
       }
       require("nvim-treesitter").install(parsers)
 

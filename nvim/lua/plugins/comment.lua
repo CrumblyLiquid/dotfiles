@@ -1,10 +1,11 @@
 ---@module 'lazy'
 ---@type LazyPlugin[]
 return {
-  {
-    "numToStr/Comment.nvim",
-    opts = {},
-  },
+  -- {
+  --   "numToStr/Comment.nvim",
+  --   opts = {},
+  -- },
+  { "nvim-mini/mini.nvim", version = "*" },
   {
     "folke/todo-comments.nvim",
     event = "VimEnter",
