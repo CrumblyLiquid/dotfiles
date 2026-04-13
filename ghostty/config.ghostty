@@ -4,3 +4,10 @@ font-size = 16
 theme = Catppuccin Mocha
 custom-shader = shaders/cursor_warp.glsl
 background-opacity = 0.95
+
+# See `ghostty +list-keybinds --default`
+# for more keybinds
+keybind = ctrl+enter=unbind
+
+window-padding-x = 4
+# window-padding-y = 0
