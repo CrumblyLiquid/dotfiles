@@ -57,3 +57,6 @@ vim.o.scrolloff = 10
 -- Completion
 vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert", "popup" }
 vim.opt.shortmess:append("c")
+
+-- UI
+require("vim._core.ui2").enable()
