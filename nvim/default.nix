@@ -77,23 +77,23 @@
   ];
 
   home-manager.users."${globals.user}" = {
-    programs.neovim = {
-      enable = true;
-
-      viAlias = true;
-      vimAlias = true;
-      vimdiffAlias = true;
-
-      # Home Manager new defaults
-      withPython3 = false;
-      withRuby = false;
-
-      defaultEditor = true;
-    };
-
-    programs.zsh.shellAliases = {
-      nv = "nvim";
-    };
+    # programs.neovim = {
+    #   enable = true;
+    #
+    #   viAlias = true;
+    #   vimAlias = true;
+    #   vimdiffAlias = true;
+    #
+    #   # Home Manager new defaults
+    #   withPython3 = false;
+    #   withRuby = false;
+    #
+    #   defaultEditor = true;
+    # };
+    #
+    # programs.zsh.shellAliases = {
+    #   nv = "nvim";
+    # };
 
     /*
       home.file = {
