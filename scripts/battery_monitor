@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+APP_NAME="Batter Monitor"
+# Mouse device
+MODEL="G Pro Wireless Gaming Mouse"
+# Battery percentage notification threshold
+BATTERY_LOW=10
+
+get_device() {
+    upower -e | while read -r dev; do
+        if upower -i "$dev" 2>/dev/null | grep -q "model:.*$MODEL"; then
+            echo "$dev"
+            return
+        fi
+    done
+}
+
+check_and_notify() {
+    local dev
+    dev=$(get_device)
+    [ -z "$dev" ] && return
+
+    local percentage state
+    percentage=$(upower -i "$dev" | awk '/percentage:/{print $2}' | tr -d '%')
+    state=$(upower -i "$dev" | awk '/state:/{print $2}')
+
+    if [ "$state" = "fully-charged" ]; then
+        notify-send -u low -a "$APP_NAME" "Mouse Battery Full" "${MODEL} is fully charged!"
+    elif [ "$state" = "discharging" ] && [ "$percentage" -le "$BATTERY_LOW" ]; then
+        notify-send -u normal -a "$APP_NAME" "Mouse Battery Low (${percentage}%)" "${MODEL} has only ${percentage}% remaining!"
+    fi
+}
+
+upower --monitor-detail | while read -r line; do
+    # if echo "$line" | grep -q "device removed.*battery_hidpp_battery"; then
+    #     notify-send -u normal "Mouse Disconnected" "$MODEL disconnected."
+    if echo "$line" | grep -q "battery_hidpp_battery"; then
+        check_and_notify
+    fi
+done
