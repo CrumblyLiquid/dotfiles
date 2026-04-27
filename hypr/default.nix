@@ -144,7 +144,7 @@
         exec-once = [
           "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE"
           "/usr/lib/polkit-kde-authentication-agent-1"
-          "hyprpaper"
+          "wpaperd -d"
           "dunst"
           "~/.config/scripts/memory_monitor"
           "eww daemon"

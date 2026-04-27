@@ -59,6 +59,7 @@
       (base + /dunst)
       # (base + /swayidle)
       # (base + /swaylock)
+      (base + /wpaperd)
       (base + /waybar)
       (base + /quickshell)
 
