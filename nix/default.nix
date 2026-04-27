@@ -33,6 +33,18 @@
     LC_TIME = "cs_CZ.UTF-8";
     LC_MONETARY = "cs_CZ.UTF-8";
   };
+  i18n.inputMethod = {
+    enable = true;
+
+    type = "fcitx5";
+    fcitx5 = {
+      waylandFrontend = true;
+      addons = with pkgs; [
+        fcitx5-mozc
+        fcitx5-gtk
+      ];
+    };
+  };
 
   services.xserver = {
     enable = true;
