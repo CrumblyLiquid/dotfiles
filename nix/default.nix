@@ -12,7 +12,7 @@
     "flakes"
   ];
 
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_19;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_7_0;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
