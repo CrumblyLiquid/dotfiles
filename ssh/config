@@ -37,6 +37,16 @@ Host laptop
 Host pc
     HostName 192.168.1.110
 
+Host scarab
+    HostName 10.0.0.1
+    PreferredAuthentications password
+    PubkeyAuthentication no
+
+Host kosatka
+    HostName 10.0.1.1
+    PreferredAuthentications password
+    PubkeyAuthentication no
+
 Host homelab
     HostName 10.0.1.120
     IdentityFile ~/.ssh/id_homelab_ed25519
