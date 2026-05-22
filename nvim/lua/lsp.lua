@@ -42,7 +42,7 @@ vim.lsp.enable({
   "phan",
 
   -- Writing
-  -- "ltex_plus",
+  "ltex_plus",
 
   -- QML
   "qmlls",

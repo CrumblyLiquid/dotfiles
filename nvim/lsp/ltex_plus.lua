@@ -5,7 +5,7 @@ return {
   settings = {
     ltex = {
       checkFrequency = "save",
-      -- language = "en-GB",
+      language = "en-GB",
     },
   },
 }
