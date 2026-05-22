@@ -25,6 +25,8 @@
     inter
     cascadia-code
     noto-fonts
+    cm_unicode
+    texlivePackages.cm-unicode
     # tex-gyre
     # tex-gyre-math
   ];
