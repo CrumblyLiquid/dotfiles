@@ -51,6 +51,8 @@
     krita
     fontforge
 
+    openhue-cli
+
     prismlauncher
     # lunar-client
   ];
