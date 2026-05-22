@@ -62,4 +62,13 @@
     builtins.readFile "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
 
   services.fwupd.enable = true;
+
+  # Calibre Connection Port
+  networking.firewall.allowedTCPPorts = [
+    9090
+  ];
+  networking.firewall.allowedUDPPorts = [
+    54982
+    48123
+  ];
 }
