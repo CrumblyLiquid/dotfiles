@@ -57,16 +57,7 @@
     settings = {
       default_session = {
         user = "greeter";
-        command = ''
-          ${pkgs.tuigreet}/bin/tuigreet \
-            --theme 'border=blue;text=white;prompt=lightblue;time=cyan;action=lightblue;button=blue;container=black;input=lightblue'
-            --time \
-            --asterisks \
-            --user-menu \
-            --remember \
-            --remember-user-session \
-            --cmd Hyprland
-        '';
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --asterisks --user-menu --remember --remember-user-session --cmd Hyprland";
       };
     };
   };
