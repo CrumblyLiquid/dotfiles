@@ -1,4 +1,8 @@
-{ globals, inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 {
   imports = [
     # https://github.com/lilyinstarlight/nixos-cosmic
@@ -10,4 +14,3 @@
   environment.systemPackages = with pkgs; [
   ];
 }
-

@@ -1,4 +1,4 @@
-{ pkgs, globals, ... }:
+{ globals, ... }:
 {
   services.syncthing = {
     enable = true;
@@ -9,11 +9,9 @@
     overrideFolders = true;
     settings = {
       options = {
-        /*
-          localAnnounceEnabled = false;
-          globalAnnounceEnabled = false;
-          relaysEnabled = false;
-        */
+        # localAnnounceEnabled = false;
+        # globalAnnounceEnabled = false;
+        # relaysEnabled = false;
         urAccepted = -1;
       };
       # https://docs.syncthing.net/users/faq.html#should-i-keep-my-device-ids-secret

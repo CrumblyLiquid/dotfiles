@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     spotify
     # spotifywm
@@ -11,4 +12,3 @@
   # Enable discovery of Google Cast devices
   networking.firewall.allowedUDPPorts = [ 5353 ];
 }
-

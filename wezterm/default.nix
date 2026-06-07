@@ -1,4 +1,5 @@
-{ globals, pkgs, ... }: {
+{ globals, pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     wezterm
   ];
@@ -12,4 +13,3 @@
     };
   };
 }
-

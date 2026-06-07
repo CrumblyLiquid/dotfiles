@@ -1,7 +1,4 @@
 {
-  globals,
-  inputs,
-  pkgs,
   ...
 }:
 {

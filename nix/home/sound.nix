@@ -41,6 +41,8 @@
       };
     */
 
+    # Bluetooth configuration
+    # https://wiki.nixos.org/wiki/PipeWire#Bluetooth_Configuration
     wireplumber.extraConfig.bluetoothEnhancements = {
       "monitor.bluez.properties" = {
         "bluez5.enable-sbc-xq" = true;
@@ -69,7 +71,4 @@
     crosspipe
     easyeffects
   ];
-
-  home-manager.users."${globals.user}" = {
-  };
 }

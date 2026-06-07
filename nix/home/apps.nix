@@ -1,4 +1,4 @@
-{ globals, pkgs, ... }:
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     thunderbird
@@ -12,6 +12,8 @@
     signal-desktop
     # stoat-desktop
     qbittorrent
+    josm
+    penpot-desktop
 
     kdePackages.dolphin
     kdePackages.dolphin-plugins
@@ -67,6 +69,7 @@
   networking.firewall.allowedTCPPorts = [
     9090
   ];
+
   networking.firewall.allowedUDPPorts = [
     54982
     48123

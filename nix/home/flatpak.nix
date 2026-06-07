@@ -20,6 +20,7 @@
       flatpak --user override --filesystem=$HOME/.local/share/fonts:ro
       flatpak --user override --filesystem=$HOME/.icons:ro
       flatpak --user override --filesystem=/nix/store:ro
+      flatpak --user override --filesystem=/run/current-system/sw/share/X11/fonts:ro
     '';
   };
 

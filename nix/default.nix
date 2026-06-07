@@ -59,6 +59,7 @@
         user = "greeter";
         command = ''
           ${pkgs.tuigreet}/bin/tuigreet \
+            --theme 'border=blue;text=white;prompt=lightblue;time=cyan;action=lightblue;button=blue;container=black;input=lightblue'
             --time \
             --asterisks \
             --user-menu \
@@ -70,6 +71,7 @@
     };
   };
 
+  # Don't shutdown on power button press but suspend instead!
   # https://wiki.nixos.org/wiki/Systemd/logind
   services.logind.settings.Login.HandlePowerKey = "suspend";
 
@@ -95,17 +97,24 @@
   users.users.crumbly = {
     isNormalUser = true;
     extraGroups = [
+      # Required for default `sudo` configuration
       "wheel"
+      # Control NetworkManager
       "networkmanager"
+      # Manage input devices
       "input"
     ];
     packages = with pkgs; [ ];
+    # TODO: Explore other shells
     shell = pkgs.zsh;
   };
 
   # Fix running dynamically linked binaries
+  # https://wiki.nixos.org/wiki/Nix-ld
   programs.nix-ld = {
     enable = true;
+    # TODO: Add sensible libraries
+    # https://github.com/NixOS/nixpkgs/issues/354513
     libraries = with pkgs; [ ];
   };
 

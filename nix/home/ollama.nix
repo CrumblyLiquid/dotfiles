@@ -1,6 +1,10 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = [ pkgs.ollama-rocm ];
+  environment.systemPackages = [
+    pkgs.ollama-rocm
+    pkgs.opencode
+    pkgs.opencode-desktop
+  ];
   boot.initrd.kernelModules = [ "amdgpu" ];
 
   services.ollama = {

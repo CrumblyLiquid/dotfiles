@@ -1,17 +1,11 @@
-{ globals, pkgs, ... }: {
-
-  # Tablet
+{ ... }:
+{
+  # https://wiki.nixos.org/wiki/OpenTabletDriver
   hardware.opentabletdriver = {
     enable = true;
     daemon.enable = true;
   };
 
-  /* home-manager.users."${globals.user}" = {
-    home.file = {
-      ".config/OpenTabletDriver/settings.json" = {
-        text = builtins.readFile ./settings.json;
-      };
-    };
-  }; */
+  hardware.uinput.enable = true;
+  boot.kernelModules = [ "uinput" ];
 }
-

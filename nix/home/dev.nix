@@ -64,15 +64,15 @@
     # sea-orm-cli
 
     # Haskell
-    ghc
+    # ghc
     # haskellPackages.ghcup
-    stack
+    # stack
 
     # Lisp
-    sbcl
+    # sbcl
 
     # R
-    R
+    # R
     # rstudio
     # rstudio-server
 
@@ -81,7 +81,7 @@
 
     # SQL
     # sqlitebrowser
-    sqlite
+    # sqlite
     sqlite-interactive
 
     # JavaScript
@@ -145,11 +145,11 @@
     # burpsuite
 
     # Editors
-    helix
+    # helix
     # jetbrains.datagrip
-    jetbrains.clion
+    # jetbrains.clion
     # jetbrains.rust-rover
-    vscodium.fhs
+    # vscodium.fhs
 
     # School design
     # iverilog

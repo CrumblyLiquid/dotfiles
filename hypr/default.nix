@@ -9,6 +9,12 @@
     ./../nix/home/flameshot.nix
   ];
 
+  nix.settings = {
+    substituters = [ "https://hyprland.cachix.org" ];
+    trusted-substituters = [ "https://hyprland.cachix.org" ];
+    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+  };
+
   environment.systemPackages = with pkgs; [
     # hyprland
     hyprpaper
@@ -34,15 +40,17 @@
     playerctl
   ];
 
+  services.hypridle.enable = true;
+
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
     withUWSM = true;
     # set the flake package
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     # make sure to also set the portal package, so that they are in sync
-    portalPackage =
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    # portalPackage =
+    #   inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
   xdg.portal = {
@@ -53,14 +61,15 @@
       pkgs.kdePackages.xdg-desktop-portal-kde
       # Need this for things like opening links, etc.
       pkgs.xdg-desktop-portal-gtk
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-hyprland
+      # inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland
     ];
   };
 
   home-manager.users."${globals.user}" = {
-    imports = [
-      inputs.hyprland.homeManagerModules.default
-    ];
+    # imports = [
+    #   inputs.hyprland.homeManagerModules.default
+    # ];
 
     home.sessionVariables = {
       # Fix Electron apps on Nixos Wayland
@@ -86,12 +95,12 @@
           source = ./hyprland.conf;
         };
       */
-      ".config/hypr/env.conf" = {
-        source = ./env.conf;
-      };
-      ".config/hypr/autostart.conf" = {
-        source = ./autostart.conf;
-      };
+      # ".config/hypr/env.conf" = {
+      #   source = ./env.conf;
+      # };
+      # ".config/hypr/autostart.conf" = {
+      #   source = ./autostart.conf;
+      # };
       ".config/hypr/general.conf" = {
         source = ./general.conf;
       };
@@ -122,15 +131,16 @@
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
+      configType = "hyprlang";
 
-      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      portalPackage =
-        inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+      # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      # portalPackage =
+      #   inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
       settings = {
         source = [
           # "~/.config/hypr/autostart.conf"
-          "~/.config/hypr/env.conf"
+          # "~/.config/hypr/env.conf"
           "~/.config/hypr/general.conf"
           "~/.config/hypr/groups.conf"
           "~/.config/hypr/binds.conf"
@@ -142,29 +152,14 @@
         ];
 
         exec-once = [
-          "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE"
-          "/usr/lib/polkit-kde-authentication-agent-1"
           "wpaperd -d"
-          "dunst"
           "~/.config/scripts/memory_monitor"
           "eww daemon"
           "eww update laptop_mode=false"
-          "waybar"
-          "hypridle"
-          "hyprctl setcursor Breeze_Light 32"
+          "hyprctl setcursor Vimix-white-cursors 32"
         ];
 
         env = [
-          # Wayland support should be enabled by default
-          # "MOZ_ENABLE_WAYLAND,1"
-
-          # https://wiki.hyprland.org/Configuring/Tearing/
-          # Not needed for kernel ver >= 6.8
-          # -- but not supported in amdgpu yet --
-          # might be finally supported so this is not needed anymore
-          # https://github.com/hyprwm/Hyprland/issues/5103
-          # "WLR_DRM_NO_ATOMIC,1"
-
           # Use iGPU to render Hyprland
           # "WLR_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
         ];

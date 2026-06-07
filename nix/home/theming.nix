@@ -1,4 +1,5 @@
 {
+  config,
   globals,
   pkgs,
   ...
@@ -21,10 +22,10 @@
     font-awesome_6
     dejavu_fonts
     libertine
-    corefonts
+    # corefonts
     inter
     cascadia-code
-    noto-fonts
+    # noto-fonts
     cm_unicode
     texlivePackages.cm-unicode
     # tex-gyre
@@ -40,16 +41,11 @@
     vimix-cursors
   ];
 
-  environment.sessionVariables = {
-    XCURSOR_THEME = "Breeze_Light";
-    XCURSOR_SIZE = 32;
-  };
-
   home-manager.users."${globals.user}" = {
     home.pointerCursor = {
       gtk.enable = true;
       x11.enable = true;
-      name = "Breeze_Light";
+      name = "Vimix-cursors";
       size = 32;
       package = pkgs.vimix-cursors;
     };
@@ -59,22 +55,27 @@
       platformTheme.name = "qtct";
       style = {
         package = pkgs.kdePackages.breeze;
-        name = "breeze-dark";
+        name = "Breeze";
       };
     };
 
-    gtk = {
+    gtk = rec {
       enable = true;
+
       theme = {
         name = "Breeze-Dark";
         package = pkgs.kdePackages.breeze-gtk;
       };
+
+      gtk4.theme = theme;
+
       iconTheme = {
         package = pkgs.papirus-icon-theme;
         name = "Papirus-Dark";
       };
+
       font = {
-        name = "Sans";
+        name = "Inter";
         size = 12;
       };
     };

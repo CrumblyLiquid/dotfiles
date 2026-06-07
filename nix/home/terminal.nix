@@ -1,4 +1,4 @@
-{ pkgs, globals, ... }:
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     zoxide # Better cd
@@ -15,8 +15,7 @@
     bat # Better cat
     dig
     doggo # Better dig
-    # Build failure: https://github.com/NixOS/nixpkgs/issues/370019
-    # outils
+    outils
     bvi # Binary Visual Editor
     pwntools
     rsbkb
@@ -28,14 +27,14 @@
     git
     nmap
 
-    # tldr # Community maintained man pages
-    # jid # Interactive tool to build jq queries
+    tldr # Community maintained man pages
+    jid # Interactive tool to build jq queries
     pv # Monitor progress through a pipe
     scc # Lines of code counter
     duf # Disk usage
     diff-so-fancy # Better diff
     exiftool # Reading + writing metadata
-    # speedtest-cli # Speedtest from terminal
+    speedtest-cli # Speedtest from terminal
     httpie # Terminal HTTP client
 
     lolcat

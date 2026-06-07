@@ -1,14 +1,20 @@
-{ globals, pkgs, ... }: {
-  environment.systemPackages = with pkgs; [
+{ globals, pkgs, ... }:
+{
+  environment.systemPackages = [
     pkgs.librewolf
-    pkgs.tor
+    # pkgs.tor
     pkgs.firefox
   ];
 
   programs.firefox = {
     enable = true;
     package = pkgs.librewolf;
-    languagePacks = [ "cs" "de" "en-GB" "en-US" ];
+    languagePacks = [
+      "cs"
+      "de"
+      "en-GB"
+      "en-US"
+    ];
     preferences = {
       "widget.use-xdg-desktop-portal.file-picker" = 1;
     };
