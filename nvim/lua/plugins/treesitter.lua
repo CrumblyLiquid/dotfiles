@@ -1,6 +1,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {},
     lazy = false,
     build = ":TSUpdate",
     branch = "main",
@@ -17,6 +18,7 @@ return {
         "lua",
         "luadoc",
         "nix",
+        "typst",
         "rust",
         "python",
         "markdown",
@@ -50,25 +52,45 @@ return {
       ---@param buf integer
       ---@param language string
       local function treesitter_try_attach(buf, language)
-        -- check if parser exists and load it
+        -- Notify the user that there's not Tree-sitter parser available
+        -- and return early
         if not vim.treesitter.language.add(language) then
+          -- Languages that should be skipped
+          local skip_lang = {
+            oil = true,
+            fidget = true,
+            ["blink-cmp-menu"] = true,
+            cmd = true,
+            msg = true,
+            pager = true,
+            dialog = true,
+          }
+
+          -- https://neovim.io/doc/user/options/#'buftype'
+          local buffer_type = vim.bo[buf].buftype
+
+          -- Notify only on file-backed buffers
+          if buffer_type == "" and not skip_lang[language] then
+            -- https://neovim.io/doc/user/lua/#vim.notify()
+            vim.notify(("No Tree-sitter parser for %q"):format(language), vim.log.levels.WARN, { title = "Treesitter" })
+          end
+
           return
         end
-        -- enables syntax highlighting and other treesitter features
+
+        -- Enable syntax highlighting and other treesitter features
         vim.treesitter.start(buf, language)
 
-        -- enables treesitter based folds
-        -- for more info on folds see `:help folds`
+        -- Enable Tree-sitter based folds
+        -- (for more info see `:help folds`)
         vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
         vim.wo.foldmethod = "expr"
 
-        -- check if treesitter indentation is available for this language, and if so enable it
-        -- in case there is no indent query, the indentexpr will fallback to the vim's built in one
+        -- Enable Tree-sitter based indentation
+        -- if it's available for this language
         local has_indent_query = vim.treesitter.query.get(language, "indent") ~= nil
-
-        -- enables treesitter based indentation
         if has_indent_query then
-          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
         end
       end
 
@@ -78,6 +100,12 @@ return {
 
           local language = vim.treesitter.language.get_lang(filetype)
           if not language then
+            vim.notify(
+              ("No Tree-sitter support for %q"):format(language),
+              vim.log.levels.WARN,
+              { title = "Treesitter" }
+            )
+
             return
           end
 

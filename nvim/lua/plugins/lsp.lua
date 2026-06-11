@@ -1,14 +1,6 @@
 return {
   -- Maintained LSP configuration
   "neovim/nvim-lspconfig",
-  -- Notifications and LSP progress messages
-  -- https://github.com/j-hui/fidget.nvim
-  {
-    "j-hui/fidget.nvim",
-    opts = {
-      override_vim_notify = true,
-    },
-  },
   -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
   -- used for completion, annotations and signatures of Neovim apis
   {
