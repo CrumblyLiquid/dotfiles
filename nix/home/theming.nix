@@ -37,6 +37,23 @@
   # Flatpak apps can access system fonts
   fonts.fontDir.enable = true;
 
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      monospace = [
+        "JetBrainsMono Nerd Font"
+        "Font Awesome 6 Free"
+        "Font Awesome 6 Brands"
+        "DejaVu Sans Mono"
+      ];
+      sansSerif = [
+        "Inter"
+        "DejaVu Sans"
+      ];
+      serif = [ "DejaVu Serif" ];
+    };
+  };
+
   environment.systemPackages = with pkgs; [
     vimix-cursors
   ];
