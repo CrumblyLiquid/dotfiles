@@ -15,6 +15,9 @@
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_7_0;
 
   boot.loader.systemd-boot.enable = true;
+  # Set resolution to the maximum
+  boot.loader.systemd-boot.consoleMode = "max";
+
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.networkmanager.enable = true;
@@ -33,18 +36,18 @@
     LC_TIME = "cs_CZ.UTF-8";
     LC_MONETARY = "cs_CZ.UTF-8";
   };
-  i18n.inputMethod = {
-    enable = true;
-
-    type = "fcitx5";
-    fcitx5 = {
-      waylandFrontend = true;
-      addons = with pkgs; [
-        fcitx5-mozc
-        fcitx5-gtk
-      ];
-    };
-  };
+  # i18n.inputMethod = {
+  #   enable = true;
+  #
+  #   type = "fcitx5";
+  #   fcitx5 = {
+  #     waylandFrontend = true;
+  #     addons = with pkgs; [
+  #       fcitx5-mozc
+  #       fcitx5-gtk
+  #     ];
+  #   };
+  # };
 
   services.xserver = {
     enable = true;

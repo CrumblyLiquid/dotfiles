@@ -48,8 +48,10 @@
       (base + /ghostty)
       # (base + /wezterm)
       (base + /zsh)
+      (base + /nushell)
       (base + /starship)
       (base + /nvim)
+      (base + /helix)
       (base + /tmux)
 
       # Window Manager
@@ -61,6 +63,7 @@
       # (base + /swaylock)
       (base + /wpaperd)
       (base + /waybar)
+      (base + /ashell)
       # (base + /quickshell)
 
       # (base + /kde)

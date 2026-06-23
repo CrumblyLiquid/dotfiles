@@ -6,13 +6,15 @@
     fzf
     fd
     busybox
-    ripgrep
-    htop # Better top
-    btop # Even better top
+    ripgrep # grep
+    htop # top
+    btop # top
     yazi
 
-    eza # Better ls
-    bat # Better cat
+    eza # ls
+    bat # cat
+    procs # ps
+    duf # du
     dig
     doggo # Better dig
     outils
@@ -31,7 +33,6 @@
     jid # Interactive tool to build jq queries
     pv # Monitor progress through a pipe
     scc # Lines of code counter
-    duf # Disk usage
     diff-so-fancy # Better diff
     exiftool # Reading + writing metadata
     speedtest-cli # Speedtest from terminal
