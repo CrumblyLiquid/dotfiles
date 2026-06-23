@@ -1,14 +1,19 @@
 { globals, pkgs, ... }:
 {
+  nixpkgs.config.permittedInsecurePackages = [
+    "librewolf-bin-151.0.1-2"
+    "librewolf-bin-unwrapped-151.0.1-2"
+  ];
+
   environment.systemPackages = [
-    pkgs.librewolf
+    pkgs.librewolf-bin
     # pkgs.tor
     pkgs.firefox
   ];
 
   programs.firefox = {
     enable = true;
-    package = pkgs.librewolf;
+    package = pkgs.librewolf-bin;
     languagePacks = [
       "cs"
       "de"
@@ -22,7 +27,7 @@
 
   home-manager.users."${globals.user}" = {
     home.sessionVariables = {
-      DEFAULT_BROWSER = "${pkgs.librewolf}/bin/librewolf";
+      DEFAULT_BROWSER = "${pkgs.librewolf-bin}/bin/librewolf";
     };
 
     xdg.mimeApps = {
