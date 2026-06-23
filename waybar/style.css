@@ -7,7 +7,7 @@
 
 * {
     font-size: 22px;
-    font-family: monospace;
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", "Font Awesome 6 Brands", monospace;
     color: @text;
 }
 
