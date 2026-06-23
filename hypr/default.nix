@@ -1,6 +1,5 @@
 {
   globals,
-  inputs,
   pkgs,
   ...
 }:
@@ -38,6 +37,10 @@
     pipewire
     wireplumber
     playerctl
+
+    networkmanagerapplet
+    blueman
+    libappindicator-gtk3
   ];
 
   services.hypridle.enable = true;
@@ -152,6 +155,8 @@
         ];
 
         exec-once = [
+          # Needed for tray applications to work :/
+          "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE"
           "wpaperd -d"
           "~/.config/scripts/memory_monitor"
           "eww daemon"
@@ -160,6 +165,7 @@
         ];
 
         env = [
+          "TZDIR,/etc/zoneinfo"
           # Use iGPU to render Hyprland
           # "WLR_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
         ];
