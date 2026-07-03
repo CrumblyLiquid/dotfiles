@@ -32,6 +32,7 @@ return {
       {
         "<leader>po",
         function()
+          print("Starting...")
           require("omni-preview").command({ args = "start" })
         end,
         desc = "Start preview",

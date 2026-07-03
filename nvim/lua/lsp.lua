@@ -36,16 +36,16 @@ vim.lsp.enable({
   -- Hyprland
   -- "hyprls",
   -- R
-  "air",
+  -- "air",
   -- PHP
-  "phpactor",
-  "phan",
+  -- "phpactor",
+  -- "phan",
 
   -- Writing
   -- "ltex_plus",
 
   -- QML
-  "qmlls",
+  -- "qmlls",
 })
 
 -- Diagnostic Config

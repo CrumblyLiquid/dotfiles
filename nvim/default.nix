@@ -64,16 +64,16 @@
     nixpkgs-fmt
 
     # R
-    air-formatter
+    # air-formatter
 
     # PHP
-    phpactor
-    php
-    php84Packages.phan
-    php84Packages.composer
+    # phpactor
+    # php
+    # php84Packages.phan
+    # php84Packages.composer
 
     # QML
-    kdePackages.qtdeclarative
+    # kdePackages.qtdeclarative
   ];
 
   home-manager.users."${globals.user}" = {
