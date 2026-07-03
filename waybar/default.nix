@@ -6,7 +6,7 @@
   ];
 
   home-manager.users."${globals.user}" = {
-    services.status-notifier-watcher.enable = true;
+    # services.status-notifier-watcher.enable = true;
     /*
       home.file = {
         ".config/waybar" = {
