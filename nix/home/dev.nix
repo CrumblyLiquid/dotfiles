@@ -108,32 +108,32 @@
     texlivePackages.dejavu
     texlivePackages.libertine
     texlivePackages.luaotfload
-    python312Packages.pip
-    python312Packages.pygments
-    python312Packages.networkx
-    python312Packages.pygraphviz
-    python312Packages.numpy
-    python312Packages.scipy
+    python314Packages.pip
+    python314Packages.pygments
+    python314Packages.networkx
+    python314Packages.pygraphviz
+    python314Packages.numpy
+    python314Packages.scipy
 
     # Python
     python3
-    python312Packages.mpmath
-    python312Packages.pillow
-    python312Packages.pandas
-    python312Packages.requests
-    python312Packages.pip
-    python312Packages.setuptools
-    python312Packages.venvShellHook
-    python312Packages.virtualenv
+    python314Packages.mpmath
+    python314Packages.pillow
+    python314Packages.pandas
+    python314Packages.requests
+    python314Packages.pip
+    python314Packages.setuptools
+    python314Packages.venvShellHook
+    python314Packages.virtualenv
 
     geckodriver
-    python312Packages.selenium
+    python314Packages.selenium
 
     uv
     conda
 
-    python312Packages.pygments
-    python312Packages.pypdf
+    python314Packages.pygments
+    python314Packages.pypdf
 
     # Security
     # ida-free
