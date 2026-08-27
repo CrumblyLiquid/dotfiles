@@ -12,7 +12,7 @@
     "flakes"
   ];
 
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_7_0;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_7_1;
 
   boot.loader.systemd-boot.enable = true;
   # Set resolution to the maximum

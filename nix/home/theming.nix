@@ -60,11 +60,13 @@
 
   home-manager.users."${globals.user}" = {
     home.pointerCursor = {
+      enable = true;
+      size = 32;
+      name = "Vimix-cursors";
+      package = pkgs.vimix-cursors;
+
       gtk.enable = true;
       x11.enable = true;
-      name = "Vimix-cursors";
-      size = 32;
-      package = pkgs.vimix-cursors;
     };
 
     qt = {

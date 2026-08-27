@@ -21,7 +21,7 @@
       ./printing.nix
       ./dev.nix
       ./vpn.nix
-      # ./android.nix
+      ./android.nix
       (base + /ssh)
 
       ./typst.nix

@@ -17,13 +17,11 @@
 
   # virtualisation.waydroid.enable = true;
 
-  # services.udev.packages = with pkgs; [
-  #   android-udev-rules
-  # ];
-
-  programs.adb.enable = true;
   users.users."${globals.user}".extraGroups = [
     "adbusers"
     "kvm"
   ];
+
+  # MTP to transfer files on Android
+  services.gvfs.enable = true;
 }
