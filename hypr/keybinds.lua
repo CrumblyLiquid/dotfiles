@@ -28,6 +28,11 @@ bind("T", hl.dsp.exec_cmd("hyprctl reload"), { description = "Reloads Hyprland c
 bind("F", hl.dsp.window.fullscreen({ mode = "fulscreen", action = "toggle" }))
 bind("apostrophe", hl.dsp.window.float({ action = "toggle" }))
 
+-- TODO: https://wiki.hypr.land/configuring/code-snippets/
+-- Dwindle layout
+bind("semicolon", hl.dsp.layout("togglesplit"))
+bind("bracketleft", hl.dsp.window.pseudo())
+
 local workspaces = {
 	["1"] = 1,
 	["2"] = 2,
@@ -53,3 +58,79 @@ end
 
 bind("mouse_up", hl.dsp.focus({ workspace = "e+1" }))
 bind("mouse_down", hl.dsp.focus({ workspace = "e-1" }))
+
+local directions = {
+	-- HJKL
+	["h"] = "l",
+	["j"] = "r",
+	["k"] = "u",
+	["l"] = "d",
+	-- Arrows
+	["left"] = "l",
+	["right"] = "r",
+	["up"] = "u",
+	["down"] = "d",
+}
+
+for key, direction in pairs(directions) do
+	bind("SHIFT + " + key, hl.dsp.window.move(direction))
+end
+
+bind("mouse:272", hl.dsp.window.move(), { mouse = true })
+bind("mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+-- TODO: Group keybinds
+
+hl.bind("CONTROL + ALT + K", function()
+	for keyboard in { "at-translated-set-2-keyboard", "keychron-keychron-k8-pro-keyboard" } do
+		hl.dsp.exec_cmd("hyprctl switchxkblayout " + keyboard + " next")
+	end
+end, { locked = true })
+
+local brightness_actions = {
+	["Prev"] = "previous",
+	["Next"] = "next",
+	["Play"] = "play",
+}
+
+for key, action in pairs(brightness_actions) do
+	hl.bind("XF86MonBrightness" + key, hl.dsp.exec_cmd("~/.config/scripts/brightness " + action), { locked = true })
+end
+
+local volume_actions = {
+	["RaiseVolume"] = "up",
+	["LowerVolume"] = "down",
+	["Mute"] = "mute",
+}
+
+for key, action in pairs(volume_actions) do
+	for node, modifier in pairs({ ["out"] = "", ["in"] = "SHIFT" }) do
+		hl.bind(
+			modifier + " + XF86Audio" + key,
+			hl.dsp.exec_cmd("~/.config/scripts/volume " + node + " " + action),
+			{ locked = true, repeating = true }
+		)
+	end
+end
+
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("~/.config/scripts/volume in mute"))
+
+local music_actions = {
+	["Prev"] = "previous",
+	["Next"] = "next",
+	["Play"] = "play",
+}
+
+for key, action in pairs(music_actions) do
+	hl.bind("XF86Audio" + key, hl.dsp.exec_cmd("~/.config/scripts/music " + action), { locked = true })
+end
+
+-- Screenshots
+hl.bind("Print", hl.dsp.exec_cmd("grimblast copy screen --notify --freeze --cursor"))
+hl.bind("SUPER + SHIFT + Print", hl.dsp.exec_cmd("grimblast copy area --freeze --notify"))
+
+-- Caps Lock OSD
+hl.bind("Caps_Lock", hl.dsp.exec_cmd("~/.config/eww/scripts/caps-osd"))
+
+-- Lock screen activation
+hl.bind("SUPER + L", hl.dsp.exec_cmd("loginctl lock-session"))
