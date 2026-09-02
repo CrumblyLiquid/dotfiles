@@ -25,7 +25,7 @@ hl.monitor({
 
 for id = 1, 10 do
 	hl.workspace_rule({
-		workspace = string(id),
+		workspace = tostring(id),
 		monitor = dell,
 		default = true,
 	})
@@ -33,7 +33,7 @@ end
 
 for id = 11, 15 do
 	hl.workspace_rule({
-		workspace = string(id),
+		workspace = tostring(id),
 		monitor = eizo,
 		default = true,
 	})

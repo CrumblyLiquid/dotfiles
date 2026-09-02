@@ -1,1 +1,1 @@
-hl.env("TZDIR,/etc/zoneinfo")
+hl.env("TZDIR", "/etc/zoneinfo")

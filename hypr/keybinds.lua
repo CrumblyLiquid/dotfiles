@@ -4,14 +4,14 @@
 ---@return HL.Keybind
 local bind = function(keys, dispatcher, opts)
 	local mod = "ALT"
-	return hl.bind(mod + " + " + keys, dispatcher, opts)
+	return hl.bind(mod .. " + " .. keys, dispatcher, opts)
 end
 
 ---@param keys string
 ---@param program string
 ---@return HL.Keybind
 local launch = function(keys, program)
-	return bind(keys, hl.dsp.exec_cmd(program), { description = "Launches " + program })
+	return bind(keys, hl.dsp.exec_cmd(program), { description = "Launches " .. program })
 end
 
 launch("Q", "kitty")
@@ -25,7 +25,7 @@ bind("SHIFT + C", hl.dsp.window.kill(), { description = "Kills the currently foc
 bind("SHIFT + M", hl.dsp.exit(), { description = "Exits the current session" })
 bind("T", hl.dsp.exec_cmd("hyprctl reload"), { description = "Reloads Hyprland configuration" })
 
-bind("F", hl.dsp.window.fullscreen({ mode = "fulscreen", action = "toggle" }))
+bind("F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 bind("apostrophe", hl.dsp.window.float({ action = "toggle" }))
 
 -- TODO: https://wiki.hypr.land/configuring/code-snippets/
@@ -52,19 +52,23 @@ local workspaces = {
 }
 
 for key, id in pairs(workspaces) do
-	bind(key, hl.dsp.focus({ workspace = id }))
-	bind(key, hl.dsp.window.move({ workspace = id }))
+	bind(key, hl.dsp.focus({ workspace = id }), { description = "Switch to workspace " .. tostring(id) })
+	bind(
+		"SHIFT + " .. key,
+		hl.dsp.window.move({ workspace = id }),
+		{ description = "Move window to workspace " .. tostring(id) }
+	)
 end
 
-bind("mouse_up", hl.dsp.focus({ workspace = "e+1" }))
-bind("mouse_down", hl.dsp.focus({ workspace = "e-1" }))
+bind("mouse_up", hl.dsp.focus({ workspace = "e+1" }), { description = "Scroll to the next workspace" })
+bind("mouse_down", hl.dsp.focus({ workspace = "e-1" }), { description = "Scroll to the previous workspace" })
 
 local directions = {
 	-- HJKL
 	["h"] = "l",
-	["j"] = "r",
+	["j"] = "d",
 	["k"] = "u",
-	["l"] = "d",
+	["l"] = "r",
 	-- Arrows
 	["left"] = "l",
 	["right"] = "r",
@@ -73,28 +77,36 @@ local directions = {
 }
 
 for key, direction in pairs(directions) do
-	bind("SHIFT + " + key, hl.dsp.window.move(direction))
+	bind(key, hl.dsp.focus({ direction = direction }), { description = "Move focus to '" .. direction .. "'" })
+	bind(
+		"SHIFT + " .. key,
+		hl.dsp.window.move({ direction = direction }),
+		{ description = "Move window to '" .. direction .. "'" }
+	)
 end
 
-bind("mouse:272", hl.dsp.window.move(), { mouse = true })
-bind("mouse:273", hl.dsp.window.resize(), { mouse = true })
+bind("mouse:272", hl.dsp.window.drag(), { mouse = true, description = "Drag the window with a mouse" })
+bind("mouse:273", hl.dsp.window.resize(), { mouse = true, description = "Resize the window with a mouse" })
 
 -- TODO: Group keybinds
 
 hl.bind("CONTROL + ALT + K", function()
 	for keyboard in { "at-translated-set-2-keyboard", "keychron-keychron-k8-pro-keyboard" } do
-		hl.dsp.exec_cmd("hyprctl switchxkblayout " + keyboard + " next")
+		hl.dsp.exec_cmd("hyprctl switchxkblayout " .. keyboard .. " next")
 	end
-end, { locked = true })
+end, { locked = true, description = "Switch keyboard layout" })
 
 local brightness_actions = {
-	["Prev"] = "previous",
-	["Next"] = "next",
-	["Play"] = "play",
+	["Up"] = "up",
+	["Down"] = "down",
 }
 
 for key, action in pairs(brightness_actions) do
-	hl.bind("XF86MonBrightness" + key, hl.dsp.exec_cmd("~/.config/scripts/brightness " + action), { locked = true })
+	hl.bind(
+		"XF86MonBrightness" .. key,
+		hl.dsp.exec_cmd("~/.config/scripts/brightness " .. action .. " 5"),
+		{ locked = true }
+	)
 end
 
 local volume_actions = {
@@ -106,8 +118,8 @@ local volume_actions = {
 for key, action in pairs(volume_actions) do
 	for node, modifier in pairs({ ["out"] = "", ["in"] = "SHIFT" }) do
 		hl.bind(
-			modifier + " + XF86Audio" + key,
-			hl.dsp.exec_cmd("~/.config/scripts/volume " + node + " " + action),
+			modifier .. " + XF86Audio" .. key,
+			hl.dsp.exec_cmd("~/.config/scripts/volume " .. node .. " " .. action),
 			{ locked = true, repeating = true }
 		)
 	end
@@ -122,7 +134,7 @@ local music_actions = {
 }
 
 for key, action in pairs(music_actions) do
-	hl.bind("XF86Audio" + key, hl.dsp.exec_cmd("~/.config/scripts/music " + action), { locked = true })
+	hl.bind("XF86Audio" .. key, hl.dsp.exec_cmd("~/.config/scripts/music " .. action), { locked = true })
 end
 
 -- Screenshots

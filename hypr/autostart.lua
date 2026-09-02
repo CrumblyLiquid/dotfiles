@@ -4,7 +4,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
 
 	-- Autostart other
-	hl.exec_cmd("wpaper -d")
+	hl.exec_cmd("wpaperd -d")
 
 	-- Start memory monitoring script
 	hl.exec_cmd("~/.config/scripts/memory_monitor")
