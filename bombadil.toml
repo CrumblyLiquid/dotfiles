@@ -17,7 +17,7 @@ fish = { source = "fish", target = ".config/fish" }
 starship = { source = "starship/starship.toml", target = ".config/starship.toml" }
 
 [profiles.tmux]
-posthooks = [ "tmux source-file ~/.config/tmux/tmux.conf" ]
+posthooks = [ "tmux has-session 2>/dev/null && tmux source-file ~/.config/tmux/tmux.conf || true" ]
 
 [profiles.tmux.dots]
 tmux = { source = "tmux", target = ".config/tmux" }
@@ -92,6 +92,7 @@ swayidle = { source = "swayidle/config", target = ".config/swayidle/config" }
 
 [profiles.waybar]
 extra_profiles = [ "scripts" ]
+posthooks = [ "systemctl restart --user waybar" ]
 
 [profiles.waybar.dots]
 waybar = { source = "waybar", target = ".config/waybar" }
@@ -102,12 +103,14 @@ extra_profiles = [ "scripts" ]
 [profiles.eww.dots]
 config = { source = "eww", target = ".config/eww" }
 
+[profiles.hypr]
+posthooks = [ "hyprctl reload" ]
+
 [profiles.hypr.dots]
 hyprland = { source = "hypr", target = ".config/hypr" }
 
 [profiles.hyprland]
 extra_profiles = ["dunst", "tofi", "rofi", "waybar", "eww", "swaylock", "swayidle", "hypr", "wallpaper", "gsr"]
-posthooks = [ "hyprctl reload" ]
 
 [profiles.solid]
 extra_profiles = [ "tofi", "ghostty", "wezterm", "git", "dunst", "nvim", "tmux", "starship", "ssh", "waybar", "wallpaper", "eww", "scripts", "hypr" ]
