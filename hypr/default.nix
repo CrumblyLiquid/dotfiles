@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    hyprpaper
+    # hyprpaper
     hyprlock
     hypridle
     xdg-utils

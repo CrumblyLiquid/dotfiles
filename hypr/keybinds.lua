@@ -60,8 +60,8 @@ for key, id in pairs(workspaces) do
 	)
 end
 
-bind("mouse_up", hl.dsp.focus({ workspace = "e+1" }), { description = "Scroll to the next workspace" })
-bind("mouse_down", hl.dsp.focus({ workspace = "e-1" }), { description = "Scroll to the previous workspace" })
+bind("mouse_up", hl.dsp.focus({ workspace = "e-1" }), { description = "Scroll to the next workspace" })
+bind("mouse_down", hl.dsp.focus({ workspace = "e+1" }), { description = "Scroll to the previous workspace" })
 
 local directions = {
 	-- HJKL
@@ -90,11 +90,14 @@ bind("mouse:273", hl.dsp.window.resize(), { mouse = true, description = "Resize 
 
 -- TODO: Group keybinds
 
-hl.bind("CONTROL + ALT + K", function()
-	for keyboard in { "at-translated-set-2-keyboard", "keychron-keychron-k8-pro-keyboard" } do
-		hl.dsp.exec_cmd("hyprctl switchxkblayout " .. keyboard .. " next")
-	end
-end, { locked = true, description = "Switch keyboard layout" })
+local keyboards = { [1] = "at-translated-set-2-keyboard", [2] = "keychron-keychron-k8-pro-keyboard" }
+for _, keyboard in pairs(keyboards) do
+	hl.bind(
+		"CONTROL + ALT + K",
+		hl.dsp.exec_cmd("hyprctl switchxkblayout " .. keyboard .. " next"),
+		{ locked = true, description = "Switch keyboard layout" }
+	)
+end
 
 local brightness_actions = {
 	["Up"] = "up",

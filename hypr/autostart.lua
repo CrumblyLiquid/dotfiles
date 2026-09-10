@@ -18,7 +18,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("eww update laptop_mode={{laptop_mode}}")
 	-- hl.exec_cmd("eww open bar")
 
-	hl.exec_cmd("hypridle")
+	-- hl.exec_cmd("hypridle")
 
 	-- Set cursor size
 	hl.exec_cmd("hyprctl setcursor {{cursor}} {{cursor_size}}")
