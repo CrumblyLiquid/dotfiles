@@ -5,4 +5,8 @@
     libnotify
     ntfy-sh
   ];
+
+  services.dunst = {
+    enable = true;
+  };
 }
