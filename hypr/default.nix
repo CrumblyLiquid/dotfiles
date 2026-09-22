@@ -33,7 +33,6 @@
     enable = true;
     xdgOpenUsePortal = true;
     extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
       # Need this for things like opening links, etc.
       pkgs.xdg-desktop-portal-gtk
     ];

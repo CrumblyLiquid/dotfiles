@@ -161,6 +161,7 @@ alias dots=dotfiles
 alias ls='eza --icons=auto'
 alias ll='ls -alh'
 alias sl='sl -e'
+alias sf='yazi'
 
 alias gpp='g++'
 alias gppwp='g++ -Wall -pedantic'

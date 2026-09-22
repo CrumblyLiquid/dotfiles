@@ -10,6 +10,7 @@
     htop # top
     btop # top
     yazi
+    superfile
 
     eza # ls
     bat # cat

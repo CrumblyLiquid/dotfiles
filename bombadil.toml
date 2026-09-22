@@ -52,8 +52,17 @@ vars = [ "vars.toml" ]
 [profiles.nvim.dots]
 nvim = { source = "nvim", target = ".config/nvim" }
 
+[profiles.superfile.dots]
+superfile = { source = "superfile", target = ".config/superfile" }
+
+[profiles.yazi.dots]
+yazi = { source = "yazi", target = ".config/yazi" }
+
+[profiles.btop.dots]
+btop = { source = "btop", target = ".config/btop" }
+
 [profiles.terminal]
-extra_profiles = [ "wezterm", "kitty", "zsh", "fish", "starship", "tmux", "ssh", "git", "tofi", "scripts", "nvim" ]
+extra_profiles = [ "wezterm", "kitty", "zsh", "fish", "starship", "tmux", "ssh", "git", "tofi", "scripts", "nvim", "superfile", "yazi", "btop" ]
 
 [profiles.gsr.dots]
 env = { source = "gpu-screen-recorder/gpu-screen-recorder.env", target = ".config/gpu-screen-recorder.env" }
@@ -113,10 +122,10 @@ hyprland = { source = "hypr", target = ".config/hypr" }
 extra_profiles = ["dunst", "tofi", "rofi", "waybar", "eww", "swaylock", "swayidle", "hypr", "wallpaper", "gsr"]
 
 [profiles.solid]
-extra_profiles = [ "tofi", "ghostty", "wezterm", "git", "dunst", "nvim", "tmux", "starship", "ssh", "waybar", "wallpaper", "eww", "scripts", "hypr" ]
+extra_profiles = [ "tofi", "ghostty", "wezterm", "git", "dunst", "nvim", "yazi", "superfile", "tmux", "starship", "ssh", "waybar", "wallpaper", "eww", "scripts", "hypr", "btop" ]
 
 [profiles.liquid]
-extra_profiles = [ "wezterm", "kitty", "zsh", "fish", "starship", "tmux", "ssh", "git", "scripts", "nvim", "kde", "dunst", "tofi", "rofi", "waybar", "eww", "swaylock", "swayidle", "hypr", "gsr", "wallpaper" ]
+extra_profiles = [ "wezterm", "kitty", "zsh", "fish", "starship", "tmux", "ssh", "git", "scripts", "nvim", "superfile", "yazi", "kde", "dunst", "tofi", "rofi", "waybar", "eww", "swaylock", "swayidle", "hypr", "gsr", "wallpaper", "btop" ]
 vars = [ "laptop-vars.toml" ]
 
 [profiles.cs.dots]
