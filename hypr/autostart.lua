@@ -5,6 +5,7 @@ hl.on("hyprland.start", function()
 
 	-- Autostart other
 	hl.exec_cmd("wpaperd -d")
+	hl.exec_cmd("dunst")
 
 	-- Start memory monitoring script
 	hl.exec_cmd("~/.config/scripts/memory_monitor")
