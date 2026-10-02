@@ -1,12 +1,7 @@
 { globals, pkgs, ... }:
 {
-  nixpkgs.config.permittedInsecurePackages = [
-    "librewolf-bin-151.0.1-2"
-    "librewolf-bin-unwrapped-151.0.1-2"
-  ];
-
   environment.systemPackages = [
-    pkgs.librewolf-bin
+    pkgs.librewolf
     # pkgs.tor
     pkgs.firefox
   ];
