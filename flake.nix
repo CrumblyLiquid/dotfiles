@@ -15,6 +15,11 @@
     musnix = {
       url = "github:musnix/musnix";
     };
+
+    tasks-nix = {
+      url = "github:CrumblyLiquid/tasks-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

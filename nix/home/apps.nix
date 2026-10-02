@@ -1,7 +1,7 @@
-{ pkgs, ... }:
-{
+{ pkgs, inputs, ... }: {
   environment.systemPackages = with pkgs; [
     thunderbird
+    inputs.tasks-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     vlc
     mpv
@@ -39,7 +39,7 @@
     kdePackages.breeze-gtk
     kdePackages.breeze-icons
 
-    zotero
+    # zotero
     anki-bin
     libreoffice-qt
     hunspell
