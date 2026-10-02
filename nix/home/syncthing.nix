@@ -34,6 +34,24 @@
         };
       };
       folders = {
+        "Vault" = {
+          path = "/home/${globals.user}/Vault";
+          devices = [
+            "nas"
+            "laptop"
+            "mobile"
+            "backup"
+          ];
+        };
+        "Shared" = {
+          path = "/home/${globals.user}/Shared";
+          devices = [
+            "nas"
+            "laptop"
+            "mobile"
+            "backup"
+          ];
+        };
         "Misc" = {
           path = "/home/${globals.user}/Misc";
           devices = [
