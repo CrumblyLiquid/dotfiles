@@ -20,6 +20,7 @@
         bold_italic_font = "auto";
         background_opacity = 0.95;
         window_padding_width = 2;
+        remember_window_size = "no";
         map = "ctrl+shift+n no_op";
         cursor_trail = 1;
         cursor_trail_decay = "0.08 0.15";
