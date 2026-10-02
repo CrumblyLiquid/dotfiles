@@ -1,10 +1,4 @@
-{
-  config,
-  globals,
-  pkgs,
-  ...
-}:
-{
+{ globals, pkgs, ... }: {
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     nerd-fonts.fira-mono
@@ -54,8 +48,11 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    vimix-cursors
+  environment.systemPackages = [
+    pkgs.vimix-cursors
+    pkgs.kdePackages.breeze
+    pkgs.kdePackages.breeze-gtk
+    pkgs.papirus-icon-theme
   ];
 
   home-manager.users."${globals.user}" = {
