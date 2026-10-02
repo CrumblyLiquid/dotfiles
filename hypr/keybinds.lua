@@ -51,6 +51,19 @@ local workspaces = {
 	["p"] = 15,
 }
 
+-- Modified version of https://forum.hypr.land/t/moving-closing-all-windows-in-current-workspace/1662/5
+local function move_all_windows(target_workspace)
+	local active_workspace = hl.get_active_workspace()
+	local windows = hl.get_windows({ workspace = active_workspace })
+
+	for _, window in pairs(windows) do
+		hl.dispatch(hl.dsp.window.move({
+			window = window,
+			workspace = target_workspace,
+		}))
+	end
+end
+
 for key, id in pairs(workspaces) do
 	bind(key, hl.dsp.focus({ workspace = id }), { description = "Switch to workspace " .. tostring(id) })
 	bind(
@@ -58,6 +71,9 @@ for key, id in pairs(workspaces) do
 		hl.dsp.window.move({ workspace = id }),
 		{ description = "Move window to workspace " .. tostring(id) }
 	)
+	bind("CONTROL + SHIFT + " .. key, function()
+		move_all_windows(id)
+	end, { description = "Move all windows from the current workspace to workspace " .. tostring(id) })
 end
 
 bind("mouse_up", hl.dsp.focus({ workspace = "e-1" }), { description = "Scroll to the next workspace" })
