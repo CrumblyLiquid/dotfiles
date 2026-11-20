@@ -4,6 +4,7 @@
     pkgs.ollama-rocm
     pkgs.opencode
     pkgs.opencode-desktop
+    pkgs.claude-code
   ];
   boot.initrd.kernelModules = [ "amdgpu" ];
 

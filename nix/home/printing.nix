@@ -26,7 +26,7 @@
 
   environment.systemPackages = with pkgs; [
     hplip
-    sane-frontends
-    sane-backends
+    # sane-frontends
+    # sane-backends
   ];
 }

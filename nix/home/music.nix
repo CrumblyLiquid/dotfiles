@@ -16,7 +16,7 @@
     # muse-sounds-manager
 
     # ardour
-    audacity
+    # audacity
 
     # lmms
 

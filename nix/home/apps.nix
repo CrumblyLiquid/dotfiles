@@ -6,14 +6,14 @@
     vlc
     mpv
     zathura
-    calibre
+    # calibre
 
     keepassxc
     signal-desktop
     # stoat-desktop
-    qbittorrent
-    josm
-    penpot-desktop
+    # qbittorrent
+    # josm
+    # penpot-desktop
 
     kdePackages.dolphin
     kdePackages.dolphin-plugins
@@ -31,6 +31,7 @@
     kdePackages.ark
     kdePackages.karchive
     kdePackages.kate
+    kdePackages.okular
     kdePackages.filelight
     kdePackages.gwenview
     kdePackages.bluez-qt
@@ -43,7 +44,7 @@
     anki-bin
     libreoffice-qt
     hunspell
-    topgrade
+    # topgrade
     # Temporarily disabled because of
     # dependency on olm which is not maintained
     # and insecure

@@ -1,4 +1,9 @@
-{ globals, inputs, pkgs, ... }:
+{
+  globals,
+  inputs,
+  pkgs,
+  ...
+}:
 {
   # https://nixos.wiki/wiki/Qmk
   hardware.keyboard.qmk.enable = true;
@@ -10,5 +15,3 @@
 
   services.udev.packages = [ pkgs.via ];
 }
-
-

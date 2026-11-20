@@ -36,7 +36,7 @@
       ./spotify.nix
       (base + /opentabletdriver)
       (base + /xournalpp)
-      # ./ollama.nix
+      ./ollama.nix
       # ./gns3.nix
       ./wireshark.nix
       ./virtmanager.nix
@@ -63,7 +63,7 @@
       # (base + /swaylock)
       (base + /wpaperd)
       (base + /waybar)
-      (base + /ashell)
+      # (base + /ashell)
       # (base + /quickshell)
 
       # (base + /kde)

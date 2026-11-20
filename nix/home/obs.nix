@@ -14,6 +14,6 @@
 
     # Enable virtual camera
     # https://nixos.wiki/wiki/OBS_Studio#Using_the_Virtual_Camera
-    enableVirtualCamera = true;
+    enableVirtualCamera = false;
   };
 }

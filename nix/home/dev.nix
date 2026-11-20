@@ -63,10 +63,13 @@
     # loco
     # sea-orm-cli
 
+    # Zig
+    zig
+    zls
+
     # Haskell
-    # ghc
-    # haskellPackages.ghcup
-    # stack
+    ghc
+    stack
 
     # Lisp
     # sbcl
@@ -94,37 +97,37 @@
     swi-prolog
 
     # WooWoo
-    ruby
+    # ruby
     texliveFull
-    deno
-    pandoc
-    pdf2svg
-    poppler-utils
-    dos2unix
-    gnuplot
-    gnuplot_qt
-    graphviz
-    texlivePackages.graphviz
-    texlivePackages.dejavu
-    texlivePackages.libertine
-    texlivePackages.luaotfload
-    python314Packages.pip
-    python314Packages.pygments
-    python314Packages.networkx
-    python314Packages.pygraphviz
-    python314Packages.numpy
-    python314Packages.scipy
+    # deno
+    # pandoc
+    # pdf2svg
+    # poppler-utils
+    # dos2unix
+    # gnuplot
+    # gnuplot_qt
+    # graphviz
+    # texlivePackages.graphviz
+    # texlivePackages.dejavu
+    # texlivePackages.libertine
+    # texlivePackages.luaotfload
+    # python314Packages.pip
+    # python314Packages.pygments
+    # python314Packages.networkx
+    # python314Packages.pygraphviz
+    # python314Packages.numpy
+    # python314Packages.scipy
 
     # Python
     python3
-    python314Packages.mpmath
-    python314Packages.pillow
-    python314Packages.pandas
-    python314Packages.requests
-    python314Packages.pip
-    python314Packages.setuptools
-    python314Packages.venvShellHook
-    python314Packages.virtualenv
+    # python314Packages.mpmath
+    # python314Packages.pillow
+    # python314Packages.pandas
+    # python314Packages.requests
+    # python314Packages.pip
+    # python314Packages.setuptools
+    # python314Packages.venvShellHook
+    # python314Packages.virtualenv
 
     geckodriver
     python314Packages.selenium
@@ -132,8 +135,8 @@
     uv
     conda
 
-    python314Packages.pygments
-    python314Packages.pypdf
+    # python314Packages.pygments
+    # python314Packages.pypdf
 
     # Security
     # ida-free
