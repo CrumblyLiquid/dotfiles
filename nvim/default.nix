@@ -18,6 +18,9 @@
     # Rust
     rust-analyzer
 
+    # Zig
+    zls
+
     # Haskell
     haskell-language-server
 
@@ -32,6 +35,7 @@
     # Python
     basedpyright
     ruff
+    ty
     # python314Packages.python-lsp-ruff
 
     # SQL
@@ -47,6 +51,7 @@
     yaml-language-server
 
     # Typst
+    typst
     tinymist # LSP
     typstyle # Formatter
     websocat # required by typst-preview

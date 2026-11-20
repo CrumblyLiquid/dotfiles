@@ -7,6 +7,8 @@ vim.lsp.enable({
   "lua_ls",
   -- Rust
   "rust_analyzer",
+  -- Zig
+  "zls",
   -- C/C++
   "clangd",
   -- Bash
@@ -20,6 +22,7 @@ vim.lsp.enable({
   -- HTML/CSS/JavaScript
   "emmet_language_server",
   "prettierd",
+  "ts_ls",
   -- TODO: Capabilities
   -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#cssls
   "cssls",
@@ -31,6 +34,7 @@ vim.lsp.enable({
   -- Prolog
   "prolog_ls", -- requires https://github.com/jamesnvc/lsp_server
   -- Python
+  "ty",
   "ruff",
   "sqruff",
   -- Hyprland

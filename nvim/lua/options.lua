@@ -1,3 +1,6 @@
+-- Project-local configuration
+vim.opt.exrc = true
+
 -- Make line numbers default
 vim.o.number = true
 -- Make line numbers relative
