@@ -7,7 +7,7 @@ Host github.com
     IdentitiesOnly yes
 
 Host gitlab.fit.cvut.cz
-    IdentityFile ~/.ssh/id_fit_ed25519
+    IdentityFile ~/.ssh/gitlab_fit
     IdentitiesOnly yes
 
 Host gitlab.freedesktop.org
@@ -50,6 +50,18 @@ Host kosatka
 Host homelab
     HostName 10.0.1.120
     IdentityFile ~/.ssh/id_homelab_ed25519
+    IdentitiesOnly yes
+
+Host tug
+    User halt
+    HostName 10.0.1.120
+    IdentityFile /home/crumbly/.ssh/id_halt_tug_ed25519
+    IdentitiesOnly yes
+
+Host abelard
+    User halt
+    HostName 194.59.204.250
+    IdentityFile /home/crumbly/.ssh/id_halt_abelard_ed25519
     IdentitiesOnly yes
 
 # vi: ft=sshconfig
