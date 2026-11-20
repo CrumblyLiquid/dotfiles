@@ -1,12 +1,15 @@
 hl.config({
 	input = {
 		kb_layout = "us,cz",
-		kb_variant = ",qwerty",
+		-- kb_variant = ",qwerty",
+		kb_variant = ",ucw",
 
 		-- kb_model = "",
 		-- I'm using specific keybind (CTRL+ALT+K)
 		-- kb_options = "grp:alt_shift_toggle",
 		-- kb_rules = "",
+
+		kb_options = "grp:caps_switch,grp:switch",
 
 		follow_mouse = 2,
 

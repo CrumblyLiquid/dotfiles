@@ -95,8 +95,13 @@ local directions = {
 for key, direction in pairs(directions) do
 	bind(key, hl.dsp.focus({ direction = direction }), { description = "Move focus to '" .. direction .. "'" })
 	bind(
-		"SHIFT + " .. key,
+		"CONTROL + " .. key,
 		hl.dsp.window.move({ direction = direction }),
+		{ description = "Swap window to '" .. direction .. "'" }
+	)
+	bind(
+		"SHIFT + " .. key,
+		hl.dsp.window.swap({ direction = direction }),
 		{ description = "Move window to '" .. direction .. "'" }
 	)
 end
@@ -104,7 +109,62 @@ end
 bind("mouse:272", hl.dsp.window.drag(), { mouse = true, description = "Drag the window with a mouse" })
 bind("mouse:273", hl.dsp.window.resize(), { mouse = true, description = "Resize the window with a mouse" })
 
--- TODO: Group keybinds
+-- Resize mode
+bind("X", hl.dsp.submap("resize"), { description = "Enter resize mode" })
+hl.define_submap("resize", function()
+	local step = 40
+	local deltas = {
+		h = { -step, 0 },
+		l = { step, 0 },
+		k = { 0, -step },
+		j = { 0, step },
+		left = { -step, 0 },
+		right = { step, 0 },
+		up = { 0, -step },
+		down = { 0, step },
+	}
+	for key, d in pairs(deltas) do
+		hl.bind(key, hl.dsp.window.resize({ x = d[1], y = d[2], relative = true }), { repeating = true }) -- ⚠ arg shape
+	end
+	hl.bind("Escape", hl.dsp.submap("reset"))
+	hl.bind("Return", hl.dsp.submap("reset"))
+end)
+
+-- Maximize: keeps gaps and borders, unlike real fullscreen
+bind("M", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }), { description = "Maximize window" })
+
+-- Pin a floating window so it follows you across workspaces (PiP video, calculator)
+bind("B", hl.dsp.window.pin(), { description = "Pin floating window" })
+
+-- Center a floating window (sits next to the float toggle)
+bind("SHIFT + apostrophe", hl.dsp.window.center(), { description = "Center floating window" })
+
+-- Jump back to the previous workspace
+bind("grave", hl.dsp.focus({ workspace = "previous" }), { description = "Previous workspace" })
+
+-- Jump to the window that is demanding attention (e.g. a Discord ping)
+bind("N", function()
+	local w = hl.get_urgent_window()
+	if w then
+		hl.dispatch(hl.dsp.focus({ window = w }))
+	end
+end, { description = "Focus urgent window" })
+
+-- Groups
+bind("G", hl.dsp.group.toggle(), { description = "Create/dissolve group" })
+bind("TAB", hl.dsp.group.next(), { description = "Next window in group" })
+bind("SHIFT + TAB", hl.dsp.group.prev(), { description = "Previous window in group" })
+bind("SHIFT + G", hl.dsp.group.lock_active({ action = "toggle" }), { description = "Lock active group" })
+bind("CONTROL + G", hl.dsp.window.deny_from_group({ action = "toggle" }), { description = "Deny window from groups" })
+
+-- Move into/out of a neighbouring group
+for key, direction in pairs(directions) do
+	bind(
+		"CONTROL + SHIFT + " .. key,
+		hl.dsp.group.move_window({ direction = direction }), -- ⚠
+		{ description = "Move window into/out of group '" .. direction .. "'" }
+	)
+end
 
 local keyboards = { [1] = "at-translated-set-2-keyboard", [2] = "keychron-keychron-k8-pro-keyboard" }
 for _, keyboard in pairs(keyboards) do

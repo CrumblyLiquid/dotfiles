@@ -10,6 +10,7 @@ hl.config({
 			inactive_border = "rgba(595959aa)",
 		},
 		layout = "dwindle",
+		resize_on_border = true,
 	},
 	dwindle = {
 		preserve_split = true,
@@ -38,5 +39,12 @@ hl.config({
 		disable_hyprland_logo = true,
 		disable_splash_rendering = true,
 		force_default_wallpaper = 0,
+		focus_on_activate = true,
+	},
+	binds = {
+		allow_workspace_cycles = true,
+	},
+	cursor = {
+		hide_on_key_press = true,
 	},
 })
