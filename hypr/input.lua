@@ -1,8 +1,7 @@
 hl.config({
 	input = {
-		kb_layout = "us,cz",
-		-- kb_variant = ",qwerty",
-		kb_variant = ",ucw",
+		kb_layout = "us,cz,cz",
+		kb_variant = ",ucw,qwerty",
 
 		-- kb_model = "",
 		-- I'm using specific keybind (CTRL+ALT+K)

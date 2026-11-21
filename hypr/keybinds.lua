@@ -154,26 +154,32 @@ end, { description = "Focus urgent window" })
 bind("G", hl.dsp.group.toggle(), { description = "Create/dissolve group" })
 bind("TAB", hl.dsp.group.next(), { description = "Next window in group" })
 bind("SHIFT + TAB", hl.dsp.group.prev(), { description = "Previous window in group" })
-bind("SHIFT + G", hl.dsp.group.lock_active({ action = "toggle" }), { description = "Lock active group" })
+bind("SHIFT + G", hl.dsp.group.lock({ action = "toggle" }), { description = "Lock active group" })
 bind("CONTROL + G", hl.dsp.window.deny_from_group({ action = "toggle" }), { description = "Deny window from groups" })
 
 -- Move into/out of a neighbouring group
 for key, direction in pairs(directions) do
 	bind(
 		"CONTROL + SHIFT + " .. key,
-		hl.dsp.group.move_window({ direction = direction }), -- ⚠
+		hl.dsp.window.move({ direction = direction, group_aware = true }),
 		{ description = "Move window into/out of group '" .. direction .. "'" }
 	)
 end
 
-local keyboards = { [1] = "at-translated-set-2-keyboard", [2] = "keychron-keychron-k8-pro-keyboard" }
-for _, keyboard in pairs(keyboards) do
-	hl.bind(
-		"CONTROL + ALT + K",
-		hl.dsp.exec_cmd("hyprctl switchxkblayout " .. keyboard .. " next"),
-		{ locked = true, description = "Switch keyboard layout" }
-	)
-end
+-- local keyboards = { [1] = "at-translated-set-2-keyboard", [2] = "keychron-keychron-k8-pro-keyboard" }
+-- for _, keyboard in pairs(keyboards) do
+-- 	hl.bind(
+-- 		"CONTROL + ALT + K",
+-- 		hl.dsp.exec_cmd("hyprctl switchxkblayout " .. keyboard .. " next"),
+-- 		{ locked = true, description = "Switch keyboard layout" }
+-- 	)
+-- end
+
+local toggle_layout_cmd = hl.dsp.exec_cmd(
+	"if hyprctl devices -j | jq -e '.keyboards[] | select(.main == true and .active_layout_index == 0)' >/dev/null; then hyprctl keyword input:kb_options '' && hyprctl switchxkblayout all 2; else hyprctl keyword input:kb_options 'grp:caps_switch,grp:switch' && hyprctl switchxkblayout all 0; fi"
+)
+hl.bind("ALT + Shift_L", toggle_layout_cmd, { locked = true, description = "Switch keyboard layout" })
+hl.bind("SHIFT + Alt_L", toggle_layout_cmd, { locked = true, description = "Switch keyboard layout" })
 
 local brightness_actions = {
 	["Up"] = "up",
