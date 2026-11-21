@@ -126,8 +126,7 @@ hl.define_submap("resize", function()
 	for key, d in pairs(deltas) do
 		hl.bind(key, hl.dsp.window.resize({ x = d[1], y = d[2], relative = true }), { repeating = true }) -- ⚠ arg shape
 	end
-	hl.bind("Escape", hl.dsp.submap("reset"))
-	hl.bind("Return", hl.dsp.submap("reset"))
+	bind("X", hl.dsp.submap("reset"))
 end)
 
 -- Maximize: keeps gaps and borders, unlike real fullscreen
