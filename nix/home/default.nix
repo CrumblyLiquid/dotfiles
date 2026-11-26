@@ -23,6 +23,7 @@
       ./vpn.nix
       ./android.nix
       (base + /ssh)
+      (base + /keyd)
 
       ./typst.nix
 

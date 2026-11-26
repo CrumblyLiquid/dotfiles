@@ -3,7 +3,7 @@
 ---@param opts HL.BindOptions?
 ---@return HL.Keybind
 local bind = function(keys, dispatcher, opts)
-	local mod = "ALT"
+	local mod = "META"
 	return hl.bind(mod .. " + " .. keys, dispatcher, opts)
 end
 
@@ -95,12 +95,12 @@ local directions = {
 for key, direction in pairs(directions) do
 	bind(key, hl.dsp.focus({ direction = direction }), { description = "Move focus to '" .. direction .. "'" })
 	bind(
-		"CONTROL + " .. key,
+		"SHIFT + " .. key,
 		hl.dsp.window.move({ direction = direction }),
 		{ description = "Swap window to '" .. direction .. "'" }
 	)
 	bind(
-		"SHIFT + " .. key,
+		"CONTROL + " .. key,
 		hl.dsp.window.swap({ direction = direction }),
 		{ description = "Move window to '" .. direction .. "'" }
 	)
