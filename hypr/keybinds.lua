@@ -3,7 +3,7 @@
 ---@param opts HL.BindOptions?
 ---@return HL.Keybind
 local bind = function(keys, dispatcher, opts)
-	local mod = "META"
+	local mod = "SUPER"
 	return hl.bind(mod .. " + " .. keys, dispatcher, opts)
 end
 
@@ -168,7 +168,7 @@ end
 -- local keyboards = { [1] = "at-translated-set-2-keyboard", [2] = "keychron-keychron-k8-pro-keyboard" }
 -- for _, keyboard in pairs(keyboards) do
 -- 	hl.bind(
--- 		"CONTROL + ALT + K",
+-- 		"CONTROL + SUPER + K",
 -- 		hl.dsp.exec_cmd("hyprctl switchxkblayout " .. keyboard .. " next"),
 -- 		{ locked = true, description = "Switch keyboard layout" }
 -- 	)
@@ -177,8 +177,8 @@ end
 local toggle_layout_cmd = hl.dsp.exec_cmd(
 	"if hyprctl devices -j | jq -e '.keyboards[] | select(.main == true and .active_layout_index == 0)' >/dev/null; then hyprctl keyword input:kb_options '' && hyprctl switchxkblayout all 2; else hyprctl keyword input:kb_options 'grp:caps_switch,grp:switch' && hyprctl switchxkblayout all 0; fi"
 )
-hl.bind("ALT + Shift_L", toggle_layout_cmd, { locked = true, description = "Switch keyboard layout" })
-hl.bind("SHIFT + Alt_L", toggle_layout_cmd, { locked = true, description = "Switch keyboard layout" })
+hl.bind("SUPER + Shift_L", toggle_layout_cmd, { locked = true, description = "Switch keyboard layout" })
+hl.bind("SHIFT + Super_L", toggle_layout_cmd, { locked = true, description = "Switch keyboard layout" })
 
 local brightness_actions = {
 	["Up"] = "up",
@@ -223,10 +223,10 @@ end
 
 -- Screenshots
 hl.bind("Print", hl.dsp.exec_cmd("grimblast copy screen --notify --freeze --cursor"))
-hl.bind("SUPER + SHIFT + Print", hl.dsp.exec_cmd("grimblast copy area --freeze --notify"))
+hl.bind("ALT + SHIFT + Print", hl.dsp.exec_cmd("grimblast copy area --freeze --notify"))
 
 -- Caps Lock OSD
 hl.bind("Caps_Lock", hl.dsp.exec_cmd("~/.config/eww/scripts/caps-osd"))
 
 -- Lock screen activation
-hl.bind("SUPER + L", hl.dsp.exec_cmd("loginctl lock-session"))
+hl.bind("ALT + L", hl.dsp.exec_cmd("loginctl lock-session"))
