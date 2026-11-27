@@ -1,5 +1,14 @@
 -- Window rules
 
+-- Prevent LibreOffice from sending maximization request on startup
+-- https://github.com/hyprwm/Hyprland/discussions/5264#discussioncomment-15896297
+-- https://wiki.hypr.land/0.57.0/configuring/core/rules/window-rules/#static-effects
+hl.window_rule({
+	name = "libreoffice",
+	match = { class = "^(libreoffice.*)$" },
+	suppress_event = "maximize",
+})
+
 -- Enable tearing for different games
 hl.window_rule({
 	name = "cs2",
